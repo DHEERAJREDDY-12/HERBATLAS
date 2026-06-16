@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - HerbAtlas</title>
+  <meta name="description" content="Complete your HerbAtlas checkout by reviewing your order, selecting a delivery address, applying a coupon, and choosing a payment method securely.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base/variables.css">
+  <link rel="stylesheet" href="css/base/reset.css">
+  <link rel="stylesheet" href="css/base/typography.css">
+  <link rel="stylesheet" href="css/components/header.css">
+  <link rel="stylesheet" href="css/components/footer.css">
+  <link rel="stylesheet" href="css/components/buttons.css">
+  <link rel="stylesheet" href="css/components/toast.css">
+  <link rel="stylesheet" href="css/pages/cart/cart-coupon.css">
+  <link rel="stylesheet" href="css/pages/checkout/checkout.css">
+  <style>
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">Herb<em>Atlas</em></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="browse.html">Browse</a></li>
+      <li><a href="ailments.html">Ailments</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="about.html">About Us</a></li>
+    </ul>
+    <div class="nav-right">
+      <input type="text" class="nav-search" placeholder="Search herbs...">
+      <a href="cart.html" class="nav-cart">
+        Cart <span class="cart-badge" id="cartBadge">0</span>
+      </a>
+      <a href="login.html" class="nav-user" id="navUser">Sign In</a>
+      <button class="nav-menu-btn" id="menuBtn" aria-label="Open menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-search-bar">
+    <input type="text" id="mobileSearchInput" placeholder="Search herbs...">
+  </div>
+
+  <div class="checkout-header">
+    <p class="section-label">Secure Checkout</p>
+    <h1>Complete Your <em>Order</em></h1>
+    <p>Review your items, select a delivery address and payment method</p>
+  </div>
+
+  <div class="checkout-steps" role="navigation" aria-label="Checkout steps">
+    <span class="checkout-step active" id="step1Indicator">1. Address</span>
+    <span class="checkout-step" id="step2Indicator">2. Payment</span>
+  </div>
+
+  <main class="checkout-page">
+    <div class="checkout-body">
+      <div class="checkout-sections-col">
+        <section class="checkout-section" id="sectionAddress" aria-labelledby="sectionAddressHeading">
+          <div class="checkout-section-head">
+            <h2 id="sectionAddressHeading">
+              <span class="checkout-section-num" aria-hidden="true">1</span>
+              Delivery Address
+            </h2>
+          </div>
+          <div id="addressListCO">
+            <!-- Rendered by checkout.js -->
+          </div>
+          <button type="button" class="checkout-add-addr-btn" id="coAddAddrBtn">
+            + Add New Address
+          </button>
+        </section>
+
+        <section class="checkout-section" id="sectionPayment" aria-labelledby="sectionPaymentHeading">
+          <div class="checkout-section-head">
+            <h2 id="sectionPaymentHeading">
+              <span class="checkout-section-num" aria-hidden="true">2</span>
+              Payment Method
+            </h2>
+          </div>
+
+          <fieldset style="border:none;padding:0;margin:0" aria-label="Payment options">
+            <legend class="sr-only">Choose payment method</legend>
+
+            <div class="payment-method-group">
+              <label class="payment-method-trigger" id="pmUpiTrigger">
+                <input type="radio" name="paymentMethod" value="upi" id="pmUpi">
+                <span class="payment-method-icon" aria-hidden="true">&#128242;</span>
+                <span class="payment-method-label">UPI Payment</span>
+              </label>
+              <div class="payment-sub-panel" id="pmUpiPanel" role="group" aria-label="UPI options">
+                <div class="payment-sub-options">
+                  <label class="payment-sub-opt">
+                    <input type="radio" name="upiOption" value="PhonePe"> PhonePe
+                  </label>
+                  <label class="payment-sub-opt">
+                    <input type="radio" name="upiOption" value="Google Pay"> Google Pay
+                  </label>
+                  <label class="payment-sub-opt">
+                    <input type="radio" name="upiOption" value="Paytm"> Paytm
+                  </label>
+                  <label class="payment-sub-opt">
+                    <input type="radio" name="upiOption" value="Other UPI"> Other UPI
+                  </label>
+                </div>
+                <div class="upi-id-wrap" id="upiIdWrap">
+                  <label for="upiIdInput" style="font-size:12px;font-weight:500;color:var(--text-mid);display:block;margin-bottom:6px">Enter UPI ID</label>
+                  <input type="text" id="upiIdInput" placeholder="yourname@upi" autocomplete="off">
+                  <span class="field-error" id="errUpiId" role="alert"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="payment-method-group">
+              <label class="payment-method-trigger" id="pmNetTrigger">
+                <input type="radio" name="paymentMethod" value="netbanking" id="pmNet">
+                <span class="payment-method-icon" aria-hidden="true">&#127981;</span>
+                <span class="payment-method-label">Net Banking</span>
+              </label>
+              <div class="payment-sub-panel" id="pmNetPanel" role="group" aria-label="Bank options">
+                <div class="payment-sub-options">
+                  <label class="payment-sub-opt">
+                    <input type="radio" name="bankOption" value="SBI"> SBI
+                  </label>
+                  <label class="payment-sub-opt">
+                    <input type="radio" name="bankOption" value="HDFC"> HDFC
+                  </label>
+                  <label class="payment-sub-opt">
+                    <input type="radio" name="bankOption" value="ICICI"> ICICI
+                  </label>
+                  <label class="payment-sub-opt">
+                    <input type="radio" name="bankOption" value="Axis Bank"> Axis Bank
+                  </label>
+                  <label class="payment-sub-opt">
+                    <input type="radio" name="bankOption" value="Kotak"> Kotak
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="payment-method-group">
+              <label class="payment-method-trigger" id="pmCardTrigger">
+                <input type="radio" name="paymentMethod" value="card" id="pmCard">
+                <span class="payment-method-icon" aria-hidden="true">&#128179;</span>
+                <span class="payment-method-label">Debit / Credit Card</span>
+              </label>
+              <div class="payment-sub-panel" id="pmCardPanel">
+                <div class="card-fields">
+                  <div class="card-field">
+                    <label for="cardNumber">Card Number</label>
+                    <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" inputmode="numeric" autocomplete="cc-number">
+                    <span class="field-error" id="errCardNum" role="alert"></span>
+                  </div>
+                  <div class="card-field">
+                    <label for="cardHolder">Card Holder Name</label>
+                    <input type="text" id="cardHolder" placeholder="PRIYA SHARMA" autocomplete="cc-name" style="text-transform:uppercase">
+                    <span class="field-error" id="errCardHolder" role="alert"></span>
+                  </div>
+                  <div class="card-field-row">
+                    <div class="card-field">
+                      <label for="cardExpiry">Expiry (MM/YY)</label>
+                      <input type="text" id="cardExpiry" placeholder="08/27" maxlength="5" inputmode="numeric" autocomplete="cc-exp">
+                      <span class="field-error" id="errCardExpiry" role="alert"></span>
+                    </div>
+                    <div class="card-field">
+                      <label for="cardCvv">CVV</label>
+                      <input type="password" id="cardCvv" placeholder="..." maxlength="4" inputmode="numeric" autocomplete="cc-csc">
+                      <span class="field-error" id="errCardCvv" role="alert"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="payment-method-group">
+              <label class="payment-method-trigger" id="pmCodTrigger">
+                <input type="radio" name="paymentMethod" value="cod" id="pmCod">
+                <span class="payment-method-icon" aria-hidden="true">&#128181;</span>
+                <span class="payment-method-label">Cash on Delivery</span>
+              </label>
+              <div class="payment-sub-panel" id="pmCodPanel">
+                <p class="cod-note">Pay in cash when your order is delivered. Please keep exact change ready. COD is available for orders up to Rs.5000.</p>
+              </div>
+            </div>
+          </fieldset>
+        </section>
+      </div>
+
+      <aside class="checkout-right-rail" aria-label="Checkout sidebar">
+        <div class="checkout-coupon-row">
+          <div class="coupon-panel" id="coCouponPanel">
+            <p class="coupon-panel-title">Have a coupon?</p>
+            <div class="coupon-available" aria-label="Available coupon offers">
+              <span class="coupon-available-label">Available offer</span>
+              <div class="coupon-available-card" data-coupon-code="HERB10" role="button" tabindex="0" aria-label="Apply coupon HERB10">
+                <span class="coupon-available-code">HERB10</span>
+                <span class="coupon-available-value">10% off</span>
+              </div>
+            </div>
+            <form class="coupon-form" id="coCouponForm" autocomplete="off" onsubmit="return false;">
+              <label for="coCouponInput" class="sr-only">Coupon code</label>
+              <input
+                type="text"
+                id="coCouponInput"
+                class="coupon-input"
+                placeholder="e.g. HERB10"
+                maxlength="20"
+                spellcheck="false"
+                aria-describedby="coCouponMsg"
+              >
+              <button type="submit" class="coupon-apply-btn" id="coCouponApplyBtn">Apply</button>
+            </form>
+            <div class="coupon-msg" id="coCouponMsg" role="status" aria-live="polite"></div>
+            <div class="coupon-applied hidden" id="coCouponApplied">
+              <span class="coupon-applied-tag">
+                <span class="coupon-applied-code" id="coCouponAppliedCode"></span>
+                <button class="coupon-remove-btn" id="coCouponRemoveBtn" aria-label="Remove coupon" type="button">&times;</button>
+              </span>
+              <span class="coupon-applied-label">applied</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="checkout-summary-col" aria-label="Order summary">
+          <div class="checkout-order-summary">
+            <h2>Order Summary</h2>
+            <div id="coItemList" class="co-item-list" aria-busy="true">
+              <div class="co-item-row co-item-row--placeholder" aria-hidden="true">
+                <div class="co-item-copy">
+                  <span class="co-skeleton co-skeleton--name"></span>
+                  <span class="co-skeleton co-skeleton--weight"></span>
+                </div>
+                <span class="co-skeleton co-skeleton--qty"></span>
+                <span class="co-skeleton co-skeleton--price"></span>
+              </div>
+              <div class="co-item-row co-item-row--placeholder" aria-hidden="true">
+                <div class="co-item-copy">
+                  <span class="co-skeleton co-skeleton--name"></span>
+                  <span class="co-skeleton co-skeleton--weight"></span>
+                </div>
+                <span class="co-skeleton co-skeleton--qty"></span>
+                <span class="co-skeleton co-skeleton--price"></span>
+              </div>
+              <div class="co-item-row co-item-row--placeholder" aria-hidden="true">
+                <div class="co-item-copy">
+                  <span class="co-skeleton co-skeleton--name"></span>
+                  <span class="co-skeleton co-skeleton--weight"></span>
+                </div>
+                <span class="co-skeleton co-skeleton--qty"></span>
+                <span class="co-skeleton co-skeleton--price"></span>
+              </div>
+            </div>
+            <hr class="co-divider">
+            <div id="coTotals" aria-busy="true">
+              <div class="sum-row"><span>Subtotal</span><span id="coSubtotalValue">Rs.0</span></div>
+              <div class="sum-row sum-row--discount hidden" id="coDiscountRow">
+                <span id="coDiscountLabel">Discount</span>
+                <span id="coDiscountValue">-Rs.0</span>
+              </div>
+              <div class="sum-row" id="coShippingRow">
+                <span>Shipping</span>
+                <span id="coShippingValue">Rs.0</span>
+              </div>
+              <div class="sum-row"><span>GST (5%)</span><span id="coTaxValue">Rs.0</span></div>
+              <div class="sum-total"><span>Total</span><span id="coTotalValue">Rs.0</span></div>
+            </div>
+            <button class="place-order-btn" id="placeOrderBtn" type="button" disabled aria-disabled="true">
+              Place Order
+            </button>
+            <div class="place-order-err" id="placeOrderErr" role="alert"></div>
+            <p class="checkout-secure-note">&#128274; Secure checkout - SSL encrypted</p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">Herb<em>Atlas</em></div>
+        <p class="footer-desc">Documenting the world's medicinal herbs for curious minds and wellness seekers.</p>
+        <p class="footer-disclaimer">For educational purposes only. Not medical advice.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="index.html">Home</a>
+        <a href="browse.html">Browse</a>
+        <a href="ailments.html">Ailments</a>
+        <a href="about.html">About Us</a>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <a href="shop.html">All Products</a>
+        <a href="cart.html">Cart</a>
+      </div>
+        <div class="footer-col">
+          <h4>Account</h4>
+          <a href="profile.html" class="footer-auth-user" hidden>My Account</a>
+          <a href="login.html" class="footer-auth-guest">Login</a>
+        <a href="login.html?tab=register" class="footer-auth-guest">Sign Up</a>
+          <a href="contact.html">Contact Us</a>
+          <button type="button" class="footer-logout-btn" hidden>Sign Out</button>
+        </div>
+        <div class="footer-col">
+          <h4>Social</h4>
+          <a href="https://www.instagram.com/_herbatlas?igsh=OXhicWx4bmowZzlx" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+            <svg class="footer-social-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1"></circle></svg>
+            <span>Instagram</span>
+          </a>
+          <a href="https://www.facebook.com/share/1BPQ3Z8bna/" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+            <svg class="footer-social-icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M13.5 21v-7h2.4l.4-3h-2.8V9.2c0-.9.3-1.5 1.6-1.5H16V5.1c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 4V11H7.5v3h2.4v7h3.6z"/></svg>
+            <span>Facebook</span>
+          </a>
+          <a href="https://x.com/_dheeraj__reddy" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+            <svg class="footer-social-icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M18.9 2H22l-6.8 7.8L23 22h-6.2l-4.9-6.4L6.3 22H3.2l7.3-8.3L1 2h6.3l4.5 6 5.1-6zM17.8 20h1.7L6.2 3.9H4.4z"/></svg>
+            <span>Twitter</span>
+          </a>
+        </div>
+      </div>
+    <div class="footer-bottom">
+      <p>2026 HerbAtlas</p>
+      <p>Always consult a healthcare professional.</p>
+    </div>
+  </footer>
+
+  <script src="data/herbs-data.js" defer></script>
+  <script src="js/coupon-utils.js" defer></script>
+  <script src="js/toast.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/checkout.js" defer></script>
+
+</body>
+</html>
+

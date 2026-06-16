@@ -1,0 +1,1162 @@
+[
+  {
+    "herb_id": 1,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Rahul M.",
+        "rating": 5,
+        "review": "Absolutely life changing. My stress levels dropped significantly after 3 weeks of daily use. I sleep better and feel more focused at work.",
+        "date": "Jan 2024",
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "Priya S.",
+        "rating": 4,
+        "review": "Good quality ashwagandha powder. Packaging was nice and delivery was faster than expected. Will definitely order again.",
+        "date": "Dec 2023",
+        "verified": true
+      },
+      {
+        "id": 3,
+        "name": "James T.",
+        "rating": 5,
+        "review": "Best ashwagandha I have ever tried. The powder mixes very well in warm milk with honey. No bitter taste at all.",
+        "date": "Feb 2024",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "herb_id": 2,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Meera P.",
+        "rating": 5,
+        "review": "I was the only one in my office who did not get sick this winter. Tulsi tea every morning has been my secret weapon.",
+        "date": "Jan 2024",
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "Ananya R.",
+        "rating": 4,
+        "review": "Fresh aroma and good quality leaves. Makes a wonderful immunity boosting tea. My whole family drinks it now.",
+        "date": "Nov 2023",
+        "verified": true
+      },
+      {
+        "id": 3,
+        "name": "Vikram S.",
+        "rating": 5,
+        "review": "Genuine tulsi with strong aroma. You can tell the quality is high. Has been helping with my seasonal allergies too.",
+        "date": "Feb 2024",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "herb_id": 3,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Sunita K.",
+        "rating": 5,
+        "review": "Golden milk every morning has reduced my joint inflammation noticeably. My doctor was surprised at my improvement.",
+        "date": "Jan 2024",
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "David O.",
+        "rating": 4,
+        "review": "High curcumin content. I can tell this is premium quality compared to what I was buying from the local store.",
+        "date": "Dec 2023",
+        "verified": true
+      },
+      {
+        "id": 3,
+        "name": "Lakshmi V.",
+        "rating": 5,
+        "review": "Rich golden color and strong aroma. I add it to everything now. My skin has also been glowing since I started.",
+        "date": "Mar 2024",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "herb_id": 4,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Arjun N.",
+        "rating": 5,
+        "review": "My memory and focus have improved dramatically after taking brahmi for 6 weeks. I study better and retain more.",
+        "date": "Feb 2024",
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "Kavitha R.",
+        "rating": 4,
+        "review": "Good quality brahmi powder. Takes about 4 weeks to notice effects but they are definitely real and noticeable.",
+        "date": "Jan 2024",
+        "verified": true
+      },
+      {
+        "id": 3,
+        "name": "Rishi P.",
+        "rating": 5,
+        "review": "Excellent product. Been using for 2 months and my anxiety has reduced considerably. Very happy with this purchase.",
+        "date": "Dec 2023",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "herb_id": 5,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Pooja M.",
+        "rating": 5,
+        "review": "My acne has cleared up so much after using neem powder face pack twice a week. Incredible natural remedy.",
+        "date": "Feb 2024",
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "Sanjay K.",
+        "rating": 4,
+        "review": "Strong and potent neem. A little goes a long way. Great for skin and also takes as morning detox with water.",
+        "date": "Jan 2024",
+        "verified": true
+      },
+      {
+        "id": 3,
+        "name": "Deepa S.",
+        "rating": 4,
+        "review": "Good quality neem powder. Very bitter which means it is genuine. My blood sugar levels have stabilized.",
+        "date": "Mar 2024",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "herb_id": 6,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Radha V.",
+        "rating": 5,
+        "review": "Shatavari has been a game changer for my hormonal health. My cycles are regular for the first time in years.",
+        "date": "Jan 2024",
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "Nisha P.",
+        "rating": 5,
+        "review": "I started taking this postpartum and my milk supply increased noticeably within a week. Highly recommend for new mothers.",
+        "date": "Feb 2024",
+        "verified": true
+      },
+      {
+        "id": 3,
+        "name": "Meena T.",
+        "rating": 4,
+        "review": "Helped with my menopausal symptoms significantly. Hot flashes reduced and I feel more balanced overall.",
+        "date": "Dec 2023",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "herb_id": 7,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "David O.",
+        "rating": 5,
+        "review": "Moringa in my morning smoothie has replaced my need for three coffees a day. Natural sustainable energy all day long.",
+        "date": "Jan 2024",
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "Fatima A.",
+        "rating": 5,
+        "review": "Super fine powder that mixes easily. I add it to everything. My iron levels have improved on my last blood test.",
+        "date": "Feb 2024",
+        "verified": true
+      },
+      {
+        "id": 3,
+        "name": "Rohan S.",
+        "rating": 4,
+        "review": "Good quality moringa. Mild taste which makes it easy to add to any food or drink. Noticed more energy within 2 weeks.",
+        "date": "Mar 2024",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "herb_id": 8,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Gita R.",
+        "rating": 5,
+        "review": "Triphala before bed has completely transformed my digestion. No more bloating or constipation. Highly recommend.",
+        "date": "Jan 2024",
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "Mohan K.",
+        "rating": 4,
+        "review": "Genuine triphala with authentic bitter taste. Takes a week to adjust but the digestive benefits are very real.",
+        "date": "Dec 2023",
+        "verified": true
+      },
+      {
+        "id": 3,
+        "name": "Sita P.",
+        "rating": 5,
+        "review": "I have been using triphala for 3 months now. My digestion is perfect and my skin has cleared up beautifully.",
+        "date": "Feb 2024",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "herb_id": 9,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Aisha M.",
+        "rating": 5,
+        "review": "Beautiful aroma and incredible flavor. I add cardamom to my morning chai and it has helped with my bloating significantly.",
+        "date": "Jan 2024",
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "Ravi S.",
+        "rating": 4,
+        "review": "Fresh and aromatic cardamom pods. Much better quality than what I find in local stores. Great for cooking and health.",
+        "date": "Feb 2024",
+        "verified": true
+      },
+      {
+        "id": 3,
+        "name": "Leela T.",
+        "rating": 5,
+        "review": "Premium quality cardamom. The aroma fills the whole kitchen when I open the bag. My digestion has improved a lot.",
+        "date": "Mar 2024",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "herb_id": 10,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Priya K.",
+        "rating": 4,
+        "review": "Soaking fenugreek seeds overnight and eating them in the morning has helped control my blood sugar levels noticeably.",
+        "date": "Jan 2024",
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "Anand M.",
+        "rating": 4,
+        "review": "Good quality seeds. I use them in cooking and also as a health supplement. My cholesterol levels have improved.",
+        "date": "Feb 2024",
+        "verified": true
+      },
+      {
+        "id": 3,
+        "name": "Suma R.",
+        "rating": 5,
+        "review": "Fenugreek has been great for my hair growth. I make a paste with the powder and my hair is much thicker now.",
+        "date": "Mar 2024",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "herb_id": 11,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Sarah K.",
+        "rating": 5,
+        "review": "Chamomile tea every night has completely transformed my sleep. From 5 hours broken sleep to 7 hours solid. Amazing.",
+        "date": "Jan 2024",
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "Emma L.",
+        "rating": 5,
+        "review": "Beautiful dried flowers with incredible aroma. The tea is calming and delicious. My anxiety has reduced noticeably.",
+        "date": "Dec 2023",
+        "verified": true
+      },
+      {
+        "id": 3,
+        "name": "Nadia R.",
+        "rating": 4,
+        "review": "Good quality chamomile. I drink it before bed and sleep so much better. My stomach cramps have also reduced.",
+        "date": "Feb 2024",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "herb_id": 12,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Sophie M.",
+        "rating": 5,
+        "review": "The aroma is incredible. I use it in my diffuser every night and sleep so peacefully. Best purchase I have made.",
+        "date": "Jan 2024",
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "Claire B.",
+        "rating": 5,
+        "review": "Beautiful dried lavender buds. I made sachets for my pillow and my anxiety has reduced dramatically this month.",
+        "date": "Feb 2024",
+        "verified": true
+      },
+      {
+        "id": 3,
+        "name": "Anna T.",
+        "rating": 4,
+        "review": "Good quality lavender. I make lavender tea before bed and it has really helped with my insomnia. Very calming.",
+        "date": "Mar 2024",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "herb_id": 13,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Marco R.",
+        "rating": 5,
+        "review": "Incredible rosemary quality. I use it in cooking and also massage the oil into my scalp. My hair growth is amazing.",
+        "date": "Jan 2024",
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "Lisa K.",
+        "rating": 4,
+        "review": "Very fragrant and fresh dried rosemary. I make rosemary tea every morning and my focus has improved a lot.",
+        "date": "Feb 2024",
+        "verified": true
+      },
+      {
+        "id": 3,
+        "name": "Tom H.",
+        "rating": 5,
+        "review": "Premium quality rosemary. The aroma is so strong and fresh. Great for cooking and for hair and scalp health.",
+        "date": "Mar 2024",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "herb_id": 14,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Helen M.",
+        "rating": 4,
+        "review": "Good quality thyme. I make thyme honey syrup when I have a cough and it works better than any cough medicine.",
+        "date": "Jan 2024",
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "Peter S.",
+        "rating": 5,
+        "review": "Excellent thyme with strong aroma. I add it to my cooking daily and my immunity has been much better this season.",
+        "date": "Feb 2024",
+        "verified": true
+      },
+      {
+        "id": 3,
+        "name": "Maria L.",
+        "rating": 4,
+        "review": "Fresh and fragrant thyme. Makes a wonderful respiratory tea when I am congested. Works really well naturally.",
+        "date": "Mar 2024",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "herb_id": 15,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Susan T.",
+        "rating": 4,
+        "review": "Sage tea has helped with my menopausal hot flashes significantly. Natural relief without any medication side effects.",
+        "date": "Jan 2024",
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "Karen M.",
+        "rating": 5,
+        "review": "Good quality sage. I use it as a mouthwash and my oral health has improved. Also helps with my memory and focus.",
+        "date": "Feb 2024",
+        "verified": true
+      },
+      {
+        "id": 3,
+        "name": "Linda R.",
+        "rating": 4,
+        "review": "Strong aromatic sage. I burn it to clear the air and also make tea. My night sweats have reduced considerably.",
+        "date": "Mar 2024",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "herb_id": 16,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Ananya R.",
+        "rating": 5,
+        "review": "Peppermint tea has completely solved my IBS symptoms. No more bloating or cramps after meals. Absolutely incredible.",
+        "date": "Jan 2024",
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "Raj K.",
+        "rating": 5,
+        "review": "Very minty and fresh. I apply diluted peppermint oil to my temples for headaches and it works every single time.",
+        "date": "Feb 2024",
+        "verified": true
+      },
+      {
+        "id": 3,
+        "name": "Nina S.",
+        "rating": 4,
+        "review": "Good quality peppermint leaves. Strong menthol aroma. My digestion has been much better since I started drinking this tea.",
+        "date": "Mar 2024",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "herb_id": 17,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Giorgio M.",
+        "rating": 5,
+        "review": "Oil of oregano has been incredible for fighting off infections. I take it at the first sign of a cold and recover fast.",
+        "date": "Jan 2024",
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "Rosa T.",
+        "rating": 4,
+        "review": "Very potent oregano. A little goes a long way. I add it to all my cooking and my family has been much healthier.",
+        "date": "Feb 2024",
+        "verified": true
+      },
+      {
+        "id": 3,
+        "name": "Carlos R.",
+        "rating": 5,
+        "review": "Incredible quality oregano. Strong aroma and flavor. My gut health has improved since I started using this regularly.",
+        "date": "Mar 2024",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "herb_id": 18,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Fatima H.",
+        "rating": 4,
+        "review": "Fennel seeds after every meal have completely eliminated my bloating problem. Simple and effective natural remedy.",
+        "date": "Jan 2024",
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "Ahmed K.",
+        "rating": 5,
+        "review": "Fresh and aromatic fennel seeds. I make fennel tea for my baby when she has colic and it works wonderfully.",
+        "date": "Feb 2024",
+        "verified": true
+      },
+      {
+        "id": 3,
+        "name": "Sara M.",
+        "rating": 4,
+        "review": "Good quality fennel. I chew a few seeds after meals and my digestion is so much better. Also freshens breath.",
+        "date": "Mar 2024",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "herb_id": 19,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Ravi S.",
+        "rating": 5,
+        "review": "Fresh ginger powder with strong aroma. I make ginger lemon tea every morning and my digestion has transformed.",
+        "date": "Jan 2024",
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "Priya M.",
+        "rating": 5,
+        "review": "Excellent quality ginger. I use it for cooking and as a health supplement. My nausea during pregnancy was much better.",
+        "date": "Feb 2024",
+        "verified": true
+      },
+      {
+        "id": 3,
+        "name": "Suresh K.",
+        "rating": 4,
+        "review": "Good strong ginger. I add it to my chai and it has helped with my joint pain and inflammation over time.",
+        "date": "Mar 2024",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "herb_id": 20,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Chen W.",
+        "rating": 5,
+        "review": "Premium quality ginseng. I feel a noticeable difference in my energy levels and mental clarity. Worth every rupee.",
+        "date": "Jan 2024",
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "Min L.",
+        "rating": 5,
+        "review": "Excellent ginseng extract. My stamina during workouts has improved significantly. I recover faster after exercise now.",
+        "date": "Feb 2024",
+        "verified": true
+      },
+      {
+        "id": 3,
+        "name": "Wei Z.",
+        "rating": 4,
+        "review": "Good quality ginseng. Takes about 3 weeks to feel the full effects but they are definitely real and impressive.",
+        "date": "Mar 2024",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "herb_id": 21,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Li M.",
+        "rating": 5,
+        "review": "Astragalus has been incredible for my immunity. I have not had a single cold this winter despite being around sick people.",
+        "date": "Jan 2024",
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "Ying T.",
+        "rating": 4,
+        "review": "Good quality astragalus root slices. I make a decoction every day and my energy levels have been much more stable.",
+        "date": "Feb 2024",
+        "verified": true
+      },
+      {
+        "id": 3,
+        "name": "Hong S.",
+        "rating": 5,
+        "review": "Excellent astragalus. I add slices to my soups and teas. My blood pressure has also stabilized on my recent checkup.",
+        "date": "Mar 2024",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "herb_id": 22,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Kenji T.",
+        "rating": 5,
+        "review": "Reishi mushroom powder is incredible. My sleep quality has improved and I feel much calmer and more focused daily.",
+        "date": "Jan 2024",
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "Yuki S.",
+        "rating": 5,
+        "review": "Premium quality reishi. I have been taking it for 2 months and my immune system feels much stronger this season.",
+        "date": "Feb 2024",
+        "verified": true
+      },
+      {
+        "id": 3,
+        "name": "Hana M.",
+        "rating": 4,
+        "review": "Good reishi powder with earthy taste. I mix it in my morning coffee. My energy and focus are much better now.",
+        "date": "Mar 2024",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "herb_id": 23,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Bala S.",
+        "rating": 5,
+        "review": "Gotu kola has improved my memory and focus tremendously. I am a student and my exam performance has improved greatly.",
+        "date": "Jan 2024",
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "Preethi R.",
+        "rating": 4,
+        "review": "Good quality gotu kola. I apply it topically for wound healing and it works incredibly well. Also drink as tea.",
+        "date": "Feb 2024",
+        "verified": true
+      },
+      {
+        "id": 3,
+        "name": "Kumar V.",
+        "rating": 5,
+        "review": "Excellent gotu kola powder. My anxiety has reduced and my circulation has improved. Very satisfied with this product.",
+        "date": "Mar 2024",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "herb_id": 24,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Hassan A.",
+        "rating": 4,
+        "review": "Licorice root tea has been wonderful for my acid reflux. Natural relief without antacids. Really works well.",
+        "date": "Jan 2024",
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "Omar K.",
+        "rating": 4,
+        "review": "Good quality licorice root. The natural sweetness makes a pleasant tea. My stomach ulcer symptoms have reduced.",
+        "date": "Feb 2024",
+        "verified": true
+      },
+      {
+        "id": 3,
+        "name": "Fatima R.",
+        "rating": 5,
+        "review": "Excellent licorice root sticks. I chew a small piece for sore throat and it soothes almost immediately. Love this.",
+        "date": "Mar 2024",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "herb_id": 25,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Tanaka H.",
+        "rating": 5,
+        "review": "Premium quality green tea leaves. The antioxidants are clearly high grade. I feel more alert and energetic daily.",
+        "date": "Jan 2024",
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "Sato Y.",
+        "rating": 5,
+        "review": "Beautiful green tea with delicate flavor. I drink 3 cups daily and my metabolism has improved noticeably this month.",
+        "date": "Feb 2024",
+        "verified": true
+      },
+      {
+        "id": 3,
+        "name": "Ito M.",
+        "rating": 4,
+        "review": "Good quality green tea. Fresh and grassy flavor. My focus during work has improved and I feel less stressed overall.",
+        "date": "Mar 2024",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "herb_id": 26,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Thabo M.",
+        "rating": 5,
+        "review": "Incredible rooibos quality. Beautiful red color and naturally sweet taste. I drink it instead of coffee now.",
+        "date": "Jan 2024",
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "Nomsa K.",
+        "rating": 4,
+        "review": "Good quality rooibos. Caffeine free so I can drink it all day. My skin has been clearer and less inflamed.",
+        "date": "Feb 2024",
+        "verified": true
+      },
+      {
+        "id": 3,
+        "name": "Sipho R.",
+        "rating": 5,
+        "review": "Authentic South African rooibos. The taste is wonderful and it has been helping with my eczema over time.",
+        "date": "Mar 2024",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "herb_id": 27,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Hans M.",
+        "rating": 5,
+        "review": "Devils claw has been incredible for my osteoarthritis pain. After 6 weeks my mobility has improved dramatically.",
+        "date": "Jan 2024",
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "Klaus R.",
+        "rating": 4,
+        "review": "Good quality devils claw extract. My back pain has reduced significantly after consistent use for one month.",
+        "date": "Feb 2024",
+        "verified": true
+      },
+      {
+        "id": 3,
+        "name": "Petra S.",
+        "rating": 5,
+        "review": "Natural pain relief that actually works. My joint inflammation has reduced and I can walk much more comfortably now.",
+        "date": "Mar 2024",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "herb_id": 28,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Lindiwe M.",
+        "rating": 4,
+        "review": "Buchu tea has helped with my urinary tract health significantly. No more recurrent infections since I started using it.",
+        "date": "Jan 2024",
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "Zanele K.",
+        "rating": 4,
+        "review": "Good quality buchu with distinctive minty aroma. I drink it as a tea and my kidney health has improved noticeably.",
+        "date": "Feb 2024",
+        "verified": true
+      },
+      {
+        "id": 3,
+        "name": "Nkosi R.",
+        "rating": 3,
+        "review": "Decent quality buchu. Takes time to work but the results are gradual and real. Good natural alternative.",
+        "date": "Mar 2024",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "herb_id": 29,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Bongani M.",
+        "rating": 5,
+        "review": "African ginger decoction has been incredible for my asthma. My breathing is much clearer and attacks less frequent.",
+        "date": "Jan 2024",
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "Thandiwe S.",
+        "rating": 4,
+        "review": "Authentic and very potent African ginger. Strong medicinal aroma. My respiratory infections have reduced significantly.",
+        "date": "Feb 2024",
+        "verified": true
+      },
+      {
+        "id": 3,
+        "name": "Mlungisi K.",
+        "rating": 4,
+        "review": "Good quality product. Hard to find genuine African ginger but this is authentic. Works well for colds and flu.",
+        "date": "Mar 2024",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "herb_id": 30,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Chidi O.",
+        "rating": 4,
+        "review": "Bitter leaf tea has helped control my blood sugar levels naturally. My doctor confirmed improvement on my last test.",
+        "date": "Jan 2024",
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "Amara N.",
+        "rating": 4,
+        "review": "Genuine bitter leaf with very strong bitter taste. This is authentic quality. Has been supporting my liver health.",
+        "date": "Feb 2024",
+        "verified": true
+      },
+      {
+        "id": 3,
+        "name": "Emeka A.",
+        "rating": 5,
+        "review": "Excellent quality bitter leaf. My grandmother used to make this. Brings back memories and genuinely works well.",
+        "date": "Mar 2024",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "herb_id": 31,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Jennifer M.",
+        "rating": 5,
+        "review": "Echinacea has cut my cold recovery time in half. I take it at the first sign of illness and bounce back so fast.",
+        "date": "Jan 2024",
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "Michael T.",
+        "rating": 4,
+        "review": "Good quality echinacea. I take it during cold season and have been much healthier this year than previous years.",
+        "date": "Feb 2024",
+        "verified": true
+      },
+      {
+        "id": 3,
+        "name": "Amanda S.",
+        "rating": 5,
+        "review": "Excellent echinacea. I make tea with it and my immune system feels much stronger. Great product and great service.",
+        "date": "Mar 2024",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "herb_id": 32,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Robert K.",
+        "rating": 5,
+        "review": "Valerian root has finally solved my insomnia after years of struggle. I fall asleep within 20 minutes now. Amazing.",
+        "date": "Jan 2024",
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "Patricia M.",
+        "rating": 4,
+        "review": "Works well for sleep but the smell is quite strong. Worth it for the results though. I sleep deeply and wake refreshed.",
+        "date": "Feb 2024",
+        "verified": true
+      },
+      {
+        "id": 3,
+        "name": "William R.",
+        "rating": 5,
+        "review": "Best natural sleep aid I have tried. No grogginess in the morning unlike some other sleep supplements. Love this.",
+        "date": "Mar 2024",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "herb_id": 33,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Nancy T.",
+        "rating": 4,
+        "review": "Goldenseal has helped clear my sinus infection naturally. I combined it with echinacea and recovered very quickly.",
+        "date": "Jan 2024",
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "Gary M.",
+        "rating": 4,
+        "review": "Good quality goldenseal. Very bitter and potent which means it is genuine. Helps with digestive infections well.",
+        "date": "Feb 2024",
+        "verified": true
+      },
+      {
+        "id": 3,
+        "name": "Barbara S.",
+        "rating": 5,
+        "review": "Excellent goldenseal. I use it for immune support during travel and have not got sick on any trip this year.",
+        "date": "Mar 2024",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "herb_id": 34,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Emily R.",
+        "rating": 5,
+        "review": "Passionflower tea before bed has completely transformed my anxiety and sleep. I feel calm and sleep deeply every night.",
+        "date": "Jan 2024",
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "Daniel M.",
+        "rating": 5,
+        "review": "Incredible natural anxiety relief. Works as well as medication for me without any side effects. Highly recommend.",
+        "date": "Feb 2024",
+        "verified": true
+      },
+      {
+        "id": 3,
+        "name": "Jessica T.",
+        "rating": 4,
+        "review": "Good quality passionflower. Beautiful flowers and pleasant mild taste. My sleep has improved significantly this month.",
+        "date": "Mar 2024",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "herb_id": 35,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Carlos M.",
+        "rating": 5,
+        "review": "Cats claw has been remarkable for my rheumatoid arthritis. My inflammation markers are down on my last blood test.",
+        "date": "Jan 2024",
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "Maria S.",
+        "rating": 4,
+        "review": "Good quality cats claw bark. I make a strong tea and my joint pain has reduced considerably over 6 weeks of use.",
+        "date": "Feb 2024",
+        "verified": true
+      },
+      {
+        "id": 3,
+        "name": "Juan R.",
+        "rating": 5,
+        "review": "Authentic Peruvian cats claw. Very potent and effective. My immune system feels much stronger since I started.",
+        "date": "Mar 2024",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "herb_id": 36,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Ahmed M.",
+        "rating": 5,
+        "review": "Black seed oil is truly blessed. My immunity has improved dramatically and my allergies have reduced significantly.",
+        "date": "Jan 2024",
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "Fatima K.",
+        "rating": 5,
+        "review": "Premium quality black seeds. I take a teaspoon with honey every morning. My energy and immunity are much better.",
+        "date": "Feb 2024",
+        "verified": true
+      },
+      {
+        "id": 3,
+        "name": "Omar S.",
+        "rating": 4,
+        "review": "Good authentic black seed. Strong flavor which indicates quality. My blood pressure has stabilized on regular use.",
+        "date": "Mar 2024",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "herb_id": 37,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Layla M.",
+        "rating": 5,
+        "review": "Pure aloe vera gel that actually works. My sunburn healed overnight and my skin feels incredibly soft and hydrated.",
+        "date": "Jan 2024",
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "Sara K.",
+        "rating": 4,
+        "review": "Good quality aloe vera. I use it for my acne and the results have been very good. Skin is clearer and less inflamed.",
+        "date": "Feb 2024",
+        "verified": true
+      },
+      {
+        "id": 3,
+        "name": "Nour R.",
+        "rating": 5,
+        "review": "Excellent aloe vera juice. I drink it every morning for digestion and my gut health has improved tremendously.",
+        "date": "Mar 2024",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "herb_id": 38,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Khalid A.",
+        "rating": 5,
+        "review": "Premium frankincense resin with incredible aroma. My joint pain has reduced and my mood has lifted significantly.",
+        "date": "Jan 2024",
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "Yasmin M.",
+        "rating": 5,
+        "review": "Authentic Omani frankincense. The aroma when burned is sacred and calming. My anxiety has reduced noticeably.",
+        "date": "Feb 2024",
+        "verified": true
+      },
+      {
+        "id": 3,
+        "name": "Ibrahim S.",
+        "rating": 4,
+        "review": "Good quality frankincense. I use boswellia capsules for inflammation and the results have been gradual but real.",
+        "date": "Mar 2024",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "herb_id": 39,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Catherine M.",
+        "rating": 5,
+        "review": "Milk thistle has been incredible for my liver health. My liver enzymes are back to normal on my latest blood test.",
+        "date": "Jan 2024",
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "Thomas R.",
+        "rating": 4,
+        "review": "Good quality milk thistle seeds. I grind them fresh and add to smoothies. My digestion has improved greatly.",
+        "date": "Feb 2024",
+        "verified": true
+      },
+      {
+        "id": 3,
+        "name": "Elizabeth S.",
+        "rating": 5,
+        "review": "Excellent milk thistle. I take it after periods of indulgence and my liver feels so much better. Great product.",
+        "date": "Mar 2024",
+        "verified": true
+      }
+    ]
+  },
+  {
+    "herb_id": 40,
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Mustafa K.",
+        "rating": 4,
+        "review": "Fenugreek seeds have helped balance my blood sugar naturally. My doctor confirmed improvement on my recent test.",
+        "date": "Jan 2024",
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "Aisha R.",
+        "rating": 4,
+        "review": "Good quality fenugreek. Strong distinctive smell means it is genuine. My digestion and milk supply both improved.",
+        "date": "Feb 2024",
+        "verified": true
+      },
+      {
+        "id": 3,
+        "name": "Yusuf M.",
+        "rating": 5,
+        "review": "Authentic fenugreek with strong maple aroma. I use it in cooking and as a supplement. Great overall health benefits.",
+        "date": "Mar 2024",
+        "verified": true
+      }
+    ]
+  }
+]

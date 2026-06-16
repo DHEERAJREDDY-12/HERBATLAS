@@ -1,0 +1,34 @@
+.tags{
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.tag{
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-align: center;
+}
+.tag-green{
+  background: #e4f2dc;
+  color: var(--green-mid);
+}
+.tag-brown{
+  background: #f5ede0;
+  color: var(--brown);
+}
+.tag-safe{
+  background: #dff2e4;
+  color: #1a6e36;
+}
+.tag-caution{
+  background: #fff8dc;
+  color: #7a5a00;
+}
+.tag-restricted {
+  background: #ffe8e8;
+  color: #7a0000;
+}

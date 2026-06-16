@@ -1,0 +1,194 @@
+.recommender-section {
+  background: var(--white);
+  padding: 80px 0;
+}
+
+.recommender-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.recommender-header p:last-child {
+  font-size: 14px;
+  color: var(--text-light);
+  margin-top: 8px;
+}
+
+.recommender-form {
+  background: var(--cream);
+  border-radius: var(--radius);
+  padding: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: var(--shadow-sm);
+}
+
+.recommender-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.rec-field {
+  margin-bottom: 28px;
+}
+
+.rec-field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--green-dark);
+  margin-bottom: 12px;
+  letter-spacing: 0.3px;
+}
+
+.rec-field input[type="number"] {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid var(--cream-dark);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  outline: none;
+  background: var(--white);
+  transition: var(--transition);
+}
+
+.rec-field input[type="number"]:focus {
+  border-color: var(--green-mid);
+}
+
+.gender-opts {
+  display: flex;
+  gap: 10px;
+}
+
+.gender-btn {
+  border: 1.5px solid var(--cream-dark);
+  background: var(--white);
+  color: var(--text-mid);
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.gender-btn:hover {
+  border-color: var(--green-mid);
+  color: var(--green-mid);
+}
+
+.gender-btn.active {
+  background: var(--green-dark);
+  color: var(--white);
+  border-color: var(--green-dark);
+}
+
+.check-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.check-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-mid);
+  cursor: pointer;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--cream-dark);
+  background: var(--white);
+  transition: var(--transition);
+}
+
+.check-item:hover {
+  border-color: var(--green-mid);
+}
+
+.check-item input[type="checkbox"] {
+  accent-color: var(--green-mid);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.rec-submit-btn {
+  width: 100%;
+  background: var(--green-mid);
+  color: var(--white);
+  border: none;
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  font-size: 15px;
+  cursor: pointer;
+  letter-spacing: 0.8px;
+  transition: var(--transition);
+  margin-top: 8px;
+}
+
+.rec-submit-btn:hover {
+  background: var(--green-dark);
+}
+
+.rec-results {
+  max-width: 1100px;
+  margin: 48px auto 0;
+}
+
+.rec-results-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.rec-results-header h3 {
+  font-family: var(--font-head);
+  font-size: 28px;
+  color: var(--green-dark);
+  font-weight: 400;
+}
+
+.rec-results .herbs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 1000px) {
+  .rec-results .herbs-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .recommender-form {
+    padding: 24px 20px;
+  }
+
+  .recommender-row {
+    grid-template-columns: 1fr;
+  }
+
+  .check-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .rec-results .herbs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .check-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rec-results .herbs-grid {
+    grid-template-columns: 1fr;
+  }
+}

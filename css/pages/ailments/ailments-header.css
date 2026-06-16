@@ -1,0 +1,93 @@
+.ailments-header {
+  background: linear-gradient(135deg, var(--green-dark), #1e4418);
+  padding: 64px 52px;
+  text-align: center;
+  color: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+
+.ailments-header::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(67, 122, 50, 0.2) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.ailments-header .section-label {
+  color: var(--green-pale);
+  opacity: 0.8;
+  position: relative;
+  z-index: 1;
+}
+
+.ailments-header h1 {
+  font-size: 56px;
+  color: var(--cream);
+  font-weight: 300;
+  margin-bottom: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.ailments-header h1 em {
+  font-style: italic;
+  color: var(--green-pale);
+}
+
+.ailments-header p {
+  font-size: 15px;
+  color: rgba(248, 244, 236, 0.55);
+  max-width: 480px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .ailments-header {
+    padding: 40px 20px;
+  }
+
+  .ailments-header h1 {
+    font-size: 38px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ailments-header {
+    padding: 30px 14px;
+  }
+
+  .ailments-header h1 {
+    font-size: 32px;
+    line-height: 1.05;
+  }
+}
+
+@media (max-width: 320px) {
+  .ailments-header {
+    padding: 24px 10px;
+  }
+
+  .ailments-header::before {
+    width: 240px;
+    height: 240px;
+    top: -40px;
+  }
+
+  .ailments-header h1 {
+    font-size: 26px;
+  }
+
+  .ailments-header p {
+    font-size: 13px;
+    overflow-wrap: anywhere;
+  }
+}

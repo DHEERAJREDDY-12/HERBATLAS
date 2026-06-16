@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Addresses — HerbAtlas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base/variables.css">
+  <link rel="stylesheet" href="css/base/reset.css">
+  <link rel="stylesheet" href="css/base/typography.css">
+  <link rel="stylesheet" href="css/components/header.css">
+  <link rel="stylesheet" href="css/components/footer.css">
+  <link rel="stylesheet" href="css/components/buttons.css">
+  <link rel="stylesheet" href="css/components/toast.css">
+  <link rel="stylesheet" href="css/pages/addresses/addresses.css">
+  <style>
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">Herb<em>Atlas</em></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="browse.html">Browse</a></li>
+      <li><a href="ailments.html">Ailments</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="about.html">About Us</a></li>
+    </ul>
+    <div class="nav-right">
+      <input type="text" class="nav-search" placeholder="Search herbs...">
+      <a href="cart.html" class="nav-cart">
+        Cart <span class="cart-badge" id="cartBadge">0</span>
+      </a>
+      <a href="login.html" class="nav-user" id="navUser">Sign In</a>
+      <button class="nav-menu-btn" id="menuBtn" aria-label="Open menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-search-bar">
+    <input type="text" id="mobileSearchInput" placeholder="Search herbs...">
+  </div>
+
+  <main class="addresses-page">
+
+    <div class="addresses-header">
+      <p class="section-label">Account</p>
+      <h1>My <em>Addresses</em></h1>
+      <p>Manage your saved delivery addresses</p>
+    </div>
+
+    <div class="addresses-body">
+
+      <!-- Left: address list -->
+      <section class="addresses-list-section" aria-label="Saved addresses">
+        <h2>Saved Addresses</h2>
+        <div id="addressList">
+          <!-- Rendered by JS -->
+        </div>
+        <button
+          type="button"
+          class="btn-primary"
+          id="showAddFormBtn"
+          style="margin-top:8px"
+        >+ Add New Address</button>
+      </section>
+
+      <!-- Right: add/edit form -->
+      <aside class="address-form-panel" id="addressFormPanel" aria-label="Address form">
+        <h2 id="addrFormTitle">Add New Address</h2>
+        <form id="addressForm" novalidate>
+          <input type="hidden" id="addrEditId">
+
+          <div class="addr-field">
+            <label for="addrFullName">Full Name <span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="addrFullName" autocomplete="name" placeholder="Priya Sharma">
+            <span class="addr-field-error" id="errFullName" role="alert"></span>
+          </div>
+
+          <div class="addr-field">
+            <label for="addrPhone">Phone Number <span class="req" aria-hidden="true">*</span></label>
+            <input type="tel" id="addrPhone" autocomplete="tel" placeholder="9876543210" inputmode="numeric" maxlength="10">
+            <span class="addr-field-error" id="errPhone" role="alert"></span>
+          </div>
+
+          <div class="addr-field">
+            <label for="addrLine1">House / Flat Number <span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="addrLine1" autocomplete="address-line1" placeholder="Flat 4B, Sunrise Apartments">
+            <span class="addr-field-error" id="errLine1" role="alert"></span>
+          </div>
+
+          <div class="addr-field">
+            <label for="addrLine2">Street</label>
+            <input type="text" id="addrLine2" autocomplete="address-line2" placeholder="MG Road">
+          </div>
+
+          <div class="addr-field">
+            <label for="addrArea">Area</label>
+            <input type="text" id="addrArea" placeholder="Indiranagar">
+          </div>
+
+          <div class="addr-field-row">
+            <div class="addr-field">
+              <label for="addrCity">City <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="addrCity" autocomplete="address-level2" placeholder="Bengaluru">
+              <span class="addr-field-error" id="errCity" role="alert"></span>
+            </div>
+            <div class="addr-field">
+              <label for="addrState">State <span class="req" aria-hidden="true">*</span></label>
+              <select id="addrState" autocomplete="address-level1">
+                <option value="">Select State</option>
+                <option>Andhra Pradesh</option>
+                <option>Assam</option>
+                <option>Bihar</option>
+                <option>Delhi</option>
+                <option>Goa</option>
+                <option>Gujarat</option>
+                <option>Haryana</option>
+                <option>Himachal Pradesh</option>
+                <option>Jharkhand</option>
+                <option>Karnataka</option>
+                <option>Kerala</option>
+                <option>Madhya Pradesh</option>
+                <option>Maharashtra</option>
+                <option>Odisha</option>
+                <option>Punjab</option>
+                <option>Rajasthan</option>
+                <option>Tamil Nadu</option>
+                <option>Telangana</option>
+                <option>Uttar Pradesh</option>
+                <option>Uttarakhand</option>
+                <option>West Bengal</option>
+              </select>
+              <span class="addr-field-error" id="errState" role="alert"></span>
+            </div>
+          </div>
+
+          <div class="addr-field">
+            <label for="addrPincode">Pincode <span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="addrPincode" inputmode="numeric" maxlength="6" autocomplete="postal-code" placeholder="560001">
+            <span class="addr-field-error" id="errPincode" role="alert"></span>
+          </div>
+
+          <div class="addr-field" style="display:flex;align-items:center;gap:10px;margin-top:4px">
+            <input type="checkbox" id="addrSetDefault" style="accent-color:var(--green-mid);width:16px;height:16px">
+            <label for="addrSetDefault" style="margin-bottom:0;font-weight:400">Set as default address</label>
+          </div>
+
+          <button type="submit" class="addr-save-btn" id="addrSaveBtn">Save Address</button>
+          <button type="button" class="addr-cancel-btn hidden" id="addrCancelBtn">Cancel</button>
+        </form>
+      </aside>
+
+    </div><!-- /.addresses-body -->
+
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">Herb<em>Atlas</em></div>
+        <p class="footer-desc">Documenting the world's medicinal herbs for curious minds and wellness seekers.</p>
+        <p class="footer-disclaimer">For educational purposes only. Not medical advice.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="index.html">Home</a>
+        <a href="browse.html">Browse</a>
+        <a href="ailments.html">Ailments</a>
+        <a href="about.html">About Us</a>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <a href="shop.html">All Products</a>
+        <a href="cart.html">Cart</a>
+      </div>
+        <div class="footer-col">
+          <h4>Account</h4>
+          <a href="profile.html" class="footer-auth-user" hidden>My Account</a>
+          <a href="login.html" class="footer-auth-guest">Login</a>
+        <a href="login.html?tab=register" class="footer-auth-guest">Sign Up</a>
+          <a href="contact.html">Contact Us</a>
+          <button type="button" class="footer-logout-btn" hidden>Sign Out</button>
+        </div>
+        <div class="footer-col">
+          <h4>Social</h4>
+          <a href="https://www.instagram.com/_herbatlas?igsh=OXhicWx4bmowZzlx" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+            <svg class="footer-social-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1"></circle></svg>
+            <span>Instagram</span>
+          </a>
+          <a href="https://www.facebook.com/share/1BPQ3Z8bna/" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+            <svg class="footer-social-icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M13.5 21v-7h2.4l.4-3h-2.8V9.2c0-.9.3-1.5 1.6-1.5H16V5.1c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 4V11H7.5v3h2.4v7h3.6z"/></svg>
+            <span>Facebook</span>
+          </a>
+          <a href="https://x.com/_dheeraj__reddy" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+            <svg class="footer-social-icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M18.9 2H22l-6.8 7.8L23 22h-6.2l-4.9-6.4L6.3 22H3.2l7.3-8.3L1 2h6.3l4.5 6 5.1-6zM17.8 20h1.7L6.2 3.9H4.4z"/></svg>
+            <span>Twitter</span>
+          </a>
+        </div>
+      </div>
+    <div class="footer-bottom">
+      <p>2026 HerbAtlas</p>
+      <p>Always consult a healthcare professional.</p>
+    </div>
+  </footer>
+
+  <script src="data/herbs-data.js"></script>
+  <script src="js/toast.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/addresses.js" defer></script>
+
+</body>
+</html>
+

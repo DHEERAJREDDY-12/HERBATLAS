@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart — HerbAtlas</title>
+  <meta name="description" content="Review your HerbAtlas cart, apply a coupon, and proceed securely to checkout.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base/variables.css">
+  <link rel="stylesheet" href="css/base/reset.css">
+  <link rel="stylesheet" href="css/base/typography.css">
+  <link rel="stylesheet" href="css/components/header.css">
+  <link rel="stylesheet" href="css/components/footer.css">
+  <link rel="stylesheet" href="css/components/buttons.css">
+  <link rel="stylesheet" href="css/components/toast.css">
+  <link rel="stylesheet" href="css/pages/cart/cart-header.css">
+  <link rel="stylesheet" href="css/pages/cart/cart-items.css">
+  <link rel="stylesheet" href="css/pages/cart/cart-summary.css">
+  <link rel="stylesheet" href="css/pages/cart/cart-coupon.css">
+  <style>
+    .cart-page-main {
+      overflow: visible;
+    }
+
+    .cart-body {
+      background: var(--cream);
+      overflow: visible;
+      padding: 40px 52px;
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 32px;
+      min-height: 60vh;
+      align-items: start;
+    }
+
+    .cart-items,
+    .cart-right-col {
+      min-width: 0;
+      width: 100%;
+    }
+
+    .cart-right-col {
+      align-self: start;
+      overflow: visible;
+      position: -webkit-sticky;
+      position: sticky;
+      top: calc(var(--nav-height) + 16px);
+      z-index: 20;
+      height: max-content;
+    }
+
+    .cart-right-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    @media (max-width: 1000px) {
+      .cart-body {
+        grid-template-columns: 1fr;
+        padding: 32px;
+      }
+
+      .cart-right-col {
+        position: static;
+        top: auto;
+        z-index: auto;
+        height: auto;
+        overflow: visible;
+      }
+
+      .cart-right-inner {
+        height: auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .cart-body {
+        padding: 24px 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .cart-body {
+        padding: 16px 12px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .cart-body {
+        padding: 14px 10px;
+        gap: 14px;
+      }
+    }
+  </style>
+  <style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}</style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">Herb<em>Atlas</em></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="browse.html">Browse</a></li>
+      <li><a href="ailments.html">Ailments</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="about.html">About Us</a></li>
+    </ul>
+    <div class="nav-right">
+      <input type="text" class="nav-search" placeholder="Search herbs...">
+      <a href="cart.html" class="nav-cart active-cart">
+        Cart <span class="cart-badge" id="cartBadge">0</span>
+      </a>
+      <a href="login.html" class="nav-user" id="navUser">Sign In</a>
+      <button class="nav-menu-btn" id="menuBtn" aria-label="Open menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-search-bar">
+    <input type="text" id="mobileSearchInput" placeholder="Search herbs...">
+  </div>
+
+  <main class="cart-page-main">
+  <div class="cart-header">
+    <p class="section-label">Your Selection</p>
+    <h1>Shopping <em>Cart</em></h1>
+    <p id="cartSubtitle">Loading your cart...</p>
+  </div>
+
+  <div class="cart-body" id="cartBody">
+    <div class="cart-items" id="cartItems"></div>
+
+    <div class="cart-right-col" id="cartRightCol">
+      <div class="cart-right-inner" id="cartRightInner">
+
+      <!-- Coupon panel — always rendered, JS controls visibility -->
+        <div class="coupon-panel" id="couponPanel">
+          <p class="coupon-panel-title">Have a coupon?</p>
+          <div class="coupon-available" aria-label="Available coupon offers">
+            <span class="coupon-available-label">Available offer</span>
+              <div class="coupon-available-card" data-coupon-code="HERB10" role="button" tabindex="0" aria-label="Apply coupon HERB10">
+                <span class="coupon-available-code">HERB10</span>
+                <span class="coupon-available-value">10% off</span>
+              </div>
+          </div>
+          <form class="coupon-form" id="couponForm" autocomplete="off" onsubmit="return false;">
+            <label for="couponInput" class="sr-only">Coupon code</label>
+            <input
+            type="text"
+            id="couponInput"
+            class="coupon-input"
+            placeholder="e.g. HERB10"
+            maxlength="20"
+            spellcheck="false"
+            aria-describedby="couponMsg"
+          >
+          <button type="submit" class="coupon-apply-btn" id="couponApplyBtn">Apply</button>
+        </form>
+        <div class="coupon-msg" id="couponMsg" role="status" aria-live="polite"></div>
+
+        <!-- Applied coupon tag — hidden until a coupon is active -->
+        <div class="coupon-applied is-hidden" id="couponApplied">
+          <span class="coupon-applied-tag">
+            <span class="coupon-applied-code" id="couponAppliedCode"></span>
+            <button
+              class="coupon-remove-btn"
+              id="couponRemoveBtn"
+              aria-label="Remove coupon"
+              type="button"
+            >&times;</button>
+          </span>
+          <span class="coupon-applied-label">applied</span>
+        </div>
+      </div>
+
+      <!-- Order summary — JS fills the inner rows -->
+      <div class="cart-summary" id="cartSummary" aria-live="polite">
+        <h2>Order Summary</h2>
+        <div class="sum-row">
+          <span id="cartSummarySubtotalLabel">Subtotal</span>
+          <span id="cartSummarySubtotalValue">Rs.0</span>
+        </div>
+        <div class="sum-row sum-row--discount is-empty" id="cartSummaryDiscountRow">
+          <span id="cartSummaryDiscountLabel">Discount</span>
+          <span id="cartSummaryDiscountValue">Rs.0</span>
+        </div>
+        <div class="sum-row" id="cartSummaryShippingRow">
+          <span>Shipping</span>
+          <span id="cartSummaryShippingValue">Rs.0</span>
+        </div>
+        <div class="sum-row">
+          <span>GST (5%)</span>
+          <span id="cartSummaryTaxValue">Rs.0</span>
+        </div>
+        <div class="sum-total">
+          <span>Total</span>
+          <span id="cartSummaryTotalValue">Rs.0</span>
+        </div>
+        <button class="checkout-btn" id="cartCheckoutBtn" type="button" disabled>Proceed to Checkout</button>
+        <div class="secure-note">Secure checkout â€” SSL encrypted</div>
+      </div>
+
+      </div>
+    </div><!-- /.cart-right-col -->
+  </div>
+
+  <div class="empty-cart hidden" id="emptyCart">
+    <h3>Your cart is empty</h3>
+    <p>Looks like you have not added any herbs yet.</p>
+    <a href="shop.html" class="btn-primary">Browse Shop</a>
+  </div>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">Herb<em>Atlas</em></div>
+        <p class="footer-desc">
+          Documenting the world's medicinal herbs
+          for curious minds and wellness seekers.
+        </p>
+        <p class="footer-disclaimer">
+          For educational purposes only. Not medical advice.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="index.html">Home</a>
+        <a href="browse.html">Browse</a>
+        <a href="ailments.html">Ailments</a>
+        <a href="about.html">About Us</a>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <a href="shop.html">All Products</a>
+        <a href="cart.html">Cart</a>
+      </div>
+        <div class="footer-col">
+          <h4>Account</h4>
+          <a href="profile.html" class="footer-auth-user" hidden>My Account</a>
+          <a href="login.html" class="footer-auth-guest">Login</a>
+        <a href="login.html?tab=register" class="footer-auth-guest">Sign Up</a>
+          <a href="contact.html">Contact Us</a>
+          <button type="button" class="footer-logout-btn" hidden>Sign Out</button>
+        </div>
+        <div class="footer-col">
+          <h4>Social</h4>
+          <a href="https://www.instagram.com/_herbatlas?igsh=OXhicWx4bmowZzlx" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+            <svg class="footer-social-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1"></circle></svg>
+            <span>Instagram</span>
+          </a>
+          <a href="https://www.facebook.com/share/1BPQ3Z8bna/" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+            <svg class="footer-social-icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M13.5 21v-7h2.4l.4-3h-2.8V9.2c0-.9.3-1.5 1.6-1.5H16V5.1c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 4V11H7.5v3h2.4v7h3.6z"/></svg>
+            <span>Facebook</span>
+          </a>
+          <a href="https://x.com/_dheeraj__reddy" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+            <svg class="footer-social-icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M18.9 2H22l-6.8 7.8L23 22h-6.2l-4.9-6.4L6.3 22H3.2l7.3-8.3L1 2h6.3l4.5 6 5.1-6zM17.8 20h1.7L6.2 3.9H4.4z"/></svg>
+            <span>Twitter</span>
+          </a>
+        </div>
+      </div>
+    <div class="footer-bottom">
+      <p>2026 HerbAtlas</p>
+      <p>Always consult a healthcare professional.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      const itemsRoot = document.getElementById('cartItems');
+      const cartBody = document.getElementById('cartBody');
+      const emptyCart = document.getElementById('emptyCart');
+      const subtitle = document.getElementById('cartSubtitle');
+      const couponInput = document.getElementById('couponInput');
+      const couponApplyBtn = document.getElementById('couponApplyBtn');
+      const couponApplied = document.getElementById('couponApplied');
+      const couponAppliedCode = document.getElementById('couponAppliedCode');
+      const summarySubtotalLabel = document.getElementById('cartSummarySubtotalLabel');
+      const summarySubtotalValue = document.getElementById('cartSummarySubtotalValue');
+      const summaryDiscountRow = document.getElementById('cartSummaryDiscountRow');
+      const summaryDiscountLabel = document.getElementById('cartSummaryDiscountLabel');
+      const summaryDiscountValue = document.getElementById('cartSummaryDiscountValue');
+      const summaryShippingRow = document.getElementById('cartSummaryShippingRow');
+      const summaryShippingValue = document.getElementById('cartSummaryShippingValue');
+      const summaryTaxValue = document.getElementById('cartSummaryTaxValue');
+      const summaryTotalValue = document.getElementById('cartSummaryTotalValue');
+      const checkoutBtn = document.getElementById('cartCheckoutBtn');
+      if (!itemsRoot || !cartBody || !emptyCart || !subtitle) return;
+
+      if (!cart.length) {
+        cartBody.classList.add('hidden');
+        emptyCart.classList.remove('hidden');
+        subtitle.textContent = 'Your cart is empty';
+        return;
+      }
+
+      const itemCount = cart.reduce((sum, item) => sum + item.qty, 0);
+      const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+      const appliedCoupon = localStorage.getItem('appliedCoupon');
+      const validCoupon = appliedCoupon === 'HERB10' ? appliedCoupon : null;
+      const estimatedDiscount = validCoupon ? Math.round(subtotal * 0.1) : 0;
+      const discountedSubtotal = subtotal - estimatedDiscount;
+      const shipping = discountedSubtotal >= 999 ? 0 : 99;
+      const tax = Math.round(discountedSubtotal * 0.05);
+      const total = discountedSubtotal + shipping + tax;
+      const hasFreeShipping = shipping === 0;
+      const renderSignature = cart
+        .map(item => `${item.id}:${item.weight}:${item.qty}:${item.price}:${item.name}:${item.image}`)
+        .sort()
+        .join('|') + `|coupon:${validCoupon || ''}|discount:${estimatedDiscount}|free:${hasFreeShipping}`;
+
+      subtitle.textContent = itemCount === 1 ? '1 item in your cart' : itemCount + ' items in your cart';
+      itemsRoot.dataset.renderSignature = renderSignature;
+
+      if (couponInput && couponApplyBtn && couponApplied && couponAppliedCode) {
+        if (validCoupon) {
+          couponInput.value = validCoupon;
+          couponInput.disabled = true;
+          couponApplyBtn.disabled = true;
+          couponAppliedCode.textContent = validCoupon;
+          couponApplied.classList.remove('is-hidden');
+        } else {
+          couponInput.value = '';
+          couponInput.disabled = false;
+          couponApplyBtn.disabled = false;
+          couponAppliedCode.textContent = '';
+          couponApplied.classList.add('is-hidden');
+        }
+      }
+
+      if (summarySubtotalLabel) {
+        summarySubtotalLabel.textContent = `Subtotal (${itemCount} item${itemCount !== 1 ? 's' : ''})`;
+      }
+      if (summarySubtotalValue) {
+        summarySubtotalValue.textContent = `Rs.${subtotal}`;
+      }
+      if (summaryDiscountRow && summaryDiscountLabel && summaryDiscountValue) {
+        if (validCoupon) {
+          summaryDiscountRow.classList.remove('is-empty');
+          summaryDiscountLabel.textContent = `Discount (${validCoupon})`;
+          summaryDiscountValue.textContent = `-Rs.${estimatedDiscount}`;
+        } else {
+          summaryDiscountRow.classList.add('is-empty');
+          summaryDiscountLabel.textContent = 'Discount';
+          summaryDiscountValue.textContent = 'Rs.0';
+        }
+      }
+      if (summaryShippingRow && summaryShippingValue) {
+        summaryShippingRow.classList.toggle('free', hasFreeShipping);
+        summaryShippingValue.textContent = hasFreeShipping ? 'Free' : `Rs.${shipping}`;
+      }
+      if (summaryTaxValue) {
+        summaryTaxValue.textContent = `Rs.${tax}`;
+      }
+      if (summaryTotalValue) {
+        summaryTotalValue.textContent = `Rs.${total}`;
+      }
+      if (checkoutBtn) {
+        checkoutBtn.disabled = false;
+      }
+
+      itemsRoot.innerHTML = [...cart].reverse().map((item, index) => {
+        let displayImage = item.image;
+        if (displayImage && displayImage.includes('images/herbs/')) {
+          const name = displayImage.split('/').pop().replace(/\.(jpg|png|webp)$/, '');
+          displayImage = `images/shop/${name}-pack.webp`;
+        }
+
+        return `
+          <div class="cart-item" id="item-${item.id}-${item.weight}"
+               style="cursor:pointer"
+               onclick="window.location.href='shop-detail.html?id=${item.id}&weight=${encodeURIComponent(item.weight)}'">
+            <div class="cart-item-img">
+              <img src="${displayImage}" alt="${item.name}" width="128" height="128"
+                ${index === 0 ? 'fetchpriority="high" decoding="async"' : index === 1 ? 'decoding="async"' : 'loading="lazy" decoding="async"'}
+                onerror="this.style.display='none'">
+            </div>
+            <div class="cart-item-info">
+              <h3>${item.name}</h3>
+              <p>${item.weight} - Certified Organic</p>
+              <div class="cart-controls" onclick="event.stopPropagation()">
+                <button class="qty-btn" aria-label="Decrease quantity"
+                  onclick="changeQty(${item.id}, '${item.weight}', -1)">-</button>
+                <span class="qty-num" id="qty-${item.id}-${item.weight}">${item.qty}</span>
+                <button class="qty-btn" aria-label="Increase quantity"
+                  onclick="changeQty(${item.id}, '${item.weight}', 1)">+</button>
+                <button class="remove-btn"
+                  onclick="removeItem(${item.id}, '${item.weight}')">Remove</button>
+              </div>
+            </div>
+            <div class="cart-item-price">
+              Rs.<span id="price-${item.id}-${item.weight}">${item.price * item.qty}</span>
+            </div>
+          </div>
+        `;
+      }).join('') + (hasFreeShipping ? `
+        <div class="free-shipping-notice">
+          <strong>Great news!</strong> You qualify for free shipping on this order.
+        </div>
+      ` : '');
+    })();
+  </script>
+  <script src="data/herbs-data.js" defer></script>
+  <script src="js/coupon-utils.js" defer></script>
+  <script src="js/toast.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/cart.js" defer></script>
+
+</body>
+</html>
+
+

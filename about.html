@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About HerbAtlas</title>
+  <meta name="description" content="Learn the story behind HerbAtlas, our sourcing standards, our herbal philosophy, and the people bringing premium medicinal herbs to modern homes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base/variables.css">
+  <link rel="stylesheet" href="css/base/reset.css">
+  <link rel="stylesheet" href="css/base/typography.css">
+  <link rel="stylesheet" href="css/components/header.css">
+  <link rel="stylesheet" href="css/components/footer.css">
+  <link rel="stylesheet" href="css/components/buttons.css">
+  <link rel="stylesheet" href="css/components/toast.css">
+  <link rel="stylesheet" href="css/pages/about/about-hero.css">
+  <link rel="stylesheet" href="css/pages/about/about-story.css">
+  <link rel="stylesheet" href="css/pages/about/about-values.css">
+  <link rel="stylesheet" href="css/pages/about/about-stats.css">
+  <link rel="stylesheet" href="css/pages/about/about-process.css">
+  <link rel="stylesheet" href="css/pages/about/about-team.css">
+  <link rel="stylesheet" href="css/pages/about/about-disclaimer.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">Herb<em>Atlas</em></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="browse.html">Browse</a></li>
+      <li><a href="ailments.html">Ailments</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="about.html" class="active">About Us</a></li>
+    </ul>
+    <div class="nav-right">
+      <input type="text" class="nav-search" placeholder="Search herbs...">
+      <a href="cart.html" class="nav-cart">
+        Cart <span class="cart-badge" id="cartBadge">0</span>
+      </a>
+      <a href="login.html" class="nav-user" id="navUser">Sign In</a>
+      <button class="nav-menu-btn" id="menuBtn" aria-label="Open menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-search-bar">
+    <input type="text" id="mobileSearchInput" placeholder="Search herbs...">
+  </div>
+
+  <main class="about-page">
+    <section class="about-hero">
+      <div class="container about-hero-grid">
+        <div class="about-hero-copy">
+          <p class="section-label">Our Story</p>
+          <h1>We believe nature<br>has an answer<br>for everything.</h1>
+          <p class="about-hero-text">HerbAtlas was born from a passion for ancient herbal wisdom and a mission to make pure medicinal herbs accessible to everyone.</p>
+        </div>
+        <div class="about-hero-media">
+          <img src="images/ui/about-bg.webp" alt="HerbAtlas medicinal herb powders and pouches" width="1200" height="600">
+        </div>
+      </div>
+    </section>
+
+    <section class="about-story">
+      <div class="container about-story-grid">
+        <div class="about-story-media">
+          <img src="images/ui/about-bg2.webp" alt="Premium HerbAtlas herb powders arranged on a wooden surface" width="1200" height="600">
+        </div>
+        <div class="about-story-copy">
+          <p class="section-label">Brand Story</p>
+          <h2>How HerbAtlas Started</h2>
+          <p>HerbAtlas began with a simple question — why are the most powerful medicinal herbs in the world so hard to find in their pure form?</p>
+          <p>We spent years researching ancient Ayurvedic texts, traditional Chinese medicine and herbal traditions from across the world. What we found was extraordinary — nature had already solved most of our modern health problems thousands of years ago.</p>
+          <p>Today HerbAtlas brings you 40+ of the world's most powerful medicinal herbs in pure powder form. No fillers. No additives. Just nature at its finest.</p>
+          <a href="browse.html" class="btn-primary">Explore Our Herbs</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-values">
+      <div class="container">
+        <div class="section-header about-section-center">
+          <div>
+            <p class="section-label">Why HerbAtlas</p>
+            <h2 class="section-title">Why Choose HerbAtlas</h2>
+          </div>
+        </div>
+        <div class="about-values-grid">
+          <article class="about-value-card">
+            <span class="about-value-icon">ORG</span>
+            <h3>100% Organic</h3>
+            <p>Every herb certified organic from source to shelf</p>
+          </article>
+          <article class="about-value-card">
+            <span class="about-value-icon">LAB</span>
+            <h3>Lab Tested</h3>
+            <p>Every batch tested for purity and potency</p>
+          </article>
+          <article class="about-value-card">
+            <span class="about-value-icon">GLB</span>
+            <h3>Globally Sourced</h3>
+            <p>Direct from certified organic farms worldwide</p>
+          </article>
+          <article class="about-value-card">
+            <span class="about-value-icon">PWR</span>
+            <h3>Pure Powder Form</h3>
+            <p>No fillers no additives just the herb itself</p>
+          </article>
+          <article class="about-value-card">
+            <span class="about-value-icon">DLV</span>
+            <h3>Free Delivery</h3>
+            <p>Free shipping on all orders above Rs 999</p>
+          </article>
+          <article class="about-value-card">
+            <span class="about-value-icon">EXP</span>
+            <h3>Expert Knowledge</h3>
+            <p>Each herb documented with traditional and modern research</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-stats">
+      <div class="container">
+        <div class="about-stats-grid">
+          <div class="about-stat">
+            <strong>40+</strong>
+            <span>Herbs in Collection</span>
+          </div>
+          <div class="about-stat">
+            <strong>500+</strong>
+            <span>Orders Delivered</span>
+          </div>
+          <div class="about-stat">
+            <strong>6</strong>
+            <span>Regions Worldwide</span>
+          </div>
+          <div class="about-stat">
+            <strong>100%</strong>
+            <span>Organic Certified</span>
+          </div>
+          <div class="about-stat">
+            <strong>3000+</strong>
+            <span>Years of Tradition</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-process">
+      <div class="container">
+        <div class="section-header about-section-center">
+          <div>
+            <p class="section-label">Our Process</p>
+            <h2 class="section-title">From Farm to Your Door</h2>
+          </div>
+        </div>
+        <div class="about-process-grid">
+          <article class="about-process-step">
+            <span class="about-process-icon">01</span>
+            <h3>Farm Selection</h3>
+            <p>We carefully select certified organic farms worldwide</p>
+          </article>
+          <article class="about-process-step">
+            <span class="about-process-icon">02</span>
+            <h3>Harvest at Peak</h3>
+            <p>Herbs harvested at peak potency for maximum benefit</p>
+          </article>
+          <article class="about-process-step">
+            <span class="about-process-icon">03</span>
+            <h3>Lab Testing</h3>
+            <p>Every batch independently tested for purity and safety</p>
+          </article>
+          <article class="about-process-step">
+            <span class="about-process-icon">04</span>
+            <h3>Careful Packing</h3>
+            <p>Sealed in kraft pouches to preserve freshness</p>
+          </article>
+          <article class="about-process-step">
+            <span class="about-process-icon">05</span>
+            <h3>Fast Delivery</h3>
+            <p>Delivered to your door in 2 to 3 business days</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-team">
+      <div class="container">
+        <div class="section-header about-section-center">
+          <div>
+            <p class="section-label">The Team</p>
+            <h2 class="section-title">The People Behind HerbAtlas</h2>
+          </div>
+        </div>
+        <div class="about-team-grid">
+          <article class="about-team-card">
+            <img src="images/team/team-1.jpeg" alt="Priya Sharma" width="640" height="720">
+            <div class="about-team-card-body">
+              <h3>Dheeraj Reddy</h3>
+              <span>Founder &amp; Herbalist</span>
+              <p>Passionate about bringing ancient Ayurvedic wisdom to modern Indian homes.</p>
+            </div>
+          </article>
+          <article class="about-team-card">
+            <img src="images/team/team-2.jpeg" alt="Rahul Verma" width="640" height="720">
+            <div class="about-team-card-body">
+              <h3>Rahul Verma</h3>
+              <span>Head of Sourcing</span>
+              <p>15 years experience working directly with organic herb farms across South Asia.</p>
+            </div>
+          </article>
+          <article class="about-team-card">
+            <img src="images/team/team-3.jpeg" alt="Dr. Meena Patel" width="640" height="720">
+            <div class="about-team-card-body">
+              <h3>Dr. Meena Patel</h3>
+              <span>Research &amp; Quality</span>
+              <p>Ensuring every herb meets our strict quality and purity standards.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-disclaimer">
+      <div class="container about-disclaimer-inner">
+        <p class="section-label">Important Disclaimer</p>
+        <h2>Important Disclaimer</h2>
+        <p>All information provided by HerbAtlas is strictly for educational purposes only. Our products are not intended to diagnose, treat, cure or prevent any disease or medical condition. Individual results may vary. Always consult a qualified healthcare professional or doctor before using any herbal supplement especially if you are pregnant breastfeeding on medication or have a medical condition. HerbAtlas is not responsible for any adverse effects from the use of our products.</p>
+        <p class="about-disclaimer-meta">© 2026 HerbAtlas · Educational use only · Not medical advice</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">Herb<em>Atlas</em></div>
+        <p class="footer-desc">
+          Documenting the world's medicinal herbs
+          for curious minds and wellness seekers.
+        </p>
+        <p class="footer-disclaimer">
+          For educational purposes only. Not medical advice.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="index.html">Home</a>
+        <a href="browse.html">Browse</a>
+        <a href="ailments.html">Ailments</a>
+        <a href="about.html">About Us</a>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <a href="shop.html">All Products</a>
+        <a href="cart.html">Cart</a>
+      </div>
+        <div class="footer-col">
+          <h4>Account</h4>
+          <a href="profile.html" class="footer-auth-user" hidden>My Account</a>
+          <a href="login.html" class="footer-auth-guest">Login</a>
+        <a href="login.html?tab=register" class="footer-auth-guest">Sign Up</a>
+          <a href="contact.html">Contact Us</a>
+          <button type="button" class="footer-logout-btn" hidden>Sign Out</button>
+        </div>
+        <div class="footer-col">
+          <h4>Social</h4>
+          <a href="https://www.instagram.com/_herbatlas?igsh=OXhicWx4bmowZzlx" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+            <svg class="footer-social-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1"></circle></svg>
+            <span>Instagram</span>
+          </a>
+          <a href="https://www.facebook.com/share/1BPQ3Z8bna/" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+            <svg class="footer-social-icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M13.5 21v-7h2.4l.4-3h-2.8V9.2c0-.9.3-1.5 1.6-1.5H16V5.1c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 4V11H7.5v3h2.4v7h3.6z"/></svg>
+            <span>Facebook</span>
+          </a>
+          <a href="https://x.com/_dheeraj__reddy" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+            <svg class="footer-social-icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M18.9 2H22l-6.8 7.8L23 22h-6.2l-4.9-6.4L6.3 22H3.2l7.3-8.3L1 2h6.3l4.5 6 5.1-6zM17.8 20h1.7L6.2 3.9H4.4z"/></svg>
+            <span>Twitter</span>
+          </a>
+        </div>
+      </div>
+    <div class="footer-bottom">
+      <p>2026 HerbAtlas</p>
+      <p>Always consult a healthcare professional.</p>
+    </div>
+  </footer>
+
+  <script src="js/toast.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/about.js" defer></script>
+</body>
+</html>
+

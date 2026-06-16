@@ -1,0 +1,245 @@
+/* ============================================================
+   Hero Carousel - right-column only
+   Extends hero.css without modifying it.
+   ============================================================ */
+
+.hero-carousel {
+  position: relative;
+}
+
+.hc-track {
+  position: relative;
+  min-height: 480px;
+}
+
+.hc-slide {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(184, 212, 160, 0.18);
+  border-radius: 16px;
+  padding: 28px;
+  text-align: center;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0s linear 0.5s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hc-slide--active {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease, visibility 0s linear 0s;
+  position: relative;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hc-slide {
+    transition: none;
+  }
+}
+
+.hc-slide .hero-card-label {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: rgba(122, 82, 40, 0.2);
+  color: var(--brown-light);
+}
+
+.hc-img-wrap {
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 18px;
+  padding: 12px 20px;
+  flex-shrink: 0;
+  background: rgba(22, 42, 15, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hc-img-wrap img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
+.hc-slide h4 {
+  font-family: var(--font-head);
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--cream);
+  margin-bottom: 4px;
+}
+
+.hc-slide p {
+  font-size: 12px;
+  font-style: italic;
+  color: rgba(248, 244, 236, 0.55);
+  margin-bottom: 14px;
+}
+
+.hc-slide .hero-card-uses {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--green-pale);
+  margin-bottom: 20px;
+}
+
+.hc-btn {
+  margin-top: auto;
+  text-decoration: none;
+  font-family: var(--font-body);
+}
+
+.hc-arrow {
+  position: absolute;
+  top: calc(50% - 20px);
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(184, 212, 160, 0.25);
+  background: rgba(22, 42, 15, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--green-pale);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.hc-arrow--prev {
+  left: 12px;
+}
+
+.hc-arrow--next {
+  right: 12px;
+}
+
+.hc-arrow:hover,
+.hc-arrow:focus-visible {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(184, 212, 160, 0.55);
+  color: var(--cream);
+}
+
+.hc-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.hc-dot {
+  height: 6px;
+  width: 6px;
+  border-radius: 3px;
+  background: rgba(184, 212, 160, 0.35);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: width 0.3s ease, background 0.3s ease;
+}
+
+.hc-dot--active {
+  width: 20px;
+  background: var(--green-pale);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hc-dot {
+    transition: none;
+  }
+}
+
+@media (max-width: 1000px) {
+  .hc-track {
+    min-height: 440px;
+  }
+
+  .hc-img-wrap {
+    height: 220px;
+    padding: 10px 16px;
+  }
+
+  .hc-slide h4 {
+    font-size: 22px;
+  }
+
+  .hc-arrow--prev {
+    left: 10px;
+  }
+
+  .hc-arrow--next {
+    right: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hc-arrow {
+    width: 34px;
+    height: 34px;
+    font-size: 20px;
+  }
+
+  .hc-arrow--prev {
+    left: 8px;
+  }
+
+  .hc-arrow--next {
+    right: 8px;
+  }
+
+  .hc-img-wrap {
+    height: 200px;
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 680px) {
+  .hero-carousel {
+    max-width: 340px;
+    margin: 0 auto;
+    overflow: visible;
+  }
+
+  .hc-track {
+    min-height: 460px;
+  }
+
+  .hc-img-wrap {
+    height: 190px;
+    padding: 8px 10px;
+  }
+
+  .hc-arrow--prev {
+    left: 8px;
+  }
+
+  .hc-arrow--next {
+    right: 8px;
+  }
+}

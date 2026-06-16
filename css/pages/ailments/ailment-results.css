@@ -1,0 +1,139 @@
+.ailment-results {
+  background: var(--cream-dark);
+  padding: 52px;
+  display: none;
+  overflow-x: clip;
+}
+
+.ailment-results.show {
+  display: block;
+}
+
+.ailment-results-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  gap: 20px;
+}
+
+.ailment-results-header > div {
+  min-width: 0;
+}
+
+.ailment-results-header .section-title,
+.ailment-results-header .results-tip,
+.ailment-results-header .section-label {
+  overflow-wrap: anywhere;
+}
+
+.results-tip {
+  font-size: 13px;
+  color: var(--green-light);
+  font-style: italic;
+  margin-top: 6px;
+}
+
+.ailment-results .herbs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+@media (max-width: 1180px) {
+  .ailment-results .herbs-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 939px) {
+  .ailment-results .herbs-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.ailment-results .pagination {
+  margin-top: 28px;
+  padding: 28px 0 0;
+  background: transparent;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 700px) {
+  .ailment-results {
+    padding: 32px 20px;
+  }
+
+  .ailment-results-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .ailment-results .herbs-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .ailment-results .herb-card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .ailment-results .herb-card-img {
+    height: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ailment-results {
+    padding: 24px 14px;
+  }
+
+  .ailment-results .herb-card-body {
+    padding: 16px 14px;
+  }
+
+  .ailment-results .herb-card-img {
+    height: 200px;
+  }
+}
+
+@media (max-width: 320px) {
+  .ailment-results {
+    padding: 18px 10px;
+  }
+
+  .ailment-results-header {
+    gap: 12px;
+  }
+
+  .ailment-results-header .section-title {
+    font-size: 28px;
+    line-height: 1.05;
+  }
+
+  .ailment-results .btn-outline {
+    width: 100%;
+    text-align: center;
+    padding: 10px 14px;
+  }
+
+  .ailment-results .herb-card-body h3 {
+    font-size: 19px;
+  }
+
+  .ailment-results .herb-card-body p {
+    font-size: 12px;
+  }
+
+  .ailment-results .herb-card-img {
+    height: 170px;
+  }
+
+  .ailment-results .page-num {
+    width: 30px;
+    height: 30px;
+    font-size: 11px;
+  }
+}

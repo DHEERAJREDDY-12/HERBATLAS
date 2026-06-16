@@ -1,0 +1,37 @@
+.cart-header {
+  background: var(--green-dark);
+  padding: 52px;
+  color: var(--cream);
+}
+
+.cart-header .section-label {
+  color: var(--green-pale);
+  opacity: 0.8;
+}
+
+.cart-header h1 {
+  font-size: 52px;
+  color: var(--cream);
+  font-weight: 300;
+  margin-bottom: 8px;
+}
+
+.cart-header h1 em {
+  font-style: italic;
+  color: var(--green-pale);
+}
+
+.cart-header p {
+  font-size: 14px;
+  color: rgba(248, 244, 236, 0.55);
+}
+
+@media (max-width: 768px) {
+  .cart-header {
+    padding: 40px 20px;
+  }
+
+  .cart-header h1 {
+    font-size: 38px;
+  }
+}

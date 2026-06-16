@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Account — HerbAtlas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base/variables.css">
+  <link rel="stylesheet" href="css/base/reset.css">
+  <link rel="stylesheet" href="css/base/typography.css">
+  <link rel="stylesheet" href="css/components/header.css">
+  <link rel="stylesheet" href="css/components/footer.css">
+  <link rel="stylesheet" href="css/components/buttons.css">
+  <link rel="stylesheet" href="css/components/toast.css">
+  <link rel="stylesheet" href="css/pages/profile/profile.css">
+  <style>
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">Herb<em>Atlas</em></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="browse.html">Browse</a></li>
+      <li><a href="ailments.html">Ailments</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="about.html">About Us</a></li>
+    </ul>
+    <div class="nav-right">
+      <input type="text" class="nav-search" placeholder="Search herbs...">
+      <a href="cart.html" class="nav-cart">
+        Cart <span class="cart-badge" id="cartBadge">0</span>
+      </a>
+      <a href="login.html" class="nav-user" id="navUser">Sign In</a>
+      <button class="nav-menu-btn" id="menuBtn" aria-label="Open menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-search-bar">
+    <input type="text" id="mobileSearchInput" placeholder="Search herbs...">
+  </div>
+
+  <main class="profile-page">
+
+    <!-- Hero -->
+    <div class="profile-hero">
+      <div class="profile-hero-info">
+        <p class="section-label">Your Account</p>
+        <h1>Hello, <em id="profileName">there</em></h1>
+        <p class="profile-hero-meta" id="profileEmail"></p>
+
+        <!-- Default address strip (shown if address exists) -->
+        <div class="profile-address-strip hidden" id="profileAddressStrip">
+          <span class="profile-address-strip-icon" aria-hidden="true">&#128205;</span>
+          <div class="profile-address-strip-text">
+            <strong id="profileAddrName"></strong>
+            <span id="profileAddrDetail"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation cards -->
+    <div class="profile-cards-section">
+      <div class="profile-cards-grid">
+
+        <!-- My Orders -->
+        <a href="orders.html" class="profile-card" aria-label="My Orders">
+          <span class="profile-card-icon" aria-hidden="true">&#128230;</span>
+          <span class="profile-card-title">My Orders</span>
+          <span class="profile-card-desc">Track and view your order history</span>
+          <span class="profile-card-badge hidden" id="orderCountBadge">0</span>
+        </a>
+
+        <!-- My Addresses -->
+        <a href="addresses.html" class="profile-card" aria-label="My Addresses">
+          <span class="profile-card-icon" aria-hidden="true">&#127968;</span>
+          <span class="profile-card-title">My Addresses</span>
+          <span class="profile-card-desc">Manage your delivery addresses</span>
+          <span class="profile-card-badge profile-card-badge--addr hidden" id="addrCountBadge">0</span>
+        </a>
+
+        <!-- Personal Herb Profile -->
+        <a href="account.html" class="profile-card" aria-label="Personal Herb Profile">
+          <span class="profile-card-icon" aria-hidden="true">&#127807;</span>
+          <span class="profile-card-title">Herb Profile</span>
+          <span class="profile-card-desc">Your wellness goals and herb recommendations</span>
+        </a>
+
+        <a href="contact.html" class="profile-card" aria-label="Contact Us">
+          <span class="profile-card-icon" aria-hidden="true">&#9993;</span>
+          <span class="profile-card-title">Contact Us</span>
+          <span class="profile-card-desc">Read common answers and reach HerbAtlas support</span>
+        </a>
+
+        <!-- Logout -->
+        <button type="button" class="profile-card profile-card--logout" id="profileLogoutBtn" aria-label="Sign out of your account">
+          <span class="profile-card-icon" aria-hidden="true">&#128682;</span>
+          <span class="profile-card-title">Sign Out</span>
+          <span class="profile-card-desc">Sign out of your HerbAtlas account</span>
+        </button>
+
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">Herb<em>Atlas</em></div>
+        <p class="footer-desc">Documenting the world's medicinal herbs for curious minds and wellness seekers.</p>
+        <p class="footer-disclaimer">For educational purposes only. Not medical advice.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="index.html">Home</a>
+        <a href="browse.html">Browse</a>
+        <a href="ailments.html">Ailments</a>
+        <a href="about.html">About Us</a>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <a href="shop.html">All Products</a>
+        <a href="cart.html">Cart</a>
+      </div>
+        <div class="footer-col">
+          <h4>Account</h4>
+          <a href="profile.html" class="footer-auth-user" hidden>My Account</a>
+          <a href="login.html" class="footer-auth-guest">Login</a>
+        <a href="login.html?tab=register" class="footer-auth-guest">Sign Up</a>
+          <a href="contact.html">Contact Us</a>
+          <button type="button" class="footer-logout-btn" hidden>Sign Out</button>
+        </div>
+        <div class="footer-col">
+          <h4>Social</h4>
+          <a href="https://www.instagram.com/_herbatlas?igsh=OXhicWx4bmowZzlx" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+            <svg class="footer-social-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1"></circle></svg>
+            <span>Instagram</span>
+          </a>
+          <a href="https://www.facebook.com/share/1BPQ3Z8bna/" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+            <svg class="footer-social-icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M13.5 21v-7h2.4l.4-3h-2.8V9.2c0-.9.3-1.5 1.6-1.5H16V5.1c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 4V11H7.5v3h2.4v7h3.6z"/></svg>
+            <span>Facebook</span>
+          </a>
+          <a href="https://x.com/_dheeraj__reddy" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+            <svg class="footer-social-icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M18.9 2H22l-6.8 7.8L23 22h-6.2l-4.9-6.4L6.3 22H3.2l7.3-8.3L1 2h6.3l4.5 6 5.1-6zM17.8 20h1.7L6.2 3.9H4.4z"/></svg>
+            <span>Twitter</span>
+          </a>
+        </div>
+      </div>
+    <div class="footer-bottom">
+      <p>2026 HerbAtlas</p>
+      <p>Always consult a healthcare professional.</p>
+    </div>
+  </footer>
+
+  <script src="data/herbs-data.js"></script>
+  <script src="js/toast.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/profile.js" defer></script>
+
+</body>
+</html>
+

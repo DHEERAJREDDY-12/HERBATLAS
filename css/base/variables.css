@@ -1,0 +1,26 @@
+:root {
+  --green-dark: #162a0f;
+  --green-mid: #2a5220;
+  --green-light: #437a32;
+  --green-pale: #b8d4a0;
+  --green-ultra: #e8f2e0;
+  --cream: #f8f4ec;
+  --cream-dark: #ede7d9;
+  --brown: #7a5228;
+  --brown-light: #c4956a;
+  --white: #ffffff;
+  --text: #1a1a14;
+  --text-mid: #4a4a3c;
+  --text-light: #8a8a78;
+  /* Accessible variant: 4.5:1 on white — used where WCAG AA is required */
+  --text-light-accessible: #767668;
+  --shadow-sm: 0 2px 12px rgba(22, 42, 15, 0.08);
+  --shadow: 0 4px 24px rgba(22, 42, 15, 0.12);
+  --shadow-lg: 0 16px 48px rgba(22, 42, 15, 0.18);
+  --radius: 12px;
+  --radius-sm: 6px;
+  --font-head: 'Cormorant Garamond',serif;
+  --font-body: 'Outfit',sans-serif;
+  --nav-height: 67px;
+  --transition: all 0.25s ease;
+}

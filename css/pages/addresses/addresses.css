@@ -1,0 +1,292 @@
+/* ============================================================
+   addresses.css — Address book page
+   ============================================================ */
+
+.addresses-page {
+  background: var(--cream);
+  min-height: 70vh;
+}
+
+/* ── Page header ─────────────────────────────────────────── */
+.addresses-header {
+  background: var(--green-dark);
+  padding: 52px 52px 44px;
+}
+
+.addresses-header .section-label {
+  color: var(--green-pale);
+  opacity: 0.85;
+}
+
+.addresses-header h1 {
+  font-size: clamp(2rem, 3.5vw, 3.4rem);
+  font-weight: 300;
+  color: var(--cream);
+  margin: 10px 0 8px;
+}
+
+.addresses-header h1 em {
+  color: var(--green-pale);
+}
+
+.addresses-header p {
+  font-size: 13px;
+  color: rgba(248, 244, 236, 0.6);
+}
+
+/* ── Body layout ────────────────────────────────────────── */
+.addresses-body {
+  padding: 40px 52px 64px;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 32px;
+  align-items: start;
+}
+
+/* ── Address list ───────────────────────────────────────── */
+.addresses-list-section h2 {
+  font-family: var(--font-head);
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--green-dark);
+  margin-bottom: 20px;
+}
+
+.address-card {
+  background: var(--white);
+  border: 1.5px solid var(--cream-dark);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  margin-bottom: 16px;
+  position: relative;
+  transition: var(--transition);
+}
+
+.address-card:hover {
+  border-color: var(--green-pale);
+  box-shadow: var(--shadow-sm);
+}
+
+.address-card.is-default {
+  border-color: var(--green-mid);
+}
+
+.address-default-badge {
+  display: inline-block;
+  background: var(--green-dark);
+  color: var(--green-pale);
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.address-card-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--green-dark);
+  margin-bottom: 4px;
+}
+
+.address-card-phone {
+  font-size: 13px;
+  color: var(--text-mid);
+  margin-bottom: 8px;
+}
+
+.address-card-lines {
+  font-size: 13px;
+  color: var(--text-mid);
+  line-height: 1.65;
+}
+
+.address-card-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.addr-action-btn {
+  font-size: 12px;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--cream-dark);
+  background: var(--white);
+  color: var(--text-mid);
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: var(--font-body);
+}
+
+.addr-action-btn:hover {
+  border-color: var(--green-mid);
+  color: var(--green-mid);
+}
+
+.addr-action-btn.set-default {
+  border-color: var(--green-pale);
+  color: var(--green-mid);
+}
+
+.addr-action-btn.delete {
+  border-color: rgba(160, 0, 0, 0.2);
+  color: #a00000;
+}
+
+.addr-action-btn.delete:hover {
+  background: #fff5f5;
+  border-color: #a00000;
+}
+
+/* Empty state */
+.addresses-empty {
+  text-align: center;
+  padding: 60px 20px;
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 1.5px dashed var(--cream-dark);
+}
+
+.addresses-empty p {
+  font-size: 14px;
+  color: var(--text-light);
+  margin-bottom: 20px;
+}
+
+/* ── Address Form ────────────────────────────────────────── */
+.address-form-panel {
+  background: var(--white);
+  border: 1.5px solid var(--cream-dark);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: calc(var(--nav-height) + 20px);
+}
+
+.address-form-panel h2 {
+  font-family: var(--font-head);
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--green-dark);
+  margin-bottom: 22px;
+}
+
+.addr-field {
+  margin-bottom: 16px;
+}
+
+.addr-field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--green-dark);
+  margin-bottom: 6px;
+}
+
+.addr-field label span.req {
+  color: #a00000;
+  margin-left: 2px;
+}
+
+.addr-field input,
+.addr-field select {
+  width: 100%;
+  border: 1.5px solid var(--cream-dark);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-size: 13px;
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--white);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.addr-field input:focus,
+.addr-field select:focus {
+  border-color: var(--green-mid);
+}
+
+.addr-field input.error,
+.addr-field select.error {
+  border-color: #a00000;
+}
+
+.addr-field-error {
+  font-size: 11px;
+  color: #a00000;
+  margin-top: 4px;
+  min-height: 14px;
+  display: block;
+}
+
+.addr-field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.addr-save-btn {
+  width: 100%;
+  background: var(--green-mid);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 13px;
+  font-size: 13px;
+  font-family: var(--font-body);
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: var(--transition);
+}
+
+.addr-save-btn:hover {
+  background: var(--green-dark);
+}
+
+.addr-cancel-btn {
+  width: 100%;
+  background: transparent;
+  color: var(--text-mid);
+  border: 1.5px solid var(--cream-dark);
+  border-radius: var(--radius-sm);
+  padding: 11px;
+  font-size: 13px;
+  font-family: var(--font-body);
+  cursor: pointer;
+  margin-top: 8px;
+  transition: var(--transition);
+}
+
+.addr-cancel-btn:hover {
+  border-color: var(--green-mid);
+  color: var(--green-mid);
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 1000px) {
+  .addresses-body {
+    grid-template-columns: 1fr;
+    padding: 28px 20px 48px;
+  }
+
+  .address-form-panel {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .addresses-header {
+    padding: 40px 20px 32px;
+  }
+
+  .addr-field-row {
+    grid-template-columns: 1fr;
+  }
+}

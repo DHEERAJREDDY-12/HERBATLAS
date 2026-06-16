@@ -1,0 +1,41 @@
+.about-disclaimer {
+  background: linear-gradient(180deg, #17330d 0%, #102409 100%);
+  padding: 80px 0;
+}
+
+.about-disclaimer-inner {
+  max-width: 820px;
+  text-align: center;
+}
+
+.about-disclaimer .section-label {
+  color: rgba(184, 212, 160, 0.82);
+}
+
+.about-disclaimer h2 {
+  color: var(--cream);
+  margin-bottom: 20px;
+}
+
+.about-disclaimer p {
+  color: rgba(248, 244, 236, 0.72);
+  font-size: 16px;
+  margin: 0 auto;
+}
+
+.about-disclaimer-meta {
+  margin-top: 24px;
+  font-size: 13px;
+  color: rgba(248, 244, 236, 0.52) !important;
+  letter-spacing: 0.4px;
+}
+
+@media (max-width: 640px) {
+  .about-disclaimer {
+    padding: 64px 0;
+  }
+
+  .about-disclaimer p {
+    font-size: 15px;
+  }
+}

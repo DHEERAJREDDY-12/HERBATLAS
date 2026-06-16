@@ -1,0 +1,75 @@
+.detail-body {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 48px;
+  padding: 52px;
+  align-items: start;
+  background: var(--cream);
+}
+
+.detail-main {
+  min-width: 0;
+}
+
+.uses-section {
+  margin-bottom: 44px;
+}
+
+.uses-section h2,
+.dosage-section h2,
+.warnings-section h2,
+.fun-fact-section h2 {
+  font-family: var(--font-body);
+  font-size: 24px;
+  color: var(--green-dark);
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--cream-dark);
+  font-weight: 600;
+}
+
+.uses-list {
+  list-style: none;
+  min-height: 300px;
+}
+
+.uses-list li {
+  display: flex;
+  gap: 12px;
+  padding: 13px 0;
+  border-bottom: 1px solid #f0ece2;
+  font-size: 14px;
+  color: var(--text-mid);
+  line-height: 1.6;
+}
+
+.uses-list li::before {
+  content: '';
+  background: var(--green-light);
+  border-radius: 50%;
+  height: 6px;
+  margin-top: 9px;
+  flex-shrink: 0;
+  width: 6px;
+}
+
+@media (max-width: 1000px) {
+  .detail-body {
+    grid-template-columns: 1fr;
+    padding: 32px;
+  }
+
+  .uses-list {
+    min-height: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .detail-body {
+    padding: 24px 20px;
+  }
+
+  .uses-list {
+    min-height: 260px;
+  }
+}

@@ -1,0 +1,91 @@
+.btn-primary{
+  background: var(--green-mid);
+  color:var(--white);
+  border: none;
+  padding:13px 28px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  transition: var(--transition);
+  display: inline-block;
+  cursor: pointer;
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background: var(--green-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(22, 42, 15, 0.25);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--green-mid);
+  border: 1.5px solid var(--green-mid);
+  padding: 11px 24px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  transition: var(--transition);
+  display: inline-block;
+  cursor: pointer;
+}
+
+.btn-outline:hover,
+.btn-outline:focus-visible {
+  background: var(--green-mid);
+  color: var(--white);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(67, 122, 50, 0.2);
+}
+
+.btn-outline:active {
+  transform: translateY(0);
+}
+
+/* Outline variant on dark backgrounds (e.g. account hero) */
+.btn-outline.on-dark {
+  color: var(--cream);
+  border-color: rgba(248, 244, 236, 0.5);
+}
+
+.btn-outline.on-dark:hover {
+  background: rgba(248, 244, 236, 0.12);
+  border-color: var(--cream);
+  color: var(--cream);
+}
+
+.btn-brown {
+  background: var(--brown);
+  color: var(--white);
+  border: none;
+  padding: 13px 28px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  transition: var(--transition);
+  display: inline-block;
+  cursor: pointer;
+}
+
+.btn-brown:hover,
+.btn-brown:focus-visible {
+  background: var(--brown-light);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(122, 82, 40, 0.25);
+}
+
+.btn-brown:active {
+  transform: translateY(0);
+}
+
+/* Shared active/focus ring for accessibility */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--green-pale);
+  outline-offset: 3px;
+}

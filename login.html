@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In — HerbAtlas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base/variables.css">
+  <link rel="stylesheet" href="css/base/reset.css">
+  <link rel="stylesheet" href="css/base/typography.css">
+  <link rel="stylesheet" href="css/pages/login/login-layout.css">
+  <link rel="stylesheet" href="css/pages/login/login-visual.css">
+  <link rel="stylesheet" href="css/pages/login/login-form.css">
+  <link rel="stylesheet" href="css/components/header.css">
+  <link rel="stylesheet" href="css/components/toast.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">Herb<em>Atlas</em></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="browse.html">Browse</a></li>
+      <li><a href="ailments.html">Ailments</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="about.html">About Us</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="cart.html" class="nav-cart">
+        Cart <span class="cart-badge" id="cartBadge">0</span>
+      </a>
+      <button class="nav-menu-btn" id="menuBtn" aria-label="Open menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-search-bar">
+    <input type="text" id="mobileSearchInput" placeholder="Search herbs...">
+  </div>
+
+<div class="login-page">
+
+  <div class="login-visual">
+    <div class="login-visual-inner">
+
+      <div class="login-visual-hero">
+        <img src="images/herbs/ashwagandha.webp" alt="Herb" class="login-hero-img"
+          onerror="this.src='images/herbs/turmeric.webp'">
+        <div class="login-hero-ring"></div>
+        <div class="login-hero-ring login-hero-ring--2"></div>
+      </div>
+
+      <p class="login-visual-title">Nature's pharmacy,<br><em>curated for you</em></p>
+
+      <div class="login-stats">
+        <div class="login-stat">
+          <span class="stat-n" id="loginHerbCount">40</span>
+          <span class="stat-l">Herbs</span>
+        </div>
+        <div class="login-stat-div"></div>
+        <div class="login-stat">
+          <span class="stat-n">8</span>
+          <span class="stat-l">Ailments</span>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- Right form panel -->
+  <div class="login-form-side">
+    <div class="login-form-wrap">
+
+      <!-- Sliding tab toggle -->
+      <div class="login-tabs">
+        <button class="login-tab active" id="signinTab" onclick="switchTab('signin')">Sign In</button>
+        <button class="login-tab" id="registerTab" onclick="switchTab('register')">Create Account</button>
+        <div class="login-tab-indicator" id="tabIndicator"></div>
+      </div>
+
+      <div class="login-forms-container">
+
+        <!-- Sign In -->
+        <div id="signinForm" class="login-form-panel">
+          <div class="form-header">
+            <h2>Welcome back</h2>
+            <p>Sign in to continue your herb journey</p>
+          </div>
+
+          <div class="form-field">
+            <label for="signinEmail">Email Address</label>
+            <input type="email" id="signinEmail" placeholder="you@example.com" autocomplete="email">
+          </div>
+
+          <div class="form-field">
+            <label for="signinPassword">Password</label>
+            <div class="password-wrap">
+              <input type="password" id="signinPassword" placeholder="••••••••" autocomplete="current-password">
+              <button type="button" class="pwd-toggle" onclick="togglePassword('signinPassword', this)" aria-label="Toggle password visibility">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="form-row-between">
+            <label class="remember-check">
+              <input type="checkbox" id="rememberMe"> Remember me
+            </label>
+            <a href="#" class="forgot-link">Forgot password?</a>
+          </div>
+
+          <div class="login-error hidden" id="signinError"></div>
+          <button class="login-btn" onclick="signIn()">Sign In</button>
+
+          <p class="switch-text">
+            Don't have an account?
+            <a href="#" onclick="switchTab('register'); return false;">Create one free</a>
+          </p>
+        </div>
+
+        <!-- Register -->
+        <div id="registerForm" class="login-form-panel hidden">
+          <div class="form-header">
+            <h2>Create Account</h2>
+            <p>Join thousands of herb enthusiasts</p>
+          </div>
+
+          <div class="form-row-2col">
+            <div class="form-field">
+              <label for="regFirstName">First Name</label>
+              <input type="text" id="regFirstName" placeholder="Priya" autocomplete="given-name">
+            </div>
+            <div class="form-field">
+              <label for="regLastName">Last Name</label>
+              <input type="text" id="regLastName" placeholder="Sharma" autocomplete="family-name">
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="regEmail">Email Address</label>
+            <input type="email" id="regEmail" placeholder="you@example.com" autocomplete="email">
+          </div>
+
+          <div class="form-field">
+            <label for="regPassword">Password</label>
+            <div class="password-wrap">
+              <input type="password" id="regPassword" placeholder="Min 6 characters"
+                autocomplete="new-password" oninput="checkStrength(this.value)">
+              <button type="button" class="pwd-toggle" onclick="togglePassword('regPassword', this)" aria-label="Toggle password visibility">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+              </button>
+            </div>
+            <div class="strength-bar"><div class="strength-fill" id="strengthFill"></div></div>
+            <span class="strength-label" id="strengthLabel"></span>
+          </div>
+
+          <div class="form-field">
+            <label for="regConfirm">Confirm Password</label>
+            <div class="password-wrap">
+              <input type="password" id="regConfirm" placeholder="Repeat password" autocomplete="new-password">
+              <button type="button" class="pwd-toggle" onclick="togglePassword('regConfirm', this)" aria-label="Toggle password visibility">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="login-error hidden" id="registerError"></div>
+          <button class="login-btn" onclick="register()">Create Account</button>
+
+          <p class="switch-text">
+            Already have an account?
+            <a href="#" onclick="switchTab('signin'); return false;">Sign in</a>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="data/herbs-data.js"></script>
+<script src="js/toast.js" defer></script>
+<script src="js/main.js" defer></script>
+<script src="js/login.js" defer></script>
+
+</body>
+</html>

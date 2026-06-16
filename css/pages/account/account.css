@@ -1,0 +1,295 @@
+.account-page {
+  background: var(--cream);
+  min-height: 70vh;
+}
+
+.account-hero {
+  background: var(--green-dark);
+  color: var(--cream);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 64px 52px 52px;
+  min-height: 220px;
+}
+
+.account-hero > div {
+  min-width: 0;
+}
+
+.account-hero h1{
+  font-family: var(--font-head);
+  font-size: clamp(2.4rem, 4vw, 4.4rem);
+  font-weight: 300;
+  line-height: 1.08;
+  margin: 10px 0 14px;
+  width: 100%;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.account-hero h1 em {
+  color: var(--cream);
+  font-style: italic;
+  display: inline-block;
+  width: 100%;
+}
+
+.account-hero .section-label {
+  color: var(--green-pale);
+}
+
+.account-hero p:last-child {
+  color: rgba(248, 244, 236, 0.68);
+  max-width: 560px;
+}
+
+.account-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+  gap: 28px;
+  padding: 40px 52px 72px;
+}
+
+.account-grid-single {
+  grid-template-columns: minmax(0, 820px);
+  justify-content: center;
+}
+
+.profile-summary {
+  align-items: center;
+  background: var(--green-dark);
+  border-radius: var(--radius);
+  color: var(--cream);
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 22px 24px;
+}
+
+.summary-label {
+  color: var(--green-pale);
+  display: block;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.profile-summary strong {
+  display: block;
+  font-size: 18px;
+  margin: 4px 0;
+}
+
+.profile-summary p {
+  color: rgba(248, 244, 236, 0.62);
+  font-size: 13px;
+}
+
+.profile-summary a {
+  background: var(--cream);
+  border-radius: var(--radius-sm);
+  color: var(--green-dark);
+  flex-shrink: 0;
+  font-size: 13px;
+  padding: 10px 14px;
+}
+
+.profile-panel,
+.recommend-panel {
+  background: var(--white);
+  border: 1px solid var(--cream-dark);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: 28px;
+}
+
+.panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.panel-head h2 {
+  color: var(--green-dark);
+  font-family: var(--font-head);
+  font-size: 30px;
+  font-weight: 500;
+}
+
+#saveStatus,
+.recommend-note {
+  color: var(--text-light);
+  font-size: 13px;
+}
+
+.profile-panel label {
+  color: var(--green-dark);
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 22px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.profile-panel input[type="number"],
+.profile-panel select {
+  background: var(--cream);
+  border: 1px solid var(--cream-dark);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  display: block;
+  font: inherit;
+  margin-top: 9px;
+  outline: none;
+  padding: 12px 14px;
+  width: 100%;
+}
+
+.profile-panel input:focus,
+.profile-panel select:focus {
+  border-color: var(--green-mid);
+}
+
+.option-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.option-grid.compact {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.option-grid .option-item {
+  align-items: center;
+  background: var(--cream);
+  border: 1px solid var(--cream-dark);
+  border-radius: var(--radius-sm);
+  color: var(--text-mid);
+  display: flex;
+  gap: 8px;
+  min-height: 42px;
+  padding: 10px 12px;
+}
+
+.option-grid input {
+  accent-color: var(--green-mid);
+}
+
+.profile-save {
+  background: var(--green-mid);
+  border: none;
+  border-radius: var(--radius-sm);
+  color: var(--white);
+  cursor: pointer;
+  font: inherit;
+  padding: 14px 18px;
+  width: 100%;
+}
+
+.profile-save:hover {
+  background: var(--green-dark);
+}
+
+.btn-outline.small {
+  font-size: 12px;
+  padding: 8px 12px;
+}
+
+.account-recs {
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.account-rec {
+  border: 1px solid var(--cream-dark);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 78px 1fr;
+  gap: 14px;
+  padding: 12px;
+  transition: var(--transition);
+}
+
+.account-rec:hover {
+  border-color: var(--green-pale);
+  box-shadow: var(--shadow-sm);
+}
+
+.account-rec img {
+  border-radius: var(--radius-sm);
+  height: 78px;
+  object-fit: cover;
+  width: 78px;
+}
+
+.account-rec h3 {
+  color: var(--green-dark);
+  font-family: var(--font-head);
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.account-rec p {
+  color: var(--text-mid);
+  font-size: 13px;
+  line-height: 1.45;
+  margin: 4px 0 9px;
+}
+
+.rec-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+@media (max-width: 900px) {
+  .account-hero {
+    align-items: start;
+    flex-direction: column;
+    padding: 44px 24px;
+  }
+
+  .account-hero h1 {
+    font-size: 42px;
+  }
+
+  .account-grid {
+    grid-template-columns: 1fr;
+    padding: 28px 20px 56px;
+  }
+}
+
+@media (max-width: 560px) {
+  .form-row,
+  .option-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Keep prep options 2-col on small phones — more readable than 1-col */
+  .option-grid.compact {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .profile-panel,
+  .recommend-panel {
+    padding: 22px;
+  }
+
+  .profile-summary {
+    align-items: start;
+    flex-direction: column;
+  }
+}

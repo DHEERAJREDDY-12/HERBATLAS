@@ -1,0 +1,37 @@
+.dosage-section {
+  margin-bottom: 44px;
+}
+
+.dosage-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  min-height: 236px;
+}
+
+.dosage-card {
+  background: var(--cream-dark);
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.dosage-card h4 {
+  font-size: 18px;
+  color: var(--green-dark);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.dosage-card p {
+  font-size: 13px;
+  color: var(--text-mid);
+  line-height: 1.65;
+}
+
+@media (max-width: 600px) {
+  .dosage-cards {
+    grid-template-columns: 1fr;
+    min-height: 360px;
+  }
+}

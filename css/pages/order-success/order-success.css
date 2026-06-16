@@ -1,0 +1,175 @@
+/* ============================================================
+   order-success.css — Order confirmation page
+   ============================================================ */
+
+.order-success-page {
+  background: var(--cream);
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 64px 20px 80px;
+}
+
+/* ── Success card ────────────────────────────────────────── */
+.order-success-card {
+  background: var(--white);
+  border: 1.5px solid var(--cream-dark);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 52px 48px;
+  max-width: 640px;
+  width: 100%;
+  text-align: center;
+}
+
+.order-success-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #e8f5e0;
+  border: 2px solid #a0d880;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34px;
+  margin: 0 auto 24px;
+}
+
+.order-success-card h1 {
+  font-family: var(--font-head);
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 300;
+  color: var(--green-dark);
+  margin-bottom: 8px;
+}
+
+.order-success-card h1 em { color: var(--green-pale); font-style: italic; }
+
+.order-success-subtitle {
+  font-size: 14px;
+  color: var(--text-mid);
+  margin-bottom: 36px;
+}
+
+/* ── Details grid ────────────────────────────────────────── */
+.order-success-details {
+  text-align: left;
+  border: 1px solid var(--cream-dark);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+
+.osd-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--cream-dark);
+  gap: 16px;
+}
+
+.osd-row:last-child { border-bottom: none; }
+
+.osd-label {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  flex-shrink: 0;
+  min-width: 130px;
+}
+
+.osd-value {
+  font-size: 13px;
+  color: var(--text);
+  text-align: right;
+  line-height: 1.55;
+}
+
+.osd-value strong {
+  color: var(--green-dark);
+  font-weight: 600;
+  display: block;
+  font-size: 15px;
+}
+
+/* ── Delivery estimate ───────────────────────────────────── */
+.order-delivery-estimate {
+  background: rgba(22, 42, 15, 0.05);
+  border: 1px solid rgba(184, 212, 160, 0.4);
+  border-radius: var(--radius-sm);
+  padding: 16px 20px;
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.delivery-icon { font-size: 22px; }
+
+.delivery-text strong {
+  display: block;
+  font-size: 14px;
+  color: var(--green-dark);
+  font-weight: 600;
+}
+
+.delivery-text span {
+  font-size: 13px;
+  color: var(--text-mid);
+}
+
+/* ── CTA buttons ─────────────────────────────────────────── */
+.order-success-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.order-success-actions a {
+  min-width: 160px;
+  text-align: center;
+  padding: 13px 24px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.btn-success-primary {
+  background: var(--green-mid);
+  color: var(--white);
+  border: none;
+}
+
+.btn-success-primary:hover { background: var(--green-dark); }
+
+.btn-success-outline {
+  background: transparent;
+  color: var(--green-mid);
+  border: 1.5px solid var(--green-mid);
+}
+
+.btn-success-outline:hover {
+  background: var(--green-mid);
+  color: var(--white);
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .order-success-card {
+    padding: 36px 24px;
+  }
+
+  .osd-row { flex-direction: column; gap: 4px; }
+  .osd-value { text-align: left; }
+
+  .order-success-actions { flex-direction: column; }
+  .order-success-actions a { min-width: unset; width: 100%; }
+}

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HerbAtlas - Nature's Pharmacy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base/variables.css">
+  <link rel="stylesheet" href="css/base/reset.css">
+  <link rel="stylesheet" href="css/base/typography.css">
+  <link rel="stylesheet" href="css/components/header.css">
+  <link rel="stylesheet" href="css/components/footer.css">
+  <link rel="stylesheet" href="css/components/buttons.css">
+  <link rel="stylesheet" href="css/components/cards.css">
+  <link rel="stylesheet" href="css/components/tags.css">
+  <link rel="stylesheet" href="css/components/toast.css">
+  <link rel="stylesheet" href="css/pages/home/hero.css">
+  <link rel="stylesheet" href="css/pages/home/hero-carousel.css">
+  <link rel="stylesheet" href="css/pages/home/category-strip.css">
+  <link rel="stylesheet" href="css/pages/home/herb-cards-section.css">
+  <link rel="stylesheet" href="css/pages/home/how-it-works.css">
+  <link rel="stylesheet" href="css/pages/home/featured-products.css">
+  <link rel="stylesheet" href="css/pages/home/reviews.css">
+</head>
+<body>
+  
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">Herb<em>Atlas</em></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="browse.html">Browse</a></li>
+      <li><a href="ailments.html">Ailments</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="about.html">About Us</a></li>
+    </ul>
+    <div class="nav-right">
+      <input type="text" class="nav-search" placeholder="Search herbs...">
+      <a href="cart.html" class="nav-cart">
+        Cart <span class="cart-badge" id="cartBadge">0</span>
+      </a>
+      <a href="login.html" class="nav-user" id="navUser">Sign In</a>
+      <button class="nav-menu-btn" id="menuBtn" aria-label="Open menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-search-bar">
+    <input type="text" id="mobileSearchInput" placeholder="Search herbs...">
+  </div>
+
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-eyebrow">The World's Herb Encyclopedia</p>
+      <h1>
+        Nature's oldest
+        <br><em>pharmacy,</em>
+        <br>documented.
+      </h1>
+      <p class="hero-sub">
+        Explore <span id="heroHerbSub">40</span>+ medicinal herbs from around the world.
+        Discover ancient remedies, practical uses and
+        buy premium quality herbs.
+      </p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="stat-num" id="heroHerbCount">40</span>
+          <span class="stat-label">Herbs</span>
+        </div>
+        <div class="hero-stat">
+          <span class="stat-num">8</span>
+          <span class="stat-label">Regions</span>
+        </div>
+        <div class="hero-stat">
+          <span class="stat-num">500+</span>
+          <span class="stat-label">Orders</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-carousel" role="region" aria-label="Featured herbs carousel">
+
+      <div class="hc-track" aria-live="polite" aria-atomic="false">
+
+        <article class="hc-slide hc-slide--active" aria-hidden="false">
+          <span class="hero-card-label">HERB OF THE WEEK</span>
+          <div class="hc-img-wrap">
+            <img
+              src="images/ui/hero-slide-1.webp"
+              alt="Tulsi - Holy Basil"
+              width="364" height="260"
+              fetchpriority="high"
+            >
+          </div>
+          <h4>Tulsi &mdash; Holy Basil</h4>
+          <p>Ocimum tenuiflorum &middot; South Asia</p>
+          <span class="hero-card-uses">Immunity &middot; Stress relief &middot; Respiratory health</span>
+          <a href="herb-detail.html?id=2" class="btn-primary hc-btn">View Herb</a>
+        </article>
+
+        <article class="hc-slide" aria-hidden="true">
+          <span class="hero-card-label">FIND YOUR REMEDY</span>
+          <div class="hc-img-wrap">
+            <img
+              src="images/ui/hero-slide-2.webp"
+              alt="Find your remedy"
+              width="364" height="260"
+              loading="lazy"
+            >
+          </div>
+          <h4>What's bothering you?</h4>
+          <p>Tell us your concern</p>
+          <span class="hero-card-uses">Stress &middot; Sleep &middot; Immunity &middot; Digestion</span>
+          <a href="ailments.html" class="btn-primary hc-btn">Find My Herb</a>
+        </article>
+
+        <article class="hc-slide" aria-hidden="true">
+          <span class="hero-card-label">PURE QUALITY</span>
+          <div class="hc-img-wrap">
+            <img
+              src="images/shop/ashwagandha-product.webp"
+              alt="Organic ashwagandha powder product"
+              width="364" height="260"
+              loading="lazy"
+            >
+          </div>
+          <h4>100% Organic Powder</h4>
+          <p>No fillers &middot; No additives</p>
+          <span class="hero-card-uses">Certified &middot; Tested &middot; Trusted</span>
+          <a href="shop.html" class="btn-primary hc-btn">Shop Now</a>
+        </article>
+
+        <article class="hc-slide" aria-hidden="true">
+          <span class="hero-card-label">BESTSELLER</span>
+          <div class="hc-img-wrap">
+            <img
+              src="images/ui/hero-slide-4.webp"
+              alt="Ashwagandha powder pack"
+              width="364" height="260"
+              loading="lazy"
+            >
+          </div>
+          <h4>Ashwagandha Powder</h4>
+          <p>Starting at &#8377;399</p>
+          <span class="hero-card-uses">Trusted for 3000+ years</span>
+          <a href="shop-detail.html?id=1" class="btn-primary hc-btn">Buy Now</a>
+        </article>
+
+        <article class="hc-slide" aria-hidden="true">
+          <span class="hero-card-label">FREE DELIVERY</span>
+          <div class="hc-img-wrap">
+            <img
+              src="images/ui/hero-slide-5.webp"
+              alt="Herbs ready to ship"
+              width="364" height="260"
+              loading="lazy"
+            >
+          </div>
+          <h4>Order above &#8377;999</h4>
+          <p>Pan India delivery</p>
+          <span class="hero-card-uses">Shipped in 2 to 3 business days</span>
+          <a href="shop.html" class="btn-primary hc-btn">Browse Shop</a>
+        </article>
+
+        <article class="hc-slide" aria-hidden="true">
+          <span class="hero-card-label">SPECIAL OFFER</span>
+          <div class="hc-img-wrap">
+            <img
+              src="images/shop/turmeric-product.webp"
+              alt="Special offer on herb products"
+              width="364" height="260"
+              loading="lazy"
+            >
+          </div>
+          <h4>Use code HERB10</h4>
+          <p>Get 10% off your order</p>
+          <span class="hero-card-uses">On all herb powder products</span>
+          <a href="shop.html" class="btn-primary hc-btn" data-hero-offer>Claim Offer</a>
+        </article>
+
+      </div>
+
+      <button
+        class="hc-arrow hc-arrow--prev"
+        aria-label="Previous slide"
+        type="button"
+      >&#8249;</button>
+      <button
+        class="hc-arrow hc-arrow--next"
+        aria-label="Next slide"
+        type="button"
+      >&#8250;</button>
+
+      <div class="hc-dots" role="tablist" aria-label="Carousel slide navigation">
+        <button class="hc-dot hc-dot--active" role="tab" aria-selected="true" aria-label="Slide 1" data-index="0" type="button"></button>
+        <button class="hc-dot" role="tab" aria-selected="false" aria-label="Slide 2" data-index="1" type="button"></button>
+        <button class="hc-dot" role="tab" aria-selected="false" aria-label="Slide 3" data-index="2" type="button"></button>
+        <button class="hc-dot" role="tab" aria-selected="false" aria-label="Slide 4" data-index="3" type="button"></button>
+        <button class="hc-dot" role="tab" aria-selected="false" aria-label="Slide 5" data-index="4" type="button"></button>
+        <button class="hc-dot" role="tab" aria-selected="false" aria-label="Slide 6" data-index="5" type="button"></button>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="cat-strip">
+    <span class="cat-label">Browse by</span>
+    <button class="cat-pill" onclick="window.location.href='ailments.html?ailment=Stress+%26+Anxiety'">Stress</button>
+    <button class="cat-pill" onclick="window.location.href='ailments.html?ailment=Sleep+Issues'">Sleep</button>
+    <button class="cat-pill" onclick="window.location.href='ailments.html?ailment=Low+Immunity'">Immunity</button>
+    <button class="cat-pill" onclick="window.location.href='ailments.html?ailment=Digestion'">Digestion</button>
+    <button class="cat-pill" onclick="window.location.href='ailments.html?ailment=Skin+Problems'">Skin</button>
+    <button class="cat-pill" onclick="window.location.href='ailments.html?ailment=Low+Energy'">Energy</button>
+    <button class="cat-pill" onclick="window.location.href='ailments.html?ailment=Joint+Pain'">Joint Pain</button>
+    <button class="cat-pill" onclick="window.location.href='ailments.html?ailment=Hormonal+Balance'">Hormonal</button>
+  </div>
+
+  <section class="recent-herbs-section hidden" id="recommendedForYou">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <p class="section-label">Based on Your Profile</p>
+          <h2 class="section-title">Recommended <em>Herbs</em></h2>
+        </div>
+        <a href="account.html" class="view-all">Update profile</a>
+      </div>
+      <div class="herbs-grid" id="recommendedHerbsGrid"></div>
+    </div>
+  </section>
+
+  <section class="recent-herbs-section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <p class="section-label">Explore the Collection</p>
+          <h2 class="section-title">Recently <em>Added</em></h2>
+        </div>
+        <a href="browse.html" class="view-all">View all herbs</a>
+      </div>
+      <div class="herbs-grid" id="recentHerbsGrid"></div>
+    </div>
+  </section>
+
+  <!-- ── Featured Products ──────────────────────────────── -->
+  <section class="featured-products-section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <p class="section-label">Shop Now</p>
+          <h2 class="section-title">Bestselling <em>Products</em></h2>
+        </div>
+        <a href="shop.html" class="view-all">View all products</a>
+      </div>
+      <div class="fp-grid" id="featuredProductsGrid"></div>
+    </div>
+  </section>
+
+  <!-- ── Customer Reviews ────────────────────────────────── -->
+  <section class="home-reviews-section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <p class="section-label">What Customers Say</p>
+          <h2 class="section-title">Real <em>Reviews</em></h2>
+        </div>
+        <a href="shop.html" class="view-all">Browse shop</a>
+      </div>
+      <div class="reviews-grid" id="homeReviewsGrid"></div>
+      <div class="reviews-aggregate" id="reviewsAggregate"></div>
+    </div>
+  </section>
+
+  <section class="hiw-section">
+    <div class="container">
+      <p class="section-label text-center">Simple and Intuitive</p>
+      <h2 class="section-title text-center">
+        How <em>HerbAtlas</em> Works
+      </h2>
+      <div class="hiw-grid">
+        <div class="hiw-step">
+          <span class="hiw-num">01</span>
+          <h3>Search or Browse</h3>
+          <p>
+            Find herbs by name with our powerful  system.
+          </p>
+        </div>
+        <div class="hiw-step">
+          <span class="hiw-num">02</span>
+          <h3>Read the Full Profile</h3>
+          <p>
+            Every herb has a complete page with
+            uses, dosage, warnings and recipes.
+          </p>
+        </div>
+        <div class="hiw-step">
+          <span class="hiw-num">03</span>
+          <h3>Order Premium Quality</h3>
+          <p>
+            Buy certified organic herbs sourced
+            from trusted farms worldwide.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">Herb<em>Atlas</em></div>
+        <p class="footer-desc">
+          Documenting the world's medicinal herbs
+          for curious minds and wellness seekers.
+        </p>
+        <p class="footer-disclaimer">
+          For educational purposes only. Not medical advice.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="index.html">Home</a>
+        <a href="browse.html">Browse</a>
+        <a href="ailments.html">Ailments</a>
+        <a href="about.html">About Us</a>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <a href="shop.html">All Products</a>
+        <a href="cart.html">Cart</a>
+      </div>
+        <div class="footer-col">
+          <h4>Account</h4>
+          <a href="profile.html" class="footer-auth-user" hidden>My Account</a>
+          <a href="login.html" class="footer-auth-guest">Login</a>
+        <a href="login.html?tab=register" class="footer-auth-guest">Sign Up</a>
+          <a href="contact.html">Contact Us</a>
+          <button type="button" class="footer-logout-btn" hidden>Sign Out</button>
+        </div>
+        <div class="footer-col">
+          <h4>Social</h4>
+          <a href="https://www.instagram.com/_herbatlas?igsh=OXhicWx4bmowZzlx" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+            <svg class="footer-social-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1"></circle></svg>
+            <span>Instagram</span>
+          </a>
+          <a href="https://www.facebook.com/share/1BPQ3Z8bna/" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+            <svg class="footer-social-icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M13.5 21v-7h2.4l.4-3h-2.8V9.2c0-.9.3-1.5 1.6-1.5H16V5.1c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 4V11H7.5v3h2.4v7h3.6z"/></svg>
+            <span>Facebook</span>
+          </a>
+          <a href="https://x.com/_dheeraj__reddy" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+            <svg class="footer-social-icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M18.9 2H22l-6.8 7.8L23 22h-6.2l-4.9-6.4L6.3 22H3.2l7.3-8.3L1 2h6.3l4.5 6 5.1-6zM17.8 20h1.7L6.2 3.9H4.4z"/></svg>
+            <span>Twitter</span>
+          </a>
+        </div>
+      </div>
+    <div class="footer-bottom">
+      <p>2026 HerbAtlas</p>
+      <p>Always consult a healthcare professional.</p>
+    </div>
+  </footer>
+  <script src="data/herbs-data.js"></script>
+  <script src="js/toast.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/home.js" defer></script>
+  <script src="js/hero-carousel.js" defer></script>
+
+</body>
+</html>
+

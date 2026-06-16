@@ -1,0 +1,192 @@
+/* ============================================================
+   profile.css — Account hub page
+   ============================================================ */
+
+.profile-page {
+  background: var(--cream);
+  min-height: 70vh;
+}
+
+/* ── Hero ─────────────────────────────────────────────────── */
+.profile-hero {
+  background: var(--green-dark);
+  padding: 52px 52px 44px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.profile-hero-info .section-label {
+  color: var(--green-pale);
+  opacity: 0.85;
+}
+
+.profile-hero-info h1 {
+  font-size: clamp(2rem, 3.5vw, 3.6rem);
+  font-weight: 300;
+  color: var(--cream);
+  margin: 10px 0 6px;
+  line-height: 1.05;
+}
+
+.profile-hero-info h1 em {
+  font-style: italic;
+  color: var(--green-pale);
+}
+
+.profile-hero-meta {
+  font-size: 13px;
+  color: rgba(248, 244, 236, 0.6);
+  margin-top: 4px;
+}
+
+/* ── Default address strip ───────────────────────────────── */
+.profile-address-strip {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(184, 212, 160, 0.18);
+  border-radius: var(--radius-sm);
+  padding: 14px 18px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 480px;
+}
+
+.profile-address-strip-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.profile-address-strip-text {
+  font-size: 13px;
+  color: rgba(248, 244, 236, 0.75);
+  line-height: 1.5;
+}
+
+.profile-address-strip-text strong {
+  color: var(--cream);
+  display: block;
+  font-size: 13px;
+}
+
+/* ── Nav cards grid ──────────────────────────────────────── */
+.profile-cards-section {
+  padding: 40px 52px 64px;
+}
+
+.profile-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.profile-card {
+  background: var(--white);
+  border: 1.5px solid var(--cream-dark);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-card:hover {
+  border-color: var(--green-pale);
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+
+.profile-card--logout {
+  border-color: rgba(160, 0, 0, 0.15);
+}
+
+.profile-card--logout:hover {
+  border-color: rgba(160, 0, 0, 0.4);
+  box-shadow: 0 4px 20px rgba(160, 0, 0, 0.08);
+}
+
+.profile-card-icon {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.profile-card-title {
+  font-family: var(--font-head);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--green-dark);
+  line-height: 1.1;
+}
+
+.profile-card--logout .profile-card-title {
+  color: #a00000;
+}
+
+.profile-card-desc {
+  font-size: 13px;
+  color: var(--text-mid);
+  line-height: 1.5;
+}
+
+.profile-card-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: var(--green-dark);
+  color: var(--green-pale);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 9px;
+  border-radius: 12px;
+  letter-spacing: 0.5px;
+}
+
+.profile-card-badge--addr {
+  background: var(--brown);
+  color: var(--white);
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .profile-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-hero {
+    flex-direction: column;
+    padding: 40px 20px 32px;
+  }
+
+  .profile-cards-section {
+    padding: 28px 20px 48px;
+  }
+
+  .profile-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .profile-card {
+    padding: 22px 18px;
+  }
+
+  .profile-card-title {
+    font-size: 19px;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}

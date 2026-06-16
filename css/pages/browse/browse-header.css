@@ -1,0 +1,64 @@
+.browse-header{
+  background:var(--green-dark);
+  padding:60px 52px;
+  position:relative;
+  overflow:hidden;
+  z-index: 1;
+}
+.browse-header::before{
+  content:'';
+  position:absolute;
+  top:-60px;
+  right:-60px;
+  width:300px;
+  height:300px;
+  background:radial-gradient(circle, rgba(67, 122, 50, 0.2) 0%,transparent 70%);
+  border-radius:50%;
+  pointer-events:none;
+}
+.browse-header-content{
+  position:relative;
+  z-index:1;
+  max-width:600px;
+}
+.browse-header .section-label{
+  color:var(--green-pale);
+  opacity:0.8;
+}
+.browse-header h1{
+  font-size: 56px;
+  color: var(--cream);
+  font-weight: 300;
+  margin-bottom: 12px;
+  line-height: 1.05;
+}
+
+.browse-header h1 em{
+  font-style: italic;
+  color: var(--green-pale);
+}
+.browse-header p{
+  font-size: 14px;
+  color: rgba(248, 244, 236, 0.55);
+  margin-bottom: 28px;
+  max-width: 440px;
+}
+
+@media (max-width: 768px) {
+  .browse-header{
+    padding: 40px 20px;
+    /* Prevent overflow:hidden from creating a stacking context
+       that paints over the fixed filter drawer on mobile */
+    overflow: visible;
+    z-index: 0;
+  }
+
+  /* Re-clip only the decorative bleed so it doesn't show outside the header */
+  .browse-header::before {
+    display: none;
+  }
+
+  .browse-header h1 {
+    font-size: 40px;
+  }
+}

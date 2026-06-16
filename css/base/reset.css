@@ -1,0 +1,66 @@
+*, *::before,*::after{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior: smooth;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body{
+  font-family:var(--font-body);
+  background:var(--cream-dark);
+  color:var(--text);
+  font-size:15px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+img{
+  max-width: 100%;
+  display:block;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+ul{
+  list-style: none;
+}
+
+button{
+  cursor: pointer;
+  font-family:var(--font-body);
+  border:none;
+}
+
+input, select, textarea {
+  font-family: var(--font-body);
+}
+
+.hidden {
+  display: none !important;
+}
+
+@media (max-width: 360px) {
+  body {
+    position: relative;
+  }
+
+  main,
+  section,
+  article,
+  aside,
+  nav,
+  footer,
+  div {
+    max-width: 100%;
+  }
+}

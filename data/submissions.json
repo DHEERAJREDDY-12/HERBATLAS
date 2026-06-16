@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "Rahul M.",
+    "herb_used": "Ashwagandha",
+    "ailment": "Stress",
+    "story": "Three weeks in and my anxiety before work just lifted completely. I was sceptical at first but the results were undeniable.",
+    "date": "2024-01-10"
+  },
+  {
+    "id": 2,
+    "name": "Sarah K.",
+    "herb_used": "Chamomile",
+    "ailment": "Sleep",
+    "story": "Chamomile tea every night for a month. I went from 5 hours broken sleep to 7 hours solid. Simple but incredibly powerful.",
+    "date": "2024-01-14"
+  },
+  {
+    "id": 3,
+    "name": "James T.",
+    "herb_used": "Turmeric",
+    "ailment": "Joint Pain",
+    "story": "Turmeric golden milk every morning. My joint pain from years of running has reduced significantly in just 6 weeks.",
+    "date": "2024-01-18"
+  },
+  {
+    "id": 4,
+    "name": "Meera P.",
+    "herb_used": "Tulsi",
+    "ailment": "Immunity",
+    "story": "Tulsi tea during flu season. I was the only one in my office who did not get sick this entire winter.",
+    "date": "2024-01-22"
+  },
+  {
+    "id": 5,
+    "name": "David O.",
+    "herb_used": "Moringa",
+    "ailment": "Low Energy",
+    "story": "Moringa powder in my morning smoothie for energy. I stopped needing three coffees a day. Truly life changing.",
+    "date": "2024-01-28"
+  },
+  {
+    "id": 6,
+    "name": "Ananya R.",
+    "herb_used": "Ginger",
+    "ailment": "Digestion",
+    "story": "Ginger and peppermint tea helped my IBS more than anything the doctor prescribed. Natural really is powerful.",
+    "date": "2024-02-02"
+  }
+]

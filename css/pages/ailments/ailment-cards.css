@@ -1,0 +1,196 @@
+.ailments-body {
+  background: var(--cream);
+  padding: 52px;
+}
+
+.ailment-guide {
+  background: var(--cream);
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 32px 52px 0;
+}
+
+.ailment-guide div {
+  background: var(--white);
+  border: 1px solid var(--cream-dark);
+  border-radius: var(--radius-sm);
+  padding: 18px;
+}
+
+.ailment-guide span {
+  align-items: center;
+  background: var(--green-ultra);
+  border-radius: 50%;
+  color: var(--green-dark);
+  display: inline-flex;
+  font-size: 12px;
+  font-weight: 600;
+  height: 28px;
+  justify-content: center;
+  margin-bottom: 10px;
+  width: 28px;
+}
+
+.ailment-guide strong {
+  color: var(--green-dark);
+  display: block;
+  font-size: 15px;
+}
+
+.ailment-guide p {
+  color: var(--text-light);
+  font-size: 13px;
+  line-height: 1.5;
+  margin-top: 4px;
+}
+
+.ailment-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.ailment-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 28px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+  border: 2px solid transparent;
+}
+
+.ailment-card:hover {
+  border-color: var(--green-mid);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.ailment-card.active {
+  border-color: var(--green-dark);
+  background: var(--green-ultra);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.ailment-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 14px;
+  background: var(--green-ultra);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.ailment-card.active .ailment-icon {
+  background: var(--green-mid);
+}
+
+.ailment-icon img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.ailment-card h3 {
+  font-family: var(--font-head);
+  font-size: 20px;
+  color: var(--green-dark);
+  margin-bottom: 6px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.ailment-card p {
+  font-size: 12px;
+  color: var(--text-light);
+  margin-bottom: 12px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.ailment-count {
+  font-size: 12px;
+  color: var(--green-light);
+  font-weight: 500;
+}
+
+@media (max-width: 1000px) {
+  .ailments-body {
+    padding: 40px 32px;
+  }
+
+  .ailment-guide {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 28px 32px 0;
+  }
+
+  .ailment-cards-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 949px) {
+  .ailment-cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .ailments-body {
+    padding: 32px 20px;
+  }
+
+  .ailment-guide {
+    grid-template-columns: 1fr;
+    padding: 24px 20px 0;
+  }
+
+  .ailment-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .ailment-card {
+    padding: 20px 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ailments-body {
+    padding: 24px 14px;
+  }
+
+  .ailment-guide {
+    padding: 20px 14px 0;
+    gap: 12px;
+  }
+
+  .ailment-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 320px) {
+  .ailments-body {
+    padding: 18px 10px;
+  }
+
+  .ailment-guide {
+    padding: 16px 10px 0;
+  }
+
+  .ailment-card {
+    padding: 16px 12px;
+  }
+
+  .ailment-card h3 {
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,322 @@
+.hidden { display: none !important; }
+
+/* ── Right panel ── */
+.login-form-side {
+  background: #faf7f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 48px;
+  overflow-y: auto;
+  min-height: 100vh;
+}
+
+.login-form-wrap {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* ── Tab toggle ── */
+.login-tabs {
+  position: relative;
+  display: flex;
+  background: var(--cream-dark);
+  border-radius: 12px;
+  padding: 4px;
+  margin-bottom: 36px;
+}
+
+.login-tab {
+  flex: 1;
+  padding: 11px 10px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--text-light);
+  background: transparent;
+  border: none;
+  border-radius: 9px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  transition: color 0.28s ease;
+  font-family: var(--font-body);
+  letter-spacing: 0.2px;
+}
+
+.login-tab.active {
+  color: var(--green-dark);
+}
+
+/* Sliding pill indicator */
+.login-tab-indicator {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  height: calc(100% - 8px);
+  width: calc(50% - 4px);
+  background: var(--white);
+  border-radius: 9px;
+  box-shadow: 0 1px 8px rgba(22, 42, 15, 0.1);
+  transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.login-tab-indicator.right {
+  transform: translateX(100%);
+}
+
+/* ── Form panels ── */
+.login-forms-container {
+  position: relative;
+}
+
+/* ── Form header ── */
+.form-header {
+  margin-bottom: 26px;
+}
+
+.form-header h2 {
+  font-family: var(--font-head);
+  font-size: 33px;
+  font-weight: 400;
+  color: var(--green-dark);
+  margin-bottom: 5px;
+  line-height: 1.2;
+}
+
+.form-header p {
+  font-size: 13px;
+  color: var(--text-light);
+}
+
+/* ── Fields ── */
+.form-field {
+  margin-bottom: 16px;
+}
+
+.form-field label {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.1px;
+  color: var(--text-light);
+  margin-bottom: 7px;
+}
+
+.form-field input {
+  width: 100%;
+  padding: 13px 16px;
+  background: var(--white);
+  border: 1.5px solid #e6dfd0;
+  border-radius: 10px;
+  font-size: 14.5px;
+  color: var(--text);
+  font-family: var(--font-body);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.form-field input:focus {
+  border-color: var(--green-mid);
+  box-shadow: 0 0 0 3px rgba(42, 82, 32, 0.09);
+  background: var(--white);
+}
+
+.form-field input::placeholder {
+  color: #cac4b6;
+}
+
+/* ── Password with eye toggle ── */
+.password-wrap {
+  position: relative;
+}
+
+.password-wrap input {
+  padding-right: 46px;
+}
+
+.pwd-toggle {
+  position: absolute;
+  right: 13px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #b0a898;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.18s;
+  line-height: 0;
+}
+
+.pwd-toggle:hover {
+  color: var(--green-mid);
+}
+
+.pwd-toggle svg {
+  width: 17px;
+  height: 17px;
+}
+
+/* ── Password strength ── */
+.strength-bar {
+  height: 3px;
+  background: #e6dfd0;
+  border-radius: 2px;
+  margin-top: 8px;
+  overflow: hidden;
+}
+
+.strength-fill {
+  height: 100%;
+  width: 0;
+  border-radius: 2px;
+  transition: width 0.35s ease, background-color 0.35s ease;
+}
+
+.strength-label {
+  display: block;
+  font-size: 11px;
+  color: var(--text-light);
+  margin-top: 5px;
+  min-height: 16px;
+}
+
+/* ── 2-col name row ── */
+.form-row-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* ── Remember / forgot row ── */
+.form-row-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 2px;
+}
+
+.remember-check {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  color: var(--text-mid);
+  cursor: pointer;
+}
+
+.remember-check input[type="checkbox"] {
+  width: auto;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  accent-color: var(--green-mid);
+}
+
+.forgot-link {
+  font-size: 12.5px;
+  color: var(--green-light);
+  transition: color 0.18s;
+}
+
+.forgot-link:hover {
+  color: var(--green-dark);
+}
+
+/* ── Error message ── */
+.login-error {
+  background: #fff5f5;
+  border: 1px solid #ecb8b8;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 12.5px;
+  color: #8b1a1a;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+/* ── Submit button ── */
+.login-btn {
+  width: 100%;
+  background: var(--green-mid);
+  color: var(--white);
+  border: none;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: background 0.22s ease, box-shadow 0.22s ease, transform 0.1s ease;
+  margin-bottom: 22px;
+}
+
+.login-btn:hover {
+  background: var(--green-dark);
+  box-shadow: 0 4px 20px rgba(22, 42, 15, 0.22);
+}
+
+.login-btn:active {
+  transform: scale(0.992);
+}
+
+/* ── Switch text ── */
+.switch-text {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-light);
+}
+
+.switch-text a {
+  color: var(--green-mid);
+  font-weight: 500;
+}
+
+.switch-text a:hover {
+  color: var(--green-dark);
+}
+
+/* ── Slide animations ── */
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideOutLeft {
+  from { opacity: 1; transform: translateX(0); }
+  to   { opacity: 0; transform: translateX(-32px); }
+}
+@keyframes slideOutRight {
+  from { opacity: 1; transform: translateX(0); }
+  to   { opacity: 0; transform: translateX(32px); }
+}
+
+.form-slide-in-right  { animation: slideInRight  0.32s ease forwards; }
+.form-slide-in-left   { animation: slideInLeft   0.32s ease forwards; }
+.form-slide-out-left  { animation: slideOutLeft  0.24s ease forwards; }
+.form-slide-out-right { animation: slideOutRight 0.24s ease forwards; }
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .login-form-side {
+    padding: 40px 24px;
+    align-items: flex-start;
+    padding-top: 60px;
+  }
+
+  .form-row-2col {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}

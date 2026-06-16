@@ -1,0 +1,202 @@
+/* ============================================================
+   orders.css — Order history page
+   ============================================================ */
+
+.orders-page { background: var(--cream); min-height: 70vh; }
+
+/* ── Header ─────────────────────────────────────────────── */
+.orders-header {
+  background: var(--green-dark);
+  padding: 52px 52px 44px;
+}
+
+.orders-header .section-label { color: var(--green-pale); opacity: 0.85; }
+
+.orders-header h1 {
+  font-size: clamp(2rem, 3.5vw, 3.4rem);
+  font-weight: 300;
+  color: var(--cream);
+  margin: 10px 0 8px;
+}
+
+.orders-header h1 em { color: var(--green-pale); }
+.orders-header p { font-size: 13px; color: rgba(248,244,236,0.6); }
+
+/* ── Body ───────────────────────────────────────────────── */
+.orders-body { padding: 40px 52px 64px; }
+
+/* ── Empty state ────────────────────────────────────────── */
+.orders-empty {
+  text-align: center;
+  padding: 80px 20px;
+  background: var(--white);
+  border-radius: var(--radius);
+}
+
+.orders-empty h3 {
+  font-family: var(--font-head);
+  font-size: 26px;
+  color: var(--green-dark);
+  margin-bottom: 10px;
+}
+
+.orders-empty p {
+  font-size: 14px;
+  color: var(--text-light);
+  margin-bottom: 24px;
+}
+
+/* ── Order card ─────────────────────────────────────────── */
+.order-card {
+  background: var(--white);
+  border: 1.5px solid var(--cream-dark);
+  border-radius: var(--radius);
+  margin-bottom: 16px;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.order-card:hover { border-color: var(--green-pale); }
+
+.order-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  cursor: pointer;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.order-id {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--green-dark);
+  letter-spacing: 0.5px;
+}
+
+.order-date {
+  font-size: 12px;
+  color: var(--text-light);
+  margin-top: 2px;
+}
+
+.order-amount {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--green-dark);
+}
+
+.order-status-badge {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 12px;
+}
+
+.order-status-badge.pending   { background: #fff8dc; color: #7a5a00; }
+.order-status-badge.processing{ background: #e8f0fe; color: #1a56a0; }
+.order-status-badge.shipped   { background: #e8f5e0; color: #1a6e1a; }
+.order-status-badge.delivered { background: #e0f0e8; color: #0a5c32; }
+
+.order-toggle-icon {
+  font-size: 18px;
+  color: var(--text-light);
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.order-card.open .order-toggle-icon { transform: rotate(180deg); }
+
+/* ── Order detail (expandable) ──────────────────────────── */
+.order-detail {
+  display: none;
+  border-top: 1px solid var(--cream-dark);
+  padding: 24px;
+}
+
+.order-card.open .order-detail { display: block; }
+
+.order-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-bottom: 24px;
+}
+
+.order-detail-block h4 {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 10px;
+}
+
+.order-detail-block p {
+  font-size: 13px;
+  color: var(--text-mid);
+  line-height: 1.6;
+}
+
+.order-items-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.order-items-table th {
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  text-align: left;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--cream-dark);
+}
+
+.order-items-table td {
+  font-size: 13px;
+  color: var(--text-mid);
+  padding: 10px 0;
+  border-bottom: 1px solid var(--cream);
+  vertical-align: top;
+}
+
+.order-totals {
+  border-top: 2px solid var(--green-dark);
+  padding-top: 14px;
+}
+
+.order-total-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--text-mid);
+  padding: 4px 0;
+}
+
+.order-total-row.grand {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--green-dark);
+  padding-top: 10px;
+}
+
+.order-total-row.discount { color: #1a6e36; font-weight: 500; }
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .orders-header  { padding: 40px 20px 32px; }
+  .orders-body    { padding: 28px 20px 48px; }
+
+  .order-card-head { padding: 14px 16px; }
+  .order-detail    { padding: 18px 16px; }
+
+  .order-detail-grid { grid-template-columns: 1fr; gap: 18px; }
+
+  .order-items-table th,
+  .order-items-table td { font-size: 12px; }
+}

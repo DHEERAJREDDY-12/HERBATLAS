@@ -1,0 +1,300 @@
+/* ============================================================
+   cart-coupon.css
+   Coupon panel that sits between cart-items and cart-summary.
+   No existing CSS files were modified.
+   ============================================================ */
+
+/* ── Right column wrapper ───────────────────────────────────── */
+/*
+   The grid in cart-items.css has two columns: 1fr 360px.
+   We replace the second cell (previously just .cart-summary)
+   with .cart-right-col so both the coupon panel and summary
+   stack inside that same 360px column.
+*/
+.cart-right-col {
+  align-self: start;
+  overflow: visible;
+  position: -webkit-sticky;
+  position: sticky;
+  top: calc(var(--nav-height) + 16px);
+  z-index: 20;
+  height: max-content;
+}
+
+.cart-right-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ── Coupon Panel ───────────────────────────────────────────── */
+.coupon-panel {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  box-shadow: var(--shadow-sm);
+  border: 1.5px dashed rgba(184, 212, 160, 0.5);
+}
+
+.coupon-panel-title {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  margin-bottom: 12px;
+}
+
+.coupon-available {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  border: 1px solid rgba(184, 212, 160, 0.45);
+  border-radius: 14px;
+  background: rgba(22, 42, 15, 0.04);
+}
+
+.coupon-available-label {
+  font-size: 11px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  white-space: nowrap;
+}
+
+.coupon-available-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.coupon-available-card:hover,
+.coupon-available-card:focus-visible {
+  background: rgba(22, 42, 15, 0.08);
+  box-shadow: 0 0 0 1px rgba(184, 212, 160, 0.35);
+  outline: none;
+}
+
+.coupon-available-code {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--green-dark);
+}
+
+.coupon-available-value {
+  font-size: 12px;
+  color: #1a6e36;
+}
+
+/* ── Input row ──────────────────────────────────────────────── */
+.coupon-form {
+  display: flex;
+  gap: 8px;
+  align-items: stretch;
+}
+
+.coupon-input {
+  flex: 1;
+  border: 1.5px solid var(--cream-dark);
+  border-radius: var(--radius-sm);
+  padding: 9px 14px;
+  font-size: 13px;
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--white);
+  outline: none;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: border-color 0.2s ease;
+  min-width: 0;
+}
+
+.coupon-input::placeholder {
+  text-transform: none;
+  color: var(--text-light);
+  letter-spacing: 0;
+}
+
+.coupon-input:focus {
+  border-color: var(--green-mid);
+}
+
+/* Input locked state when a coupon is applied */
+.coupon-input:disabled {
+  background: var(--cream);
+  color: var(--text-light);
+  cursor: not-allowed;
+}
+
+/* ── Apply button ───────────────────────────────────────────── */
+.coupon-apply-btn {
+  background: var(--green-dark);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 9px 18px;
+  font-size: 12px;
+  font-family: var(--font-body);
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s ease, opacity 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.coupon-apply-btn:hover:not(:disabled) {
+  background: var(--green-mid);
+}
+
+.coupon-apply-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* ── Feedback message ───────────────────────────────────────── */
+.coupon-msg {
+  font-size: 12px;
+  margin-top: 8px;
+  min-height: 16px; /* prevents layout shift when empty */
+  line-height: 1.4;
+}
+
+.coupon-msg.success {
+  color: #1a6e36;
+}
+
+.coupon-msg.error {
+  color: #a00000;
+}
+
+/* ── Applied coupon tag ─────────────────────────────────────── */
+.coupon-applied {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+  min-height: 32px;
+}
+
+.coupon-applied.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.coupon-applied-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(22, 42, 15, 0.07);
+  border: 1px solid rgba(184, 212, 160, 0.6);
+  border-radius: 20px;
+  padding: 4px 12px 4px 14px;
+}
+
+.coupon-applied-code {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--green-dark);
+  text-transform: uppercase;
+}
+
+.coupon-remove-btn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  line-height: 1;
+  color: var(--text-light);
+  cursor: pointer;
+  padding: 0 2px;
+  transition: color 0.15s;
+  display: flex;
+  align-items: center;
+}
+
+.coupon-remove-btn:hover {
+  color: #a00000;
+}
+
+.coupon-applied-label {
+  font-size: 12px;
+  color: #1a6e36;
+}
+
+/* ── Discount row in order summary ──────────────────────────── */
+/*
+   .sum-row--discount is added by JS when a coupon is active.
+   Green colour distinguishes it from regular rows.
+*/
+.sum-row--discount {
+  color: #1a6e36;
+  font-weight: 500;
+}
+
+.sum-row--discount span:last-child {
+  font-weight: 600;
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 999px) {
+  /* cart-body becomes single column, right col takes full width */
+  .cart-right-col {
+    width: 100%;
+    position: static;
+    top: auto;
+    z-index: auto;
+    height: auto;
+    overflow: visible;
+  }
+
+  .cart-right-inner {
+    height: auto;
+    width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .coupon-panel {
+    padding: 16px;
+  }
+
+  .coupon-available {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .coupon-available-card {
+    justify-content: flex-start;
+  }
+
+  .coupon-apply-btn {
+    padding: 9px 14px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 360px) {
+  .coupon-panel {
+    padding: 14px;
+  }
+
+  .coupon-form {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .coupon-apply-btn {
+    padding: 9px 12px;
+  }
+}

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browse Herbs — HerbAtlas</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Browse 40+ medicinal herbs from around the world. Filter by region, ailment, type and safety. Discover ancient remedies with detailed herb profiles on HerbAtlas.">
+  <link rel="canonical" href="https://herbatlas.com/browse.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://herbatlas.com/browse.html">
+  <meta property="og:title"       content="Browse Herbs — HerbAtlas">
+  <meta property="og:description" content="Browse 40+ medicinal herbs from around the world. Filter by region, ailment, type and safety.">
+  <meta property="og:image"       content="https://herbatlas.com/images/herbs/ashwagandha.webp">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Browse Herbs — HerbAtlas">
+  <meta name="twitter:description" content="Browse 40+ medicinal herbs from around the world.">
+  <meta name="twitter:image"       content="https://herbatlas.com/images/herbs/ashwagandha.webp">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Browse Herbs",
+    "description": "Browse 40+ medicinal herbs from around the world. Filter by region, ailment, type and safety.",
+    "url": "https://herbatlas.com/browse.html",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "HerbAtlas",
+      "url": "https://herbatlas.com"
+    }
+  }
+  </script>
+
+  <!-- Preconnect to Google Fonts origin (DNS + TLS handshake in parallel) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Google Fonts — display=swap eliminates render-blocking flash -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/base/variables.css">
+  <link rel="stylesheet" href="css/base/reset.css">
+  <link rel="stylesheet" href="css/base/typography.css">
+  <link rel="stylesheet" href="css/components/header.css">
+  <link rel="stylesheet" href="css/components/footer.css">
+  <link rel="stylesheet" href="css/components/buttons.css">
+  <link rel="stylesheet" href="css/components/cards.css">
+  <link rel="stylesheet" href="css/components/tags.css">
+  <link rel="stylesheet" href="css/components/filter-bar.css">
+  <link rel="stylesheet" href="css/components/pagination.css">
+  <link rel="stylesheet" href="css/components/toast.css">
+  <link rel="stylesheet" href="css/pages/browse/browse-header.css">
+  <link rel="stylesheet" href="css/pages/browse/browse-grid.css">
+
+  <!-- Utility: screen-reader-only + skip link (inline — zero extra request) -->
+  <style>
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--green-dark);
+      color: var(--green-pale);
+      padding: 8px 16px;
+      font-size: 13px;
+      z-index: 9999;
+      border-radius: 0 0 4px 0;
+      transition: top 0.2s;
+      text-decoration: none;
+    }
+    .skip-link:focus {
+      top: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Skip navigation for keyboard/screen reader users -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">Herb<em>Atlas</em></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="browse.html" class="active">Browse</a></li>
+      <li><a href="ailments.html">Ailments</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="about.html">About Us</a></li>
+    </ul>
+    <div class="nav-right">
+      <input type="text" class="nav-search" placeholder="Search herbs...">
+      <a href="cart.html" class="nav-cart">
+        Cart <span class="cart-badge" id="cartBadge">0</span>
+      </a>
+      <a href="login.html" class="nav-user" id="navUser">Sign In</a>
+      <button class="nav-menu-btn" id="menuBtn" aria-label="Open menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-search-bar">
+    <input type="text" id="mobileSearchInput" placeholder="Search herbs...">
+  </div>
+
+  <div class="browse-header">
+    <div class="browse-header-content">
+      <p class="section-label">Explore the Collection</p>
+      <h1>All <em>Herbs</em></h1>
+      <p class="browse-header-desc">Explore our complete collection of 40 medicinal herbs from around the world</p>
+    </div>
+  </div>
+
+  <main id="main-content">
+
+  <section class="catalog-results">
+  <div class="filter-drawer-bar">
+    <button
+      class="filter-drawer-trigger"
+      id="filterDrawerTrigger"
+      type="button"
+      aria-controls="filterDrawer"
+      aria-expanded="false"
+    >
+      Filter
+    </button>
+  </div>
+
+  <div class="filter-bar" role="search" aria-label="Filter herbs">
+    <!-- Visually shown label -->
+    <span class="filter-label" aria-hidden="true">Filter</span>
+
+    <!-- Labels are visually hidden but accessible; selects are labelled correctly -->
+    <label for="regionFilter" class="sr-only">Filter by region</label>
+    <select class="filter-select" id="regionFilter" aria-label="Filter by region">
+      <option value="">All Regions</option>
+      <option value="South Asia">South Asia</option>
+      <option value="Mediterranean">Mediterranean</option>
+      <option value="East Asia">East Asia</option>
+      <option value="Africa">Africa</option>
+      <option value="Americas">Americas</option>
+      <option value="Middle East">Middle East</option>
+    </select>
+
+    <label for="typeFilter" class="sr-only">Filter by herb type</label>
+    <select class="filter-select" id="typeFilter" aria-label="Filter by herb type">
+      <option value="">All Types</option>
+      <option value="Root">Root</option>
+      <option value="Leaf">Leaf</option>
+      <option value="Flower">Flower</option>
+      <option value="Seed">Seed</option>
+      <option value="Bark">Bark</option>
+      <option value="Mushroom">Mushroom</option>
+    </select>
+
+    <div role="group" aria-label="Filter by safety rating">
+      <button class="filter-chip active" data-safety="">All</button>
+      <button class="filter-chip" data-safety="safe">Safe Only</button>
+      <button class="filter-chip" data-safety="caution">Caution</button>
+    </div>
+
+    <span class="filter-count" id="filterCount" aria-live="polite" aria-atomic="true">Showing 40 herbs</span>
+  </div>
+
+  <div class="filter-overlay" id="filterOverlay" hidden></div>
+  <aside
+    class="filter-drawer"
+    id="filterDrawer"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="filterDrawerTitle"
+    aria-hidden="true"
+  >
+    <div class="filter-drawer-head">
+      <h2 id="filterDrawerTitle">Filter</h2>
+      <button type="button" class="filter-drawer-close" id="filterDrawerClose" aria-label="Close filter panel">Close</button>
+    </div>
+
+    <div class="filter-drawer-body">
+      <label for="drawerRegionFilter" class="filter-drawer-label">Region</label>
+      <select class="filter-select" id="drawerRegionFilter">
+        <option value="">All Regions</option>
+        <option value="South Asia">South Asia</option>
+        <option value="Mediterranean">Mediterranean</option>
+        <option value="East Asia">East Asia</option>
+        <option value="Africa">Africa</option>
+        <option value="Americas">Americas</option>
+        <option value="Middle East">Middle East</option>
+      </select>
+
+      <label for="drawerTypeFilter" class="filter-drawer-label">Type</label>
+      <select class="filter-select" id="drawerTypeFilter">
+        <option value="">All Types</option>
+        <option value="Root">Root</option>
+        <option value="Leaf">Leaf</option>
+        <option value="Flower">Flower</option>
+        <option value="Seed">Seed</option>
+        <option value="Bark">Bark</option>
+        <option value="Mushroom">Mushroom</option>
+      </select>
+
+      <div class="filter-drawer-group">
+        <span class="filter-drawer-label">Safety</span>
+        <div class="filter-drawer-chips" id="drawerSafetyChips">
+          <button type="button" class="filter-chip active" data-drawer-safety="">All</button>
+          <button type="button" class="filter-chip" data-drawer-safety="safe">Safe Only</button>
+          <button type="button" class="filter-chip" data-drawer-safety="caution">Caution</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="filter-drawer-actions">
+      <button type="button" class="btn-primary" id="filterDrawerApply">Apply</button>
+      <button type="button" class="btn-outline" id="filterDrawerClear">Clear</button>
+    </div>
+  </aside>
+
+  <div class="browse-body">
+    <div class="herbs-grid" id="herbsGrid" aria-label="Herb results"></div>
+    <div class="no-results hidden" id="noResults" role="status">
+      <h2>No herbs found</h2>
+      <p>Try adjusting your filters or search term</p>
+      <button class="btn-primary" id="clearFilters">Clear Filters</button>
+    </div>
+  </div>
+  </section>
+
+  <nav class="pagination" id="pagination" aria-label="Herb list pagination"></nav>
+
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">Herb<em>Atlas</em></div>
+        <p class="footer-desc">
+          Documenting the world's medicinal herbs
+          for curious minds and wellness seekers.
+        </p>
+        <p class="footer-disclaimer">
+          For educational purposes only. Not medical advice.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="index.html">Home</a>
+        <a href="browse.html">Browse</a>
+        <a href="ailments.html">Ailments</a>
+        <a href="about.html">About Us</a>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <a href="shop.html">All Products</a>
+        <a href="cart.html">Cart</a>
+      </div>
+        <div class="footer-col">
+          <h4>Account</h4>
+          <a href="profile.html" class="footer-auth-user" hidden>My Account</a>
+          <a href="login.html" class="footer-auth-guest">Login</a>
+        <a href="login.html?tab=register" class="footer-auth-guest">Sign Up</a>
+          <a href="contact.html">Contact Us</a>
+          <button type="button" class="footer-logout-btn" hidden>Sign Out</button>
+        </div>
+        <div class="footer-col">
+          <h4>Social</h4>
+          <a href="https://www.instagram.com/_herbatlas?igsh=OXhicWx4bmowZzlx" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+            <svg class="footer-social-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1"></circle></svg>
+            <span>Instagram</span>
+          </a>
+          <a href="https://www.facebook.com/share/1BPQ3Z8bna/" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+            <svg class="footer-social-icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M13.5 21v-7h2.4l.4-3h-2.8V9.2c0-.9.3-1.5 1.6-1.5H16V5.1c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 4V11H7.5v3h2.4v7h3.6z"/></svg>
+            <span>Facebook</span>
+          </a>
+          <a href="https://x.com/_dheeraj__reddy" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+            <svg class="footer-social-icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M18.9 2H22l-6.8 7.8L23 22h-6.2l-4.9-6.4L6.3 22H3.2l7.3-8.3L1 2h6.3l4.5 6 5.1-6zM17.8 20h1.7L6.2 3.9H4.4z"/></svg>
+            <span>Twitter</span>
+          </a>
+        </div>
+      </div>
+    <div class="footer-bottom">
+      <p>2026 HerbAtlas</p>
+      <p>Always consult a healthcare professional.</p>
+    </div>
+  </footer>
+
+  <script src="data/herbs-data.js"></script>
+  <script src="js/toast.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/browse.js" defer></script>
+
+</body>
+</html>
+
