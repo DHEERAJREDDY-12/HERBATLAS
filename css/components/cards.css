@@ -42,10 +42,14 @@
   background: rgba(22, 42, 15, 0.82);
   color: var(--green-pale);
   font-size:10px;
+  line-height: 1.25;
+  max-width: calc(100% - 24px);
   padding:3px 10px;
   border-radius:20px;
   letter-spacing:1px;
+  text-align: center;
   text-transform:uppercase;
+  white-space: normal;
 }
 
 .herb-card-body {

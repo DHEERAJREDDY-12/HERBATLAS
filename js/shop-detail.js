@@ -8,6 +8,10 @@ let seededReviewsCache = [];
 let currentImageIndex = 0;
 let galleryImages = [];
 
+function getSafetyLabel(safety) {
+  return safety === 'safe' ? 'Generally Safe' : 'Use with Caution';
+}
+
 async function loadProduct() {
   const params = new URLSearchParams(window.location.search);
   const id = parseInt(params.get('id'), 10);
@@ -126,6 +130,15 @@ function getStars(rating) {
 
 function getWeightValue(weight) {
   return parseInt((weight || '').replace(/[^0-9]/g, ''), 10) || 0;
+}
+
+function getSortedWeights(herb) {
+  return [...(herb.weights || [])].sort((a, b) => getWeightValue(a) - getWeightValue(b));
+}
+
+function getCardWeight(herb) {
+  const sortedWeights = getSortedWeights(herb);
+  return sortedWeights[1] || sortedWeights[0] || '';
 }
 
 function getBulkDiscount(weightRatio) {
@@ -341,8 +354,11 @@ function renderRelated() {
   document.getElementById('sdRelated').innerHTML = `
     <h2>Related <em>Products</em></h2>
     <div class="sd-related-grid">
-      ${related.map(herb => `
-        <div class="herb-card" onclick="window.location.href='shop-detail.html?id=${herb.id}'">
+      ${related.map(herb => {
+        const cardWeight = getCardWeight(herb);
+        const detailUrl = `shop-detail.html?id=${herb.id}&weight=${encodeURIComponent(cardWeight)}`;
+        return `
+        <div class="herb-card" onclick="window.location.href='${detailUrl}'">
           <div class="herb-card-img">
             <img src="${herb.image}" alt="${herb.name}" loading="lazy" onerror="this.style.display='none'">
             <span class="herb-card-badge">Rs.${herb.price}</span>
@@ -352,12 +368,13 @@ function renderRelated() {
             <span class="herb-card-sci">${herb.scientific_name}</span>
             <p>${herb.best_for}</p>
             <div class="tags">
-              <span class="tag tag-green">${herb.weights[0]}</span>
-              <span class="tag tag-${herb.safety}">${herb.safety}</span>
+              <span class="tag tag-green">${cardWeight}</span>
+              <span class="tag tag-${herb.safety}">${getSafetyLabel(herb.safety)}</span>
             </div>
           </div>
         </div>
-      `).join('')}
+      `;
+      }).join('')}
     </div>
   `;
 }

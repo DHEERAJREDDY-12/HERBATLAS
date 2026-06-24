@@ -158,6 +158,10 @@ var HERBS_DATA = [
       "Diabetes medications",
       "Stomach acid reducers"
     ],
+    "caution_reasons": [
+      "High-dose use can irritate digestion or worsen gallbladder problems.",
+      "May slow blood clotting and interact with blood thinners or diabetes medicines."
+    ],
     "ailments": [
       "Joint Pain",
       "Digestion",
@@ -271,6 +275,10 @@ var HERBS_DATA = [
     "drug_interactions": [
       "Diabetes medications",
       "Immunosuppressants"
+    ],
+    "caution_reasons": [
+      "Large amounts can be toxic, and neem oil must be diluted before skin use.",
+      "Avoid during pregnancy and for children because concentrated forms may be unsafe."
     ],
     "ailments": [
       "Skin Problems",
@@ -552,6 +560,10 @@ var HERBS_DATA = [
       "Diabetes medications",
       "Blood thinners",
       "Hormone medications"
+    ],
+    "caution_reasons": [
+      "Can lower blood sugar significantly, especially with diabetes medicines.",
+      "Avoid during pregnancy because it may stimulate uterine contractions."
     ],
     "ailments": [
       "Hormonal Balance",
@@ -837,6 +849,10 @@ var HERBS_DATA = [
       "Sedatives",
       "Diabetes medications"
     ],
+    "caution_reasons": [
+      "Contains thujone, which can be toxic in high amounts or long continuous use.",
+      "Avoid with epilepsy, pregnancy, breastfeeding, or sedative medicines."
+    ],
     "ailments": [
       "Hormonal Balance",
       "Stress & Anxiety"
@@ -1060,6 +1076,10 @@ var HERBS_DATA = [
       "Diabetes medications",
       "High blood pressure medications"
     ],
+    "caution_reasons": [
+      "High doses may cause heartburn, mouth irritation, or digestive upset.",
+      "May slow blood clotting and interact with blood thinners or blood pressure medicines."
+    ],
     "ailments": [
       "Digestion",
       "Joint Pain",
@@ -1117,6 +1137,10 @@ var HERBS_DATA = [
       "Diabetes medications",
       "MAO inhibitors",
       "Stimulants"
+    ],
+    "caution_reasons": [
+      "Can cause insomnia or overstimulation, especially if taken late or with stimulants.",
+      "Limit continuous use and avoid with hormone-sensitive conditions or certain medicines."
     ],
     "ailments": [
       "Low Energy",
@@ -1347,6 +1371,10 @@ var HERBS_DATA = [
       "Heart medications",
       "Steroids"
     ],
+    "caution_reasons": [
+      "Long-term use can raise blood pressure and lower potassium.",
+      "Avoid with heart, blood pressure, diuretic, or steroid medicines unless supervised."
+    ],
     "ailments": [
       "Digestion",
       "Low Immunity"
@@ -1514,6 +1542,10 @@ var HERBS_DATA = [
       "Heart medications",
       "Stomach acid medications"
     ],
+    "caution_reasons": [
+      "May irritate stomach ulcers or gallbladder problems.",
+      "Avoid during pregnancy, before surgery, or with blood thinners or heart medicines."
+    ],
     "ailments": [
       "Joint Pain",
       "Low Energy"
@@ -1569,6 +1601,10 @@ var HERBS_DATA = [
       "Diuretics",
       "Blood thinners"
     ],
+    "caution_reasons": [
+      "Can irritate kidneys or urinary tract when taken in large doses.",
+      "Avoid during pregnancy, kidney disease, childhood, or with diuretics or blood thinners."
+    ],
     "ailments": [
       "Digestion",
       "Low Immunity"
@@ -1621,6 +1657,10 @@ var HERBS_DATA = [
     "drug_interactions": [
       "Blood thinners",
       "Diabetes medications"
+    ],
+    "caution_reasons": [
+      "Very potent and should be used only in small moderated amounts.",
+      "Avoid during pregnancy and use professional guidance with blood thinner or diabetes medicines."
     ],
     "ailments": [
       "Low Immunity",
@@ -1676,6 +1716,10 @@ var HERBS_DATA = [
     "drug_interactions": [
       "Diabetes medications",
       "Blood pressure medications"
+    ],
+    "caution_reasons": [
+      "Can lower blood sugar strongly, especially with diabetes medicines.",
+      "Start with small amounts and avoid during pregnancy or unsupervised medicinal use."
     ],
     "ailments": [
       "Digestion",
@@ -1846,6 +1890,10 @@ var HERBS_DATA = [
       "Cyclosporine",
       "Tetracycline"
     ],
+    "caution_reasons": [
+      "Not safe during pregnancy or for young children.",
+      "Limit continuous use and avoid with high blood pressure or interacting medicines."
+    ],
     "ailments": [
       "Low Immunity",
       "Digestion"
@@ -1957,6 +2005,10 @@ var HERBS_DATA = [
       "Blood thinners",
       "Immunosuppressants",
       "Blood pressure medications"
+    ],
+    "caution_reasons": [
+      "May affect immune activity and slow blood clotting.",
+      "Avoid during pregnancy, in children, before surgery, or with immunosuppressants."
     ],
     "ailments": [
       "Joint Pain",
@@ -2070,6 +2122,10 @@ var HERBS_DATA = [
       "Diabetes medications",
       "Diuretics",
       "Laxatives"
+    ],
+    "caution_reasons": [
+      "Internal aloe latex can be dangerous and may cause electrolyte imbalance.",
+      "Avoid internal use during pregnancy, kidney disease, or with diuretics or laxatives."
     ],
     "ailments": [
       "Skin Problems",
@@ -2238,6 +2294,10 @@ var HERBS_DATA = [
     "drug_interactions": [
       "Diabetes medications",
       "Blood thinners"
+    ],
+    "caution_reasons": [
+      "Can significantly lower blood sugar and interact with diabetes medicines.",
+      "Avoid during pregnancy and start small because digestive upset or allergy can occur."
     ],
     "ailments": [
       "Digestion",

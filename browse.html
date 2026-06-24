@@ -6,14 +6,14 @@
   <title>Browse Herbs — HerbAtlas</title>
 
   <!-- SEO -->
-  <meta name="description" content="Browse 40+ medicinal herbs from around the world. Filter by region, ailment, type and safety. Discover ancient remedies with detailed herb profiles on HerbAtlas.">
+  <meta name="description" content="Browse 40+ medicinal herbs from around the world. Search medicinal herbs and review safety labels with detailed herb profiles on HerbAtlas.">
   <link rel="canonical" href="https://herbatlas.com/browse.html">
 
   <!-- Open Graph -->
   <meta property="og:type"        content="website">
   <meta property="og:url"         content="https://herbatlas.com/browse.html">
   <meta property="og:title"       content="Browse Herbs — HerbAtlas">
-  <meta property="og:description" content="Browse 40+ medicinal herbs from around the world. Filter by region, ailment, type and safety.">
+  <meta property="og:description" content="Browse 40+ medicinal herbs from around the world. Search medicinal herbs and review safety labels.">
   <meta property="og:image"       content="https://herbatlas.com/images/herbs/ashwagandha.webp">
 
   <!-- Twitter Card -->
@@ -28,7 +28,7 @@
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "name": "Browse Herbs",
-    "description": "Browse 40+ medicinal herbs from around the world. Filter by region, ailment, type and safety.",
+    "description": "Browse 40+ medicinal herbs from around the world. Search medicinal herbs and review safety labels.",
     "url": "https://herbatlas.com/browse.html",
     "isPartOf": {
       "@type": "WebSite",
@@ -131,45 +131,10 @@
 
   <main id="main-content">
 
-  <section class="catalog-results">
-  <div class="filter-drawer-bar">
-    <button
-      class="filter-drawer-trigger"
-      id="filterDrawerTrigger"
-      type="button"
-      aria-controls="filterDrawer"
-      aria-expanded="false"
-    >
-      Filter
-    </button>
-  </div>
-
+  <section class="catalog-results browse-results">
   <div class="filter-bar" role="search" aria-label="Filter herbs">
     <!-- Visually shown label -->
-    <span class="filter-label" aria-hidden="true">Filter</span>
-
-    <!-- Labels are visually hidden but accessible; selects are labelled correctly -->
-    <label for="regionFilter" class="sr-only">Filter by region</label>
-    <select class="filter-select" id="regionFilter" aria-label="Filter by region">
-      <option value="">All Regions</option>
-      <option value="South Asia">South Asia</option>
-      <option value="Mediterranean">Mediterranean</option>
-      <option value="East Asia">East Asia</option>
-      <option value="Africa">Africa</option>
-      <option value="Americas">Americas</option>
-      <option value="Middle East">Middle East</option>
-    </select>
-
-    <label for="typeFilter" class="sr-only">Filter by herb type</label>
-    <select class="filter-select" id="typeFilter" aria-label="Filter by herb type">
-      <option value="">All Types</option>
-      <option value="Root">Root</option>
-      <option value="Leaf">Leaf</option>
-      <option value="Flower">Flower</option>
-      <option value="Seed">Seed</option>
-      <option value="Bark">Bark</option>
-      <option value="Mushroom">Mushroom</option>
-    </select>
+    <span class="filter-label" aria-hidden="true">Safety</span>
 
     <div role="group" aria-label="Filter by safety rating">
       <button class="filter-chip active" data-safety="">All</button>
@@ -179,59 +144,6 @@
 
     <span class="filter-count" id="filterCount" aria-live="polite" aria-atomic="true">Showing 40 herbs</span>
   </div>
-
-  <div class="filter-overlay" id="filterOverlay" hidden></div>
-  <aside
-    class="filter-drawer"
-    id="filterDrawer"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="filterDrawerTitle"
-    aria-hidden="true"
-  >
-    <div class="filter-drawer-head">
-      <h2 id="filterDrawerTitle">Filter</h2>
-      <button type="button" class="filter-drawer-close" id="filterDrawerClose" aria-label="Close filter panel">Close</button>
-    </div>
-
-    <div class="filter-drawer-body">
-      <label for="drawerRegionFilter" class="filter-drawer-label">Region</label>
-      <select class="filter-select" id="drawerRegionFilter">
-        <option value="">All Regions</option>
-        <option value="South Asia">South Asia</option>
-        <option value="Mediterranean">Mediterranean</option>
-        <option value="East Asia">East Asia</option>
-        <option value="Africa">Africa</option>
-        <option value="Americas">Americas</option>
-        <option value="Middle East">Middle East</option>
-      </select>
-
-      <label for="drawerTypeFilter" class="filter-drawer-label">Type</label>
-      <select class="filter-select" id="drawerTypeFilter">
-        <option value="">All Types</option>
-        <option value="Root">Root</option>
-        <option value="Leaf">Leaf</option>
-        <option value="Flower">Flower</option>
-        <option value="Seed">Seed</option>
-        <option value="Bark">Bark</option>
-        <option value="Mushroom">Mushroom</option>
-      </select>
-
-      <div class="filter-drawer-group">
-        <span class="filter-drawer-label">Safety</span>
-        <div class="filter-drawer-chips" id="drawerSafetyChips">
-          <button type="button" class="filter-chip active" data-drawer-safety="">All</button>
-          <button type="button" class="filter-chip" data-drawer-safety="safe">Safe Only</button>
-          <button type="button" class="filter-chip" data-drawer-safety="caution">Caution</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="filter-drawer-actions">
-      <button type="button" class="btn-primary" id="filterDrawerApply">Apply</button>
-      <button type="button" class="btn-outline" id="filterDrawerClear">Clear</button>
-    </div>
-  </aside>
 
   <div class="browse-body">
     <div class="herbs-grid" id="herbsGrid" aria-label="Herb results"></div>

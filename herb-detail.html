@@ -80,6 +80,14 @@
 
       <div class="warnings-section">
         <h2>Warnings & Precautions</h2>
+        <div class="warn-box warn-caution-reasons hidden" id="cautionReasonsBox">
+          <h4>Why Use with Caution</h4>
+          <ul class="warn-list" id="cautionReasonsList"></ul>
+          <p class="doctor-note">
+            Doctor recommendation is required before use, especially if you are pregnant,
+            breastfeeding, taking medicines or managing a medical condition.
+          </p>
+        </div>
         <div class="warn-box warn-yellow">
           <h4>Who Should Avoid</h4>
           <ul class="warn-list" id="warningsList"></ul>
@@ -102,6 +110,10 @@
           <h3>Want to Buy This Herb?</h3>
           <p>Check price, stock and delivery options in the shop.</p>
           <a href="shop.html" class="shop-cta-link">View Product in Shop page</a>
+          <button type="button" class="shop-cta-add" id="detailQuickCartBtn" onclick="addDetailHerbToCart()">
+            Add to Cart
+          </button>
+          <p class="shop-cta-note" id="detailQuickCartNote"></p>
         </div>
         <div class="sidebar-card">
           <h3>Related Herbs</h3>

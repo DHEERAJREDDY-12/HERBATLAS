@@ -90,12 +90,12 @@
           </div>
 
           <div class="form-field">
-            <label for="signinEmail">Email Address</label>
+            <label for="signinEmail">Email Address*</label>
             <input type="email" id="signinEmail" placeholder="you@example.com" autocomplete="email">
           </div>
 
           <div class="form-field">
-            <label for="signinPassword">Password</label>
+            <label for="signinPassword">Password*</label>
             <div class="password-wrap">
               <input type="password" id="signinPassword" placeholder="••••••••" autocomplete="current-password">
               <button type="button" class="pwd-toggle" onclick="togglePassword('signinPassword', this)" aria-label="Toggle password visibility">
@@ -132,7 +132,7 @@
 
           <div class="form-row-2col">
             <div class="form-field">
-              <label for="regFirstName">First Name</label>
+              <label for="regFirstName">First Name*</label>
               <input type="text" id="regFirstName" placeholder="Priya" autocomplete="given-name">
             </div>
             <div class="form-field">
@@ -142,15 +142,19 @@
           </div>
 
           <div class="form-field">
-            <label for="regEmail">Email Address</label>
+            <label for="regEmail">Email Address*</label>
             <input type="email" id="regEmail" placeholder="you@example.com" autocomplete="email">
           </div>
 
           <div class="form-field">
-            <label for="regPassword">Password</label>
+            <label for="regPassword">Password*</label>
             <div class="password-wrap">
               <input type="password" id="regPassword" placeholder="Min 6 characters"
-                autocomplete="new-password" oninput="checkStrength(this.value)">
+                autocomplete="new-password"
+                aria-describedby="passwordRequirements"
+                onfocus="showPasswordRequirements()"
+                onblur="hidePasswordRequirementsIfEmpty()"
+                oninput="updatePasswordFeedback(this.value)">
               <button type="button" class="pwd-toggle" onclick="togglePassword('regPassword', this)" aria-label="Toggle password visibility">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
@@ -158,12 +162,22 @@
                 </svg>
               </button>
             </div>
+            <div class="password-requirements" id="passwordRequirements" aria-live="polite">
+              <p>Password must include:</p>
+              <ul>
+                <li data-password-rule="length">Minimum 6 characters</li>
+                <li data-password-rule="upper">One uppercase letter</li>
+                <li data-password-rule="lower">One lowercase letter</li>
+                <li data-password-rule="number">One number</li>
+                <li data-password-rule="symbol">One symbol</li>
+              </ul>
+            </div>
             <div class="strength-bar"><div class="strength-fill" id="strengthFill"></div></div>
             <span class="strength-label" id="strengthLabel"></span>
           </div>
 
           <div class="form-field">
-            <label for="regConfirm">Confirm Password</label>
+            <label for="regConfirm">Confirm Password*</label>
             <div class="password-wrap">
               <input type="password" id="regConfirm" placeholder="Repeat password" autocomplete="new-password">
               <button type="button" class="pwd-toggle" onclick="togglePassword('regConfirm', this)" aria-label="Toggle password visibility">

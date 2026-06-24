@@ -54,6 +54,45 @@ function togglePassword(inputId, btn) {
   btn.style.color = showing ? '' : 'var(--green-mid)';
 }
 
+function getPasswordRules(val) {
+  return {
+    length: val.length >= 6,
+    upper: /[A-Z]/.test(val),
+    lower: /[a-z]/.test(val),
+    number: /[0-9]/.test(val),
+    symbol: /[^A-Za-z0-9]/.test(val)
+  };
+}
+
+function isPasswordValid(val) {
+  return Object.values(getPasswordRules(val)).every(Boolean);
+}
+
+function showPasswordRequirements() {
+  const panel = document.getElementById('passwordRequirements');
+  if (panel) panel.classList.add('open');
+}
+
+function hidePasswordRequirementsIfEmpty() {
+  const input = document.getElementById('regPassword');
+  const panel = document.getElementById('passwordRequirements');
+  if (input && panel && !input.value) panel.classList.remove('open');
+}
+
+function updatePasswordRules(val) {
+  const rules = getPasswordRules(val);
+  Object.entries(rules).forEach(([rule, isMet]) => {
+    const item = document.querySelector(`[data-password-rule="${rule}"]`);
+    if (item) item.classList.toggle('met', isMet);
+  });
+}
+
+function updatePasswordFeedback(val) {
+  showPasswordRequirements();
+  updatePasswordRules(val);
+  checkStrength(val);
+}
+
 function checkStrength(val) {
   const fill = document.getElementById('strengthFill');
   const label = document.getElementById('strengthLabel');
@@ -67,8 +106,8 @@ function checkStrength(val) {
 
   let score = 0;
   if (val.length >= 6) score++;
-  if (val.length >= 10) score++;
   if (/[A-Z]/.test(val)) score++;
+  if (/[a-z]/.test(val)) score++;
   if (/[0-9]/.test(val)) score++;
   if (/[^A-Za-z0-9]/.test(val)) score++;
 
@@ -143,8 +182,10 @@ function register() {
     showError(error, 'Please enter a valid email.');
     return;
   }
-  if (password.length < 6) {
-    showError(error, 'Password must be at least 6 characters.'); return;
+  if (!isPasswordValid(password)) {
+    showPasswordRequirements();
+    updatePasswordRules(password);
+    showError(error, 'Password must include at least 6 characters, one uppercase letter, one lowercase letter, one number and one symbol.'); return;
   }
   if (password !== confirm) {
     showError(error, 'Passwords do not match.'); return;

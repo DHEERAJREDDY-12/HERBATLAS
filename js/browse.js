@@ -3,7 +3,10 @@ let filteredHerbs = [];
 let currentPage = 1;
 let activeSafety = '';
 let currentSearch = '';
-let drawerSafety = '';
+
+function getSafetyLabel(safety) {
+  return safety === 'safe' ? 'Generally Safe' : 'Use with Caution';
+}
 
 function getHerbsPerPage() {
   const width = window.innerWidth;
@@ -70,7 +73,7 @@ function renderHerbs() {
           ${idx === 0 && currentPage === 1 ? 'fetchpriority="high"' : 'loading="lazy"'}
           onerror="this.style.display='none'"
         >
-        <span class="herb-card-badge">${herb.safety}</span>
+        <span class="herb-card-badge">${getSafetyLabel(herb.safety)}</span>
       </div>
       <div class="herb-card-body">
         <h2 class="herb-card-name">${herb.name}</h2>
@@ -79,7 +82,7 @@ function renderHerbs() {
         <div class="tags">
           <span class="tag tag-green">${herb.best_for}</span>
           <span class="tag tag-brown">${herb.region}</span>
-          <span class="tag tag-${herb.safety}">${herb.safety}</span>
+          <span class="tag tag-${herb.safety}">${getSafetyLabel(herb.safety)}</span>
         </div>
       </div>
     </div>
@@ -117,13 +120,9 @@ function changePage(page) {
 }
 
 function applyFilters() {
-  const region = document.getElementById('regionFilter').value;
-  const type = document.getElementById('typeFilter').value;
   const search = currentSearch;
 
   filteredHerbs = allHerbs.filter(herb => {
-    if (region && herb.region !== region) return false;
-    if (type && herb.type !== type) return false;
     if (activeSafety && herb.safety !== activeSafety) return false;
     if (search) {
       const match = herb.name.toLowerCase().includes(search);
@@ -137,123 +136,14 @@ function applyFilters() {
   renderPagination();
 }
 
-function syncDrawerFromDesktop() {
-  const region = document.getElementById('drawerRegionFilter');
-  const type = document.getElementById('drawerTypeFilter');
-  if (!region || !type) return;
-
-  region.value = document.getElementById('regionFilter').value;
-  type.value = document.getElementById('typeFilter').value;
-  drawerSafety = activeSafety;
-  document.querySelectorAll('[data-drawer-safety]').forEach(chip => {
-    chip.classList.toggle('active', chip.dataset.drawerSafety === drawerSafety);
-  });
-}
-
-function applyDrawerFilters() {
-  const region = document.getElementById('drawerRegionFilter');
-  const type = document.getElementById('drawerTypeFilter');
-  if (!region || !type) return;
-
-  document.getElementById('regionFilter').value = region.value;
-  document.getElementById('typeFilter').value = type.value;
-  activeSafety = drawerSafety;
-  document.querySelectorAll('.filter-bar .filter-chip').forEach(chip => {
-    chip.classList.toggle('active', chip.dataset.safety === activeSafety);
-  });
-  applyFilters();
-}
-
-function setupFilterDrawer() {
-  const trigger = document.getElementById('filterDrawerTrigger');
-  const drawer = document.getElementById('filterDrawer');
-  const overlay = document.getElementById('filterOverlay');
-  const closeBtn = document.getElementById('filterDrawerClose');
-  const applyBtn = document.getElementById('filterDrawerApply');
-  const clearBtn = document.getElementById('filterDrawerClear');
-  if (!trigger || !drawer || !overlay || !closeBtn || !applyBtn || !clearBtn) return;
-
-  let lastFocused = null;
-  let isOpen = false;
-
-  function closeDrawer() {
-    if (!isOpen) return;
-    isOpen = false;
-    drawer.classList.remove('open');
-    overlay.classList.remove('open');
-    drawer.setAttribute('aria-hidden', 'true');
-    trigger.setAttribute('aria-expanded', 'false');
-    overlay.hidden = true;
-    document.body.classList.remove('filter-drawer-open');
-    if (lastFocused) lastFocused.focus();
-  }
-
-  function openDrawer() {
-    if (window.innerWidth >= 768) return;
-    lastFocused = trigger;
-    isOpen = true;
-    syncDrawerFromDesktop();
-    overlay.hidden = false;
-    drawer.classList.add('open');
-    overlay.classList.add('open');
-    drawer.setAttribute('aria-hidden', 'false');
-    trigger.setAttribute('aria-expanded', 'true');
-    document.body.classList.add('filter-drawer-open');
-    const focusTarget = drawer.querySelector('.filter-select, .filter-chip, .filter-drawer-close');
-    if (focusTarget) focusTarget.focus();
-  }
-
-  trigger.addEventListener('click', openDrawer);
-  closeBtn.addEventListener('click', closeDrawer);
-  overlay.addEventListener('click', closeDrawer);
-  applyBtn.addEventListener('click', () => {
-    applyDrawerFilters();
-    closeDrawer();
-  });
-  clearBtn.addEventListener('click', () => {
-    document.getElementById('drawerRegionFilter').value = '';
-    document.getElementById('drawerTypeFilter').value = '';
-    drawerSafety = '';
-    document.querySelectorAll('[data-drawer-safety]').forEach(chip => {
-      chip.classList.toggle('active', chip.dataset.drawerSafety === '');
-    });
-    currentSearch = '';
-    applyDrawerFilters();
-    closeDrawer();
-  });
-
-  document.querySelectorAll('[data-drawer-safety]').forEach(chip => {
-    chip.addEventListener('click', () => {
-      drawerSafety = chip.dataset.drawerSafety;
-      document.querySelectorAll('[data-drawer-safety]').forEach(c => c.classList.remove('active'));
-      chip.classList.add('active');
-    });
-  });
-
-  document.addEventListener('keydown', event => {
-    if (event.key === 'Escape' && drawer.classList.contains('open')) {
-      closeDrawer();
-    }
-  });
-
-  window.addEventListener('resize', () => {
-    if (window.innerWidth >= 768) {
-      closeDrawer();
-    }
-  });
-}
-
 function goToDetail(id) {
   window.location.href = `herb-detail.html?id=${id}`;
 }
 
 // Event listeners
-document.getElementById('regionFilter').addEventListener('change', applyFilters);
-document.getElementById('typeFilter').addEventListener('change', applyFilters);
-
-document.querySelectorAll('.filter-chip').forEach(chip => {
+document.querySelectorAll('.filter-bar .filter-chip').forEach(chip => {
   chip.addEventListener('click', () => {
-    document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('.filter-bar .filter-chip').forEach(c => c.classList.remove('active'));
     chip.classList.add('active');
     activeSafety = chip.dataset.safety;
     applyFilters();
@@ -261,12 +151,10 @@ document.querySelectorAll('.filter-chip').forEach(chip => {
 });
 
 document.getElementById('clearFilters').addEventListener('click', () => {
-  document.getElementById('regionFilter').value = '';
-  document.getElementById('typeFilter').value = '';
   currentSearch = '';
   activeSafety = '';
-  document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
-  document.querySelector('.filter-chip').classList.add('active');
+  document.querySelectorAll('.filter-bar .filter-chip').forEach(c => c.classList.remove('active'));
+  document.querySelector('.filter-bar .filter-chip').classList.add('active');
   filteredHerbs = [...allHerbs];
   currentPage = 1;
   renderHerbs();
@@ -280,5 +168,4 @@ window.addEventListener('resize', () => {
   renderPagination();
 });
 
-setupFilterDrawer();
 loadHerbs();

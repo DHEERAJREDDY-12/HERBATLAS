@@ -6,6 +6,47 @@ let activeSafety = '';
 let drawerStock = '';
 let drawerSafety = '';
 
+function getSafetyLabel(safety) {
+  return safety === 'safe' ? 'Generally Safe' : 'Use with Caution';
+}
+
+function getWeightValue(weight) {
+  return parseInt((weight || '').replace(/[^0-9]/g, ''), 10) || 0;
+}
+
+function getSortedWeights(herb) {
+  return [...(herb.weights || [])].sort((a, b) => getWeightValue(a) - getWeightValue(b));
+}
+
+function getCardWeight(herb) {
+  const sortedWeights = getSortedWeights(herb);
+  return sortedWeights[1] || sortedWeights[0] || '';
+}
+
+function getBulkDiscount(weightRatio) {
+  if (weightRatio >= 10) return 0.22;
+  if (weightRatio >= 5) return 0.16;
+  if (weightRatio >= 4) return 0.14;
+  if (weightRatio >= 3) return 0.1;
+  if (weightRatio >= 2.5) return 0.08;
+  if (weightRatio >= 2) return 0.06;
+  return 0;
+}
+
+function getPriceForWeight(herb, weight) {
+  if (!herb || !herb.weights || !herb.weights.length) return herb ? herb.price : 0;
+  const sortedWeights = getSortedWeights(herb);
+  const baseAmount = getWeightValue(sortedWeights[0]);
+  const selectedAmount = getWeightValue(weight);
+  if (!baseAmount || !selectedAmount) return herb.price;
+
+  const weightRatio = selectedAmount / baseAmount;
+  const linearPrice = herb.price * weightRatio;
+  const discountedPrice = linearPrice * (1 - getBulkDiscount(weightRatio));
+
+  return Math.max(herb.price, Math.round(discountedPrice));
+}
+
 function initCouponBanner() {
   const banner = document.getElementById('shopCouponBanner');
   const closeBtn = document.getElementById('shopCouponBannerClose');
@@ -67,8 +108,11 @@ function renderProducts() {
   grid.innerHTML = pageProducts.map(herb => {
     const herbName = herb.image.split('/').pop().replace(/\.(jpg|png|webp)$/, '');
     const shopImage = `images/shop/${herbName}-product.webp`;
+    const cardWeight = getCardWeight(herb);
+    const cardPrice = getPriceForWeight(herb, cardWeight);
+    const detailUrl = `shop-detail.html?id=${herb.id}&weight=${encodeURIComponent(cardWeight)}`;
     return `
-    <div class="shop-card" onclick="window.location.href='shop-detail.html?id=${herb.id}'">
+    <div class="shop-card" onclick="window.location.href='${detailUrl}'">
       <div class="shop-card-img">
         <img src="${shopImage}" alt="${herb.name}" loading="lazy"
           onerror="this.src='${herb.image}'">
@@ -76,7 +120,7 @@ function renderProducts() {
         <span class="stock-badge ${herb.stock ? 'in' : 'out'}">
           ${herb.stock ? 'In Stock' : 'Out of Stock'}
         </span>
-        <span class="safety-badge">${herb.safety === 'safe' ? 'Safe' : 'Caution'}</span>
+        <span class="safety-badge">${getSafetyLabel(herb.safety)}</span>
       </div>
       <div class="shop-card-body">
         <h3>${herb.name}</h3>
@@ -84,15 +128,15 @@ function renderProducts() {
         <p>${herb.best_for}</p>
         <div class="shop-card-meta">
           <span>${herb.region}</span>
-          <span>${herb.weights[0]}</span>
+          <span>${cardWeight}</span>
           <span>Ships 2-4 days</span>
         </div>
-        <a class="shop-view-link" href="shop-detail.html?id=${herb.id}" onclick="event.stopPropagation()">Product details</a>
+        <a class="shop-view-link" href="${detailUrl}" onclick="event.stopPropagation()">Product details</a>
       </div>
       <div class="shop-card-footer">
         <div class="shop-price">
-          Rs.${herb.price}
-          <span>/ ${herb.weights[0]}</span>
+          Rs.${cardPrice}
+          <span>/ ${cardWeight}</span>
         </div>
         <button
           class="add-btn"
@@ -138,12 +182,10 @@ function changePage(page) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 function applyFilters() {
-  const region = document.getElementById('regionFilter').value;
   const ailment = document.getElementById('ailmentFilter').value;
   const sort = document.getElementById('sortFilter').value;
 
   filteredProducts = allProducts.filter(herb => {
-    if (region && herb.region !== region) return false;
     if (ailment && !herb.ailments.includes(ailment)) return false;
     if (activeStock === 'true' && !herb.stock) return false;
     if (activeSafety === 'safe' && herb.safety !== 'safe') return false;
@@ -160,12 +202,10 @@ function applyFilters() {
 }
 
 function syncDrawerFromDesktop() {
-  const region = document.getElementById('drawerRegionFilter');
   const ailment = document.getElementById('drawerAilmentFilter');
   const sort = document.getElementById('drawerSortFilter');
-  if (!region || !ailment || !sort) return;
+  if (!ailment || !sort) return;
 
-  region.value = document.getElementById('regionFilter').value;
   ailment.value = document.getElementById('ailmentFilter').value;
   sort.value = document.getElementById('sortFilter').value;
   drawerStock = activeStock;
@@ -177,12 +217,10 @@ function syncDrawerFromDesktop() {
 }
 
 function applyDrawerFilters() {
-  const region = document.getElementById('drawerRegionFilter');
   const ailment = document.getElementById('drawerAilmentFilter');
   const sort = document.getElementById('drawerSortFilter');
-  if (!region || !ailment || !sort) return;
+  if (!ailment || !sort) return;
 
-  document.getElementById('regionFilter').value = region.value;
   document.getElementById('ailmentFilter').value = ailment.value;
   document.getElementById('sortFilter').value = sort.value;
   activeStock = drawerStock;
@@ -241,7 +279,6 @@ function setupFilterDrawer() {
     closeDrawer();
   });
   clearBtn.addEventListener('click', () => {
-    document.getElementById('drawerRegionFilter').value = '';
     document.getElementById('drawerAilmentFilter').value = '';
     document.getElementById('drawerSortFilter').value = '';
     drawerStock = '';
@@ -278,11 +315,13 @@ function addToCart(id, options = {}) {
   const herb = allProducts.find(h => h.id === id);
   if (!herb) return;
   const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-  const defaultWeight = herb.weights[0];
+  const defaultWeight = getCardWeight(herb);
+  const selectedPrice = getPriceForWeight(herb, defaultWeight);
   const existingIndex = cart.findIndex(item => item.id === id && item.weight === defaultWeight);
   if (existingIndex !== -1) {
     const existing = cart[existingIndex];
     existing.qty += 1;
+    existing.price = selectedPrice;
     cart.splice(existingIndex, 1);
     cart.push(existing);
   } else {
@@ -290,7 +329,7 @@ function addToCart(id, options = {}) {
       id: herb.id,
       name: herb.name,
       image: herb.image,
-      price: herb.price,
+      price: selectedPrice,
       weight: defaultWeight,
       qty: 1
     });
@@ -314,10 +353,9 @@ function addToCart(id, options = {}) {
   }
 
   if (!options.silentToast) {
-    showToast(`${herb.name} added to your cart.`, 'success');
+    showToast(`${herb.name} ${defaultWeight} added to your cart.`, 'success');
   }
 }
-document.getElementById('regionFilter').addEventListener('change', applyFilters);
 document.getElementById('ailmentFilter').addEventListener('change', applyFilters);
 document.getElementById('sortFilter').addEventListener('change', applyFilters);
 document.querySelectorAll('.filter-chip[data-stock]').forEach(chip => {
@@ -339,7 +377,6 @@ document.querySelectorAll('.filter-chip[data-safety]').forEach(chip => {
   });
 });
 document.getElementById('clearFilters').addEventListener('click', () => {
-  document.getElementById('regionFilter').value = '';
   document.getElementById('ailmentFilter').value = '';
   document.getElementById('sortFilter').value = '';
   activeStock = '';

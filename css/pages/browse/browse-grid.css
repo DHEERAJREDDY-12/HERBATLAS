@@ -9,6 +9,25 @@
   grid-template-columns:repeat(4,1fr);
   gap: 24px;
 }
+
+.browse-results .filter-bar {
+  gap: 14px;
+}
+
+.browse-results .filter-bar [role="group"] {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.browse-results .filter-chip {
+  min-width: 94px;
+}
+
+.browse-results .filter-count {
+  white-space: nowrap;
+}
+
 .no-results{
   text-align:center;
   padding:80px 20px;
@@ -38,6 +57,33 @@
 }
 
 @media (max-width: 768px) {
+  .browse-results .filter-bar {
+    display: flex;
+    padding: 12px 20px;
+    position: sticky;
+    top: 116px;
+  }
+
+  .browse-results .filter-label {
+    flex: 0 0 auto;
+  }
+
+  .browse-results .filter-bar [role="group"] {
+    flex: 1 1 auto;
+  }
+
+  .browse-results .filter-chip {
+    flex: 1 1 86px;
+    justify-content: center;
+    min-width: 0;
+  }
+
+  .browse-results .filter-count {
+    flex: 0 0 100%;
+    margin-left: 0;
+    white-space: normal;
+  }
+
   .browse-body {
     padding: 24px 20px;
   }
@@ -48,6 +94,15 @@
 }
 
 @media (max-width: 480px){
+  .browse-results .filter-bar {
+    gap: 8px;
+    padding: 10px 14px;
+  }
+
+  .browse-results .filter-label {
+    flex: 0 0 100%;
+  }
+
   .browse-body .herbs-grid{
     grid-template-columns: 1fr;
   }

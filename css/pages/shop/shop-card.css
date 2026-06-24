@@ -71,10 +71,14 @@
   color: var(--green-dark);
   font-size: 10px;
   letter-spacing: 0.5px;
+  line-height: 1.25;
+  max-width: calc(100% - 24px);
   padding: 3px 10px;
   position: absolute;
   right: 12px;
+  text-align: center;
   text-transform: uppercase;
+  white-space: normal;
 }
 
 .shop-card-body {

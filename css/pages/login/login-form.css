@@ -187,6 +187,70 @@
   min-height: 16px;
 }
 
+.password-requirements {
+  background: var(--white);
+  border: 1px solid #e6dfd0;
+  border-radius: 10px;
+  box-shadow: 0 10px 24px rgba(22, 42, 15, 0.08);
+  margin-top: 8px;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0 12px;
+  transform: translateY(-4px);
+  transition: max-height 0.28s ease, opacity 0.2s ease, padding 0.2s ease, transform 0.2s ease;
+}
+
+.password-requirements.open {
+  max-height: 190px;
+  opacity: 1;
+  padding: 10px 12px 11px;
+  transform: translateY(0);
+}
+
+.password-requirements p {
+  color: var(--green-dark);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin-bottom: 7px;
+  text-transform: uppercase;
+}
+
+.password-requirements ul {
+  display: grid;
+  gap: 5px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.password-requirements li {
+  align-items: center;
+  color: var(--text-light);
+  display: flex;
+  font-size: 12px;
+  gap: 7px;
+  line-height: 1.35;
+}
+
+.password-requirements li::before {
+  background: #e6dfd0;
+  border-radius: 50%;
+  content: '';
+  flex: 0 0 7px;
+  height: 7px;
+  width: 7px;
+}
+
+.password-requirements li.met {
+  color: var(--green-mid);
+}
+
+.password-requirements li.met::before {
+  background: var(--green-mid);
+}
+
 /* ── 2-col name row ── */
 .form-row-2col {
   display: grid;

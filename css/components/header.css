@@ -402,11 +402,11 @@ body.nav-open {
   }
 
   .nav-search {
-    width: 130px;
+    width: 150px;
   }
 
   .nav-search:focus {
-    width: 170px;
+    width: 180px;
   }
 }
 

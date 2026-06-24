@@ -6,6 +6,47 @@ const heroHerbSub = document.getElementById('heroHerbSub');
 if (heroHerbCount) heroHerbCount.textContent = herbCount;
 if (heroHerbSub) heroHerbSub.textContent = herbCount;
 
+function getSafetyLabel(safety) {
+  return safety === 'safe' ? 'Generally Safe' : 'Use with Caution';
+}
+
+function getWeightValue(weight) {
+  return parseInt((weight || '').replace(/[^0-9]/g, ''), 10) || 0;
+}
+
+function getSortedWeights(herb) {
+  return [...(herb.weights || [])].sort((a, b) => getWeightValue(a) - getWeightValue(b));
+}
+
+function getCardWeight(herb) {
+  const sortedWeights = getSortedWeights(herb);
+  return sortedWeights[1] || sortedWeights[0] || '';
+}
+
+function getBulkDiscount(weightRatio) {
+  if (weightRatio >= 10) return 0.22;
+  if (weightRatio >= 5) return 0.16;
+  if (weightRatio >= 4) return 0.14;
+  if (weightRatio >= 3) return 0.1;
+  if (weightRatio >= 2.5) return 0.08;
+  if (weightRatio >= 2) return 0.06;
+  return 0;
+}
+
+function getPriceForWeight(herb, weight) {
+  if (!herb || !herb.weights || !herb.weights.length) return herb ? herb.price : 0;
+  const sortedWeights = getSortedWeights(herb);
+  const baseAmount = getWeightValue(sortedWeights[0]);
+  const selectedAmount = getWeightValue(weight);
+  if (!baseAmount || !selectedAmount) return herb.price;
+
+  const weightRatio = selectedAmount / baseAmount;
+  const linearPrice = herb.price * weightRatio;
+  const discountedPrice = linearPrice * (1 - getBulkDiscount(weightRatio));
+
+  return Math.max(herb.price, Math.round(discountedPrice));
+}
+
 // Category strip navigates to ailments with the selected concern preloaded
 const ailmentMap = {
   'Stress':     'Stress & Anxiety',
@@ -39,7 +80,7 @@ function renderRecentHerbs() {
     <div class="herb-card" onclick="window.location.href='herb-detail.html?id=${herb.id}'" style="cursor:pointer">
       <div class="herb-card-img">
         <img src="${herb.image}" alt="${herb.name}" loading="lazy" onerror="this.style.display='none'">
-        <span class="herb-card-badge">${herb.safety}</span>
+        <span class="herb-card-badge">${getSafetyLabel(herb.safety)}</span>
       </div>
       <div class="herb-card-body">
         <h3>${herb.name}</h3>
@@ -48,7 +89,7 @@ function renderRecentHerbs() {
         <div class="tags">
           <span class="tag tag-green">${herb.best_for}</span>
           <span class="tag tag-brown">${herb.region}</span>
-          <span class="tag tag-${herb.safety}">${herb.safety}</span>
+          <span class="tag tag-${herb.safety}">${getSafetyLabel(herb.safety)}</span>
         </div>
       </div>
     </div>
@@ -132,7 +173,7 @@ function renderRecommendedHerbs() {
     <div class="herb-card" onclick="window.location.href='herb-detail.html?id=${herb.id}'">
       <div class="herb-card-img">
         <img src="${herb.image}" alt="${herb.name}" loading="lazy" onerror="this.style.display='none'">
-        <span class="herb-card-badge">${index === 0 ? 'Best match' : herb.safety}</span>
+        <span class="herb-card-badge">${index === 0 ? 'Best match' : getSafetyLabel(herb.safety)}</span>
       </div>
       <div class="herb-card-body">
         <h3>${herb.name}</h3>
@@ -140,7 +181,7 @@ function renderRecommendedHerbs() {
         <p>${getRecommendationReason(herb, profile)}</p>
         <div class="tags">
           <span class="tag tag-green">${herb.region}</span>
-          <span class="tag tag-${herb.safety}">${herb.safety}</span>
+          <span class="tag tag-${herb.safety}">${getSafetyLabel(herb.safety)}</span>
         </div>
       </div>
     </div>
@@ -172,17 +213,19 @@ function homeAddToCart(herbId) {
   if (!herb || !herb.stock) return;
 
   const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-  const defaultWeight = herb.weights[0];
+  const defaultWeight = getCardWeight(herb);
+  const selectedPrice = getPriceForWeight(herb, defaultWeight);
   const existingIndex = cart.findIndex(item => item.id === herbId && item.weight === defaultWeight);
 
   if (existingIndex !== -1) {
     cart[existingIndex].qty += 1;
+    cart[existingIndex].price = selectedPrice;
   } else {
     cart.push({
       id: herb.id,
       name: herb.name,
       image: herb.image,
-      price: herb.price,
+      price: selectedPrice,
       weight: defaultWeight,
       qty: 1
     });
@@ -208,7 +251,7 @@ function homeAddToCart(herbId) {
   }
 
   if (window.showToast) {
-    showToast(`${herb.name} added to your cart.`, 'success');
+    showToast(`${herb.name} ${defaultWeight} added to your cart.`, 'success');
   }
 }
 window.homeAddToCart = homeAddToCart;
@@ -226,9 +269,12 @@ function renderFeaturedProducts() {
     const shopImage = `images/shop/${herbName}-product.webp`;
     const badgeClass = BESTSELLER_BADGES[herb.id] || '';
     const badgeLabel = BESTSELLER_LABELS[herb.id] || 'Organic';
+    const cardWeight = getCardWeight(herb);
+    const cardPrice = getPriceForWeight(herb, cardWeight);
+    const detailUrl = `shop-detail.html?id=${herb.id}&weight=${encodeURIComponent(cardWeight)}`;
 
     return `
-      <div class="fp-card" onclick="window.location.href='shop-detail.html?id=${herb.id}'" role="article" aria-label="${herb.name}">
+      <div class="fp-card" onclick="window.location.href='${detailUrl}'" role="article" aria-label="${herb.name}">
         <div class="fp-card-img">
           <img src="${shopImage}" alt="${herb.name}" loading="lazy"
             onerror="this.src='${herb.image}'">
@@ -241,8 +287,8 @@ function renderFeaturedProducts() {
         </div>
         <div class="fp-card-footer">
           <div class="fp-price">
-            <span class="fp-price-amount">&#8377;${herb.price}</span>
-            <span class="fp-price-weight">${herb.weights[0]}</span>
+            <span class="fp-price-amount">&#8377;${cardPrice}</span>
+            <span class="fp-price-weight">${cardWeight}</span>
           </div>
           <button
             class="fp-add-btn"

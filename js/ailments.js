@@ -5,6 +5,10 @@ let allAilments = [];
 let selectedAilmentId = null;
 let currentResultsPage = 1;
 
+function getSafetyLabel(safety) {
+  return safety === 'safe' ? 'Generally Safe' : 'Use with Caution';
+}
+
 function loadData() {
   allHerbs = window.HERBS_DATA || [];
   allAilments = window.AILMENTS_DATA || [];
@@ -41,7 +45,7 @@ function renderAilmentHerbs() {
     <div class="herb-card" onclick="window.location.href='herb-detail.html?id=${herb.id}'">
       <div class="herb-card-img">
         <img src="${herb.image}" alt="${herb.name}" loading="lazy" onerror="this.style.display='none'">
-        <span class="herb-card-badge">${herb.safety}</span>
+        <span class="herb-card-badge">${getSafetyLabel(herb.safety)}</span>
       </div>
       <div class="herb-card-body">
         <h3>${herb.name}</h3>
@@ -49,7 +53,7 @@ function renderAilmentHerbs() {
         <p>${herb.description.substring(0, 80)}...</p>
         <div class="tags">
           <span class="tag tag-green">${herb.best_for}</span>
-          <span class="tag tag-${herb.safety}">${herb.safety}</span>
+          <span class="tag tag-${herb.safety}">${getSafetyLabel(herb.safety)}</span>
         </div>
       </div>
     </div>

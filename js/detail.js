@@ -1,6 +1,47 @@
 let currentHerb = null;
 let detailStickyBound = false;
 
+function getSafetyLabel(safety) {
+  return safety === 'safe' ? 'Generally Safe' : 'Use with Caution';
+}
+
+function getWeightValue(weight) {
+  return parseInt((weight || '').replace(/[^0-9]/g, ''), 10) || 0;
+}
+
+function getSortedWeights(herb) {
+  return [...(herb.weights || [])].sort((a, b) => getWeightValue(a) - getWeightValue(b));
+}
+
+function getQuickCartWeight(herb) {
+  const sortedWeights = getSortedWeights(herb);
+  return sortedWeights[1] || sortedWeights[0] || '';
+}
+
+function getBulkDiscount(weightRatio) {
+  if (weightRatio >= 10) return 0.22;
+  if (weightRatio >= 5) return 0.16;
+  if (weightRatio >= 4) return 0.14;
+  if (weightRatio >= 3) return 0.1;
+  if (weightRatio >= 2.5) return 0.08;
+  if (weightRatio >= 2) return 0.06;
+  return 0;
+}
+
+function getPriceForWeight(herb, weight) {
+  if (!herb || !herb.weights || !herb.weights.length) return herb ? herb.price : 0;
+  const sortedWeights = getSortedWeights(herb);
+  const baseAmount = getWeightValue(sortedWeights[0]);
+  const selectedAmount = getWeightValue(weight);
+  if (!baseAmount || !selectedAmount) return herb.price;
+
+  const weightRatio = selectedAmount / baseAmount;
+  const linearPrice = herb.price * weightRatio;
+  const discountedPrice = linearPrice * (1 - getBulkDiscount(weightRatio));
+
+  return Math.max(herb.price, Math.round(discountedPrice));
+}
+
 function resetDetailStickyRail() {
   const sidebar = document.querySelector('.detail-sidebar');
   const sidebarInner = document.querySelector('.detail-sidebar-inner');
@@ -90,7 +131,19 @@ function loadHerb() {
 
   const shopLink = document.querySelector('.shop-cta-link');
   if (shopLink) {
-    shopLink.href = `shop-detail.html?id=${currentHerb.id}`;
+    shopLink.href = `shop-detail.html?id=${currentHerb.id}&weight=${encodeURIComponent(getQuickCartWeight(currentHerb))}`;
+  }
+
+  const quickCartBtn = document.getElementById('detailQuickCartBtn');
+  const quickCartNote = document.getElementById('detailQuickCartNote');
+  const quickWeight = getQuickCartWeight(currentHerb);
+  if (quickCartBtn) {
+    quickCartBtn.disabled = !currentHerb.stock || !quickWeight;
+  }
+  if (quickCartNote) {
+    quickCartNote.textContent = currentHerb.stock && quickWeight
+      ? `Adds ${quickWeight} pack directly to your cart.`
+      : 'Currently unavailable for direct cart add.';
   }
 
   renderAtAGlance();
@@ -113,7 +166,7 @@ function renderHero() {
   document.getElementById('detailSci').textContent = currentHerb.scientific_name;
   document.getElementById('detailBadges').innerHTML = `
     <span class="detail-badge badge-${currentHerb.safety}">
-      ${currentHerb.safety === 'safe' ? 'Generally Safe' : 'Use with Caution'}
+      ${getSafetyLabel(currentHerb.safety)}
     </span>
     <span class="detail-badge badge-region">${currentHerb.region}</span>
     <span class="detail-badge badge-region">${currentHerb.type}</span>
@@ -141,7 +194,7 @@ function renderAtAGlance() {
     <div class="ag-item">
       <span class="ag-label">Safety</span>
       <span class="ag-value ${currentHerb.safety}">
-        ${currentHerb.safety === 'safe' ? 'Safe' : 'Caution'}
+        ${getSafetyLabel(currentHerb.safety)}
       </span>
     </div>
   `;
@@ -164,6 +217,19 @@ function renderDosage() {
 }
 
 function renderWarnings() {
+  const cautionReasonsBox = document.getElementById('cautionReasonsBox');
+  const cautionReasonsList = document.getElementById('cautionReasonsList');
+  const cautionReasons = currentHerb.safety === 'caution'
+    ? (currentHerb.caution_reasons || [])
+    : [];
+
+  if (cautionReasonsBox && cautionReasonsList) {
+    cautionReasonsBox.classList.toggle('hidden', cautionReasons.length === 0);
+    cautionReasonsList.innerHTML = cautionReasons
+      .map(reason => `<li>${reason}</li>`)
+      .join('');
+  }
+
   document.getElementById('warningsList').innerHTML = currentHerb.warnings
     .map(w => `<li>${w}</li>`)
     .join('');
@@ -222,6 +288,56 @@ function renderRelated(allHerbs) {
       </div>
     </div>
   `).join('');
+}
+
+function addDetailHerbToCart() {
+  if (!currentHerb || !currentHerb.stock) return;
+
+  const selectedWeight = getQuickCartWeight(currentHerb);
+  if (!selectedWeight) return;
+
+  const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  const selectedPrice = getPriceForWeight(currentHerb, selectedWeight);
+  const existingIndex = cart.findIndex(item => item.id === currentHerb.id && item.weight === selectedWeight);
+
+  if (existingIndex !== -1) {
+    const existing = cart[existingIndex];
+    existing.qty += 1;
+    existing.price = selectedPrice;
+    cart.splice(existingIndex, 1);
+    cart.push(existing);
+  } else {
+    cart.push({
+      id: currentHerb.id,
+      name: currentHerb.name,
+      image: currentHerb.image,
+      price: selectedPrice,
+      weight: selectedWeight,
+      qty: 1
+    });
+  }
+
+  localStorage.setItem('cart', JSON.stringify(cart));
+
+  const badge = document.getElementById('cartBadge');
+  if (badge) {
+    badge.textContent = cart.reduce((sum, item) => sum + item.qty, 0);
+  }
+
+  const quickCartBtn = document.getElementById('detailQuickCartBtn');
+  const originalText = quickCartBtn ? quickCartBtn.textContent : '';
+  if (quickCartBtn) {
+    quickCartBtn.textContent = 'Added to Cart';
+    quickCartBtn.classList.add('added');
+    setTimeout(() => {
+      quickCartBtn.textContent = originalText;
+      quickCartBtn.classList.remove('added');
+    }, 1500);
+  }
+
+  if (typeof showToast === 'function') {
+    showToast(`${currentHerb.name} ${selectedWeight} added to your cart.`, 'success');
+  }
 }
 
 bindDetailStickyRail();
